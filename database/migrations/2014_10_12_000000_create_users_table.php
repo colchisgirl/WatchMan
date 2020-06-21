@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('address');
             $table->boolean('isOnline');
-            $table->datetime('lastaActivityDate');
+            $table->datetime('lastActivityDate');
             $table->unsignedBigInteger('organization_id');
             $table->rememberToken();
             $table->timestamps();

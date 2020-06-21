@@ -16,11 +16,10 @@ class CreateLandmarksTable extends Migration
         Schema::create('landmarks', function (Blueprint $table) {
             $table->id();
             $table->string('title', 255);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->unsignedBigInteger('city_id');
             $table->string('street', 255);
-            $table->integer('house_number')->nullable();
-            $table->unsignedBigInteger('type_id');
+            $table->string('house_number', 127)->nullable();
         
             $table->timestamps();
         });

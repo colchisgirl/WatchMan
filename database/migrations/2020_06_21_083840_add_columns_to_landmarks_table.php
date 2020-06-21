@@ -16,7 +16,7 @@ class AddColumnsToLandmarksTable extends Migration
         Schema::table('landmarks', function (Blueprint $table) {
             $table->string('architect', 127)->nullable()->after('description');
             $table->string('built_in', 127)->nullable()->after('architect');
-            $table->boolean('protected')->nullable()->after('built_in');
+            $table->boolean('protected')->after('built_in');
         });
     }
 
