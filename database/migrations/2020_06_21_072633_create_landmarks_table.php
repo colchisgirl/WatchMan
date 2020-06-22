@@ -17,7 +17,7 @@ class CreateLandmarksTable extends Migration
             $table->id();
             $table->string('title', 255);
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('city_id');
+            $table->string('city');
             $table->string('street', 255);
             $table->string('house_number', 127)->nullable();
         
