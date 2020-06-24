@@ -33,3 +33,4 @@ Route::get('/landmarks/{landmarks_id}/edit','LandmarkController@edit')      ->na
 Route::put('/landmarks/{landmark_id}',      'LandmarkController@update')    ->name('landmarks.update')->where('landmark_id', '[0-9]+');
 
 Route::delete('/landmarks/{landmark_id}/delete', 'LandmarkController@deleteLandmark')->name('landmarks.deleteLandmark');
+Route::get('/events', 'EventController@index');
