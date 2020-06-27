@@ -34,3 +34,5 @@ Route::put('/landmarks/{landmark_id}',      'LandmarkController@update')    ->na
 
 Route::delete('/landmarks/{landmark_id}/delete', 'LandmarkController@deleteLandmark')->name('landmarks.deleteLandmark');
 Route::get('/events', 'EventController@index');
+
+// Event routing 

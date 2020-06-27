@@ -6,6 +6,13 @@
     <h3>{{$landmark->architect}}</h3>
     <p>{{$landmark->description}}</p>
     <p><strong>Address: </strong>{{$landmark->house_number}} {{$landmark->street}}, {{$landmark->city}}</p>
+    <div>
+        @foreach ($landmark->images as $image)
+        <p>{{$image->url}}</p>
+        <img src="{{ URL::to('/') }}/img/{{$image->url}}" width="400px" alt="Image"/>
+       
+        @endforeach
+    </div>
     <a href="/landmarks/{{$landmark->id}}/edit">edit</a>
 
     
