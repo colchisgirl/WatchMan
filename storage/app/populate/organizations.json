@@ -1,0 +1,22 @@
+[
+    {
+      "name": "Tbilisi Development Fund",
+      "description": "Non-commercial preservation organization founded by Tbilisi Municipality Office in 2010. The main mission of the fund is to maintain Tbilisi's historical architectural fabric while also increasing value of the real estate.",
+      "logo": "tbilisi_development_fund.png"
+    },
+    {
+      "name": "Tiflis Hamkari",
+      "description": "Tiflis Hamkari (union of Tbilisi caretakers) was founded in March 2005 by Alexander and Tsira Elisashvili. Its name was adopted from “Tiflis,” which only changed to “Tbilisi” fairly recently , in 1936. “Amkari” (archaically, “hamkari”), was used historically to describe craftsmen’s guilds in Tbilisi. The word is of Persian origin, literally meaning joint action. Historic hamkari united artisans by craft, while Tiflis Hamkari seeks to unite residents by their love for the city.",
+      "logo": "tiflis_hamkari.jpg"
+    },
+    {
+      "name": "ICOMOS",
+      "description": "ICOMOS is a non-governmental international organisation dedicated to the conservation of the world's monuments and sites.",
+      "logo": "icomos.jpg"
+    },
+    {
+      "name": "Blueshield",
+      "description": "Georgian National Committee of the Blue Shield was founded in 2013 and is recognized by the International Committee of the Blue Shield, as one of the 24 national committees of the Blue Shield worldwide. Like International Committee of the Blue Shield, Georgian National Committee of the Blue Shield aims at protecting cultural heritage from natural disasters and from the damages incurred in the event of armed conflicts, raising awareness on and facilitating implementation of both protocols of the Hague Convention in Georgia, facilitate creation of risk preparedness and management plans for cultural heritage protection, raising awareness on threats to cultural heritage.",
+      "logo": "blueshield.png"
+    }
+  ]
