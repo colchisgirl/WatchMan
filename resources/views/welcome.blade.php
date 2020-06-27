@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="/landmarks">Landmark</a>
+                    <a href="/landmarks">Landmarks</a>
                     <a href="/events">Events</a>
                     <a href="/users">Users</a>
                 </div>
