@@ -11,31 +11,31 @@
         @csrf
         <div>
             <label for="">Title</label>
-            <input type="text" name="title" value="">
+            <input type="text" name="title" value="{{ old('title', $landmark->title) }}" >
         </div>
         <div>
             <label for="">Description</label>
-            <input type="text" name="description" value="">
+            <input type="text" name="description" value="{{ old('description', $landmark->description) }}">
         </div>
         <div>
             <label for="">City</label>
-            <input type="text" name="city" value="">
+            <input type="text" name="city" value="{{ old('city', $landmark->city) }}">
         </div>
         <div>
             <label for="">Street</label>
-            <input type="text" name="street" value="">
+            <input type="text" name="street" value="{{ old('street', $landmark->street) }}">
         </div>
         <div>
             <label for="">House Number</label>
-            <input type="text" name="house_number" value="">
+            <input type="text" name="house_number" value="{{ old('house_number', $landmark->house_number) }}">
         </div>
         <div>
             <label for="">Architect (optional)</label>
-            <input type="text" name="architect" value="">
+            <input type="text" name="architect" value="{{ old('architect', $landmark->architect) }}">
         </div>
         <div>
             <label for="">Built_in</label>
-            <input type="text" name="built_in" value="">
+            <input type="text" name="built_in" value="{{ old('built_in', $landmark->built_in) }}">
         </div>
         <div>
             <input type="checkbox" name="protected">

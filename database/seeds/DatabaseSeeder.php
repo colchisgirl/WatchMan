@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             $user = new User;
             $user->name = $datauser->name;
             $user->email = $datauser->email;
-            $user->password = $datauser->password;
+            $user->password =  Hash::make($datauser->password);
             $user->address = $datauser->address;
             $user->isOnline = $datauser->isOnline;
             $user->organization_id = $i > 1 ? null : array_shift($org_ids);

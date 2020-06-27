@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>WatchMan</h1>
-    {{-- @include('navigation') --}}
+    @include('partials.navigation')
 
     @yield('content')
 </body>
