@@ -2,7 +2,7 @@
 
 @section('content')
 
-<a href="{{ action('LandmarkController@create')}}"><button>Create New Landmark</button></a>
+<a href="{{ action('EventController@create')}}"><button>Create New Event</button></a>
 
 @foreach ($events as $event)
     <h2>{{$event->title}}</h2>

@@ -43,6 +43,7 @@ class LandmarkController extends Controller
         $landmark->city = $request->input('city');
         $landmark->street = $request->input('street');
         $landmark->house_number = $request->input('house_number');
+        $landmark->user_id=\Auth::id();
 
         $landmark->save();
 
@@ -67,8 +68,10 @@ class LandmarkController extends Controller
         $landmark->architect = $request->input('architect');
         $landmark->built_in = $request->input('built_in');
         $landmark->title = $request->input('title');
-       $protected = ($request->input('protected') == 'on') ? 1 : 0;
+
+        $protected = ($request->input('protected') == 'on') ? 1 : 0;
         $landmark->protected = $protected;
+
         $landmark->city = $request->input('city');
         $landmark->street = $request->input('street');
         $landmark->house_number = $request->input('house_number');
