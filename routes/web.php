@@ -43,7 +43,7 @@ Route::get('/events',                   'EventController@index')    ->name('even
 Route::get('/events/event_id}',         'EventController@show')     ->name('events.show')->where('event_id', '[0-9]+');
 
 Route::get('/events/create',            'EventController@create')   ->name('events.create');
-Route::post('/events',                  'EvtnController@store')     ->name('events.store');
+Route::post('/events',                  'EventController@store')     ->name('events.store');
 Route::get('/events/{event_id}/edit',   'EventController@edit')     ->name('events.edit')->where('event_id', '[0-9]+');
 Route::put('/events/{event_id}',        'EventController@update')   ->name('events.update')->where('event_id', '[0-9]+');
 

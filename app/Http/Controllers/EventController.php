@@ -28,15 +28,18 @@ class EventController extends Controller
         return view('events.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $event = new Event;
         $event->title = $request->input('title');
         $event->description = $request->input('description');
-        $event->landmark_id = $request->input('landmark_id');
+        $event->landmark_id = 1;
         $event->user_id = \Auth::id();
+        $event->alarm = 0;
 
+        $event->save();
 
+        return redirect()->action('EventController@index');
 
     }
 }
