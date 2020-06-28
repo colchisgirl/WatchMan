@@ -7,7 +7,7 @@
     <title>WatchMan</title>
 </head>
 <body>
-    <h1>WatchMan</h1>
+    <h1><a href="/">WatchMan</a></h1>
     @include('partials.navigation')
 
     @yield('content')
