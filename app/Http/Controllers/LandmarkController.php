@@ -43,7 +43,7 @@ class LandmarkController extends Controller
         $landmark->city = $request->input('city');
         $landmark->street = $request->input('street');
         $landmark->house_number = $request->input('house_number');
-        $landmark->user_id=\Auth::id();
+        $landmark->user_id = \Auth::id();
 
         $landmark->save();
 
@@ -75,6 +75,7 @@ class LandmarkController extends Controller
         $landmark->city = $request->input('city');
         $landmark->street = $request->input('street');
         $landmark->house_number = $request->input('house_number');
+        $landmark->user_id = \Auth::id();
 
         $landmark->save();
 

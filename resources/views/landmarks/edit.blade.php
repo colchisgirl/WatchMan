@@ -42,6 +42,11 @@
             <label for="">Is this landmark protected?</label>
         </div>
         <div>
+            @foreach ($landmark->images as $image)
+                <p>{{$image->url}}</p>
+            @endforeach
+        </div>
+        <div>
             <input type="submit" value="Save">
         </div>
     </form>

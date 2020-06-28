@@ -28,7 +28,7 @@
         <input type="submit" value="Delete">
     </form>
     @endcan
-    
+
 @endforeach
     
 @endsection
