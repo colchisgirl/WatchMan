@@ -8,8 +8,8 @@
       "street": "Rustaveli ave",
       "housenumber": "54",
       "protected": true,
-      "latitude": 44.790558,
-      "longitude": 41.702605
+      "longitude": 44.790558,
+      "latitude": 41.702605
    },
    {
       "title": "Giorgi Kartvelishvili house",
@@ -20,8 +20,8 @@
       "street": "Rome street",
       "housenumber": "4",
       "protected": true,
-      "latitude": 44.802040,
-      "longitude": 41.703784
+      "longitude": 44.802040,
+      "latitude": 41.703784
    },
    {
       "title": "Ohanjanov house",
@@ -32,8 +32,8 @@
       "street": "Giorgi Mazniashvili street",
       "housenumber": "16",
       "protected": true,
-      "latitude": 44.803376,
-      "longitude": 41.709069
+      "longitude": 44.803376,
+      "latitude": 41.709069
    },
    {
       "title": "House with stained glass",
@@ -44,8 +44,8 @@
       "street": "Betlemi street",
       "housenumber": "3",
       "protected": true,
-      "latitude": 44.805698,
-      "longitude": 41.689951
+      "longitude": 44.805698,
+      "latitude": 41.689951
    },
    {
       "title": "Hotel London",
@@ -56,8 +56,8 @@
       "street": "Atoneli street",
       "housenumber": "31",
       "protected": true,
-      "latitude": 44.801905,
-      "longitude": 41.700112
+      "longitude": 44.801905,
+      "latitude": 41.700112
    },
    {
       "title": "Kalantarov house",
@@ -68,8 +68,8 @@
       "street": "Ivane Machabeli street",
       "housenumber": "17",
       "protected": true,
-      "latitude": 44.799698,
-      "longitude": 41.689735
+      "longitude": 44.799698,
+      "latitude": 41.689735
    },
    {
       "title": "Writers House of Georgia",
@@ -80,8 +80,8 @@
       "street": "Ivane Machabeli",
       "housenumber": "13",
       "protected": true,
-      "latitude": 44.799714,
-      "longitude": 41.690174
+      "longitude": 44.799714,
+      "latitude": 41.690174
    },
    {
       "title": "Three-storey house with a dome",
@@ -92,8 +92,8 @@
       "street": "Egnate Ninoshvili street",
       "housenumber": "18",
       "protected": true,
-      "latitude": 44.803394,
-      "longitude": 41.709186
+      "longitude": 44.803394,
+      "latitude": 41.709186
    },
    {
       "title": "Traditional Tbilisi balcony",
@@ -104,8 +104,8 @@
       "street": "Ietim Gurji street",
       "housenumber": "4/9",
       "protected": true,
-      "latitude": 44.805069,
-      "longitude": 41.694673
+      "longitude": 44.805069,
+      "latitude": 41.694673
    },
    {
       "title": "Diamond Palace of Persian Consule",
@@ -116,7 +116,7 @@
       "street": "Chonkadze street",
       "housenumber": "11",
       "protected": true,
-      "latitude": 44.795823,
-      "longitude": 41.692262
+      "longitude": 44.795823,
+      "latitude": 41.692262
    }
 ]
