@@ -13,8 +13,18 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                <div className="userlinks">
+                    <a href="">My events</a>
+                    <br>
+                    <a href="">My tracked landmarks</a>
+                    <br>
+                    <a href="">My notifications</a>
+                    <br>
+                    <a href="">Account settings</a>
+                    
 
-                    You are logged in!
+                    
+                </div>
                 </div>
             </div>
         </div>

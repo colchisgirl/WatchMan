@@ -53,3 +53,8 @@ Route::delete('/events/{event_id}/delete', 'EventController@deleteEvent')->name(
 // Users routing
 
 Route::get('/user', 'UserController@show')->name('users.show');
+Route::get('/edit/user/', 'UserController@edit')->name('users.edit');
+Route::post('/edit/user/', 'UserController@update')->name('users.update');
+
+Route::get('/edit/password/user', 'UserController@passwordEdit')->name('users.password');
+Route::post('/edit/password/user', 'UserController@passwordUpdate')->name('users.password');

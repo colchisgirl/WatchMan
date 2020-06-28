@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -60,6 +61,11 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
+                                    <a class="dropdown-item" href="{{ route('users.show') }}">{{ __('Profile') }}</a>
+                                    <a class="dropdown-item" href="{{ route('users.edit') }}">{{ __('Edit details') }}</a>
+                                    <a class="dropdown-item" href="{{ route('users.password') }}">{{ __('Change password') }}</a>
+                                    {{-- <a class="dropdown-item" href="{{ route('') }}">{{ __('My tracked landmarks') }}</a> --}}
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
