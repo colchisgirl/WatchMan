@@ -84,15 +84,15 @@ class LandmarkController extends Controller
 
     public function deleteLandmark($landmark_id) 
     {
-    // if (\Gate::allows('admin')){
-        //delete the review
+    if (\Gate::allows('admin')){
+
         $landmark = Landmark::findOrFail($landmark_id);
         $landmark->delete();
 
         return redirect(action('LandmarkController@index', $landmark->id));
 
-    // }
+    }
 
-    return redirect()->action('BookController@show', [ $book_id ]);
+    return redirect()->action('LandmarkController@show', [ $landmark_id ]);
     } 
 }

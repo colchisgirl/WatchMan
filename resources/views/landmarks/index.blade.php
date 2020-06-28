@@ -5,7 +5,7 @@
 <a href="{{ action('LandmarkController@create')}}"><button>Create New Landmark</button></a>
 
 @foreach ($landmarks as $landmark)
-<a href="/landmarks/{{$landmark->id}}"><h2>{{$landmark->title}} - {{$landmark->built_in}}</h2></a>
+    <a href="/landmarks/{{$landmark->id}}"><h2>{{$landmark->title}} - {{$landmark->built_in}}</h2></a>
     <h3>{{$landmark->architect}}</h3>
     <p>{{$landmark->description}}</p>
     <p><strong>Address: </strong>{{$landmark->house_number}} {{$landmark->street}}, {{$landmark->city}}</p>
@@ -24,7 +24,6 @@
     <form action="{{ action('LandmarkController@deleteLandmark', $landmark->id)}}" method="post">
         @method('delete')
         @csrf
-        <input type="hidden" name="landmark_id" value="{{ $landmark->id}}">
         <input type="submit" value="Delete">
     </form>
     @endcan

@@ -13,5 +13,13 @@
     </div>
     <a href="/landmarks/{{$landmark->id}}/edit">edit</a>
 
+    <h2>Events:</h2>
+    <ul>
+    @foreach ($landmark->events as $event)
+        
+        <li> <a href="/events/{{$event->id}}">{{$event->title}} - {{$event->user->name}} </a></li>
+        
+    @endforeach
+    </ul>
     
 @endsection

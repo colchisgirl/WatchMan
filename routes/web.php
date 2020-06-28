@@ -40,7 +40,7 @@ Route::delete('/landmarks/{landmark_id}/delete', 'LandmarkController@deleteLandm
 // Events routing
 
 Route::get('/events',                   'EventController@index')    ->name('events.index');
-Route::get('/events/event_id}',         'EventController@show')     ->name('events.show')->where('event_id', '[0-9]+');
+Route::get('/events/{event_id}',         'EventController@show')     ->name('events.show')->where('event_id', '[0-9]+');
 
 Route::get('/events/create',            'EventController@create')   ->name('events.create');
 Route::post('/events',                  'EventController@store')     ->name('events.store');
