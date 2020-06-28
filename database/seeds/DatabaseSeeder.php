@@ -67,6 +67,9 @@ class DatabaseSeeder extends Seeder
             $landmark->city = $datalandmark->city;
             $landmark->street = $datalandmark->street;
             $landmark->house_number = $datalandmark->housenumber;
+            $landmark->latitude = $datalandmark->latitude;
+            $landmark->longitude = $datalandmark->longitude;
+
 
             $landmark->save();
 

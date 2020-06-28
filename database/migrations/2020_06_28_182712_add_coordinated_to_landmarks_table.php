@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCoordinatesColumnToLandmarksTable extends Migration
+class AddCoordinatedToLandmarksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,9 @@ class AddCoordinatesColumnToLandmarksTable extends Migration
     public function up()
     {
         Schema::table('landmarks', function (Blueprint $table) {
-            $table->string('coordinates', 255)->after('city')->nullable();
+            $table->decimal('latitude', 9, 6)->after('house_number');
+            $table->decimal('longitude', 8, 6)->after('latitude');
+
         });
     }
 
@@ -26,7 +28,8 @@ class AddCoordinatesColumnToLandmarksTable extends Migration
     public function down()
     {
         Schema::table('landmarks', function (Blueprint $table) {
-            $table->dropColumn('coordinates');
+            $table->decimal('longitude', 8, 6)->after('latitude');
+            $table->decimal('latitude', 9, 6)->after('house_number');
         });
     }
 }
