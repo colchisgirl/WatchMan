@@ -2,18 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/map', function () {
+    return view('welcome');
+});
+Route::get('/landmarks/{landmark_id}', function() {
     return view('welcome');
 });
 
@@ -35,6 +31,8 @@ Route::get('/landmarks/{landmark_id}/edit', 'LandmarkController@edit')      ->na
 Route::put('/landmarks/{landmark_id}',      'LandmarkController@update')    ->name('landmarks.update')->where('landmark_id', '[0-9]+');
 
 Route::delete('/landmarks/{landmark_id}/delete', 'LandmarkController@deleteLandmark')->name('landmarks.deleteLandmark');
+
+Route::get('/mylandmarks',                    'LandmarkController@myLandmarks')     ->name('landmarks.myLandmarks');
 
 
 // Events routing

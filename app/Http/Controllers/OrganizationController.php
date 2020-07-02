@@ -6,5 +6,9 @@ use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
 {
-    //
+    public function index() 
+    {
+        $organizations = Organization::all();
+    }
+    
 }

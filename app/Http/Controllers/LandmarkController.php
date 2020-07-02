@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Landmark;
+use DB;
 
 class LandmarkController extends Controller
 {
     public function index()
     {
-        $landmarks = Landmark::all();
+        $landmarks = Landmark::with('events', 'images', 'events.user')->get();
 
-        return view('landmarks.index', compact('landmarks'));
+        return $landmarks;
     }
 
     public function show($landmark_id)
@@ -20,6 +21,13 @@ class LandmarkController extends Controller
         $landmark = Landmark::findOrFail($landmark_id);
 
         return view('landmarks.show', compact('landmark'));
+    }
+
+    public function myLandmarks(){
+
+        $landmarks = Landmark::where('user_id', \Auth::id())->get();
+
+        return view('landmarks.myLandmarks', compact('landmarks'));
     }
 
     public function create() 
