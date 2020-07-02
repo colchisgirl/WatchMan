@@ -2,10 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdColumnToLandmarksTable extends Migration
+class AddColumnToOrganizationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +13,8 @@ class AddUserIdColumnToLandmarksTable extends Migration
      */
     public function up()
     {
-        Schema::table('landmarks', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->after('id');
+        Schema::table('organizations', function (Blueprint $table) {
+            $table->tinyInteger('is_verified')->after('name');
         });
     }
 
@@ -26,8 +25,8 @@ class AddUserIdColumnToLandmarksTable extends Migration
      */
     public function down()
     {
-        Schema::table('landmarks', function (Blueprint $table) {
-            $table->dropColumn('user_id');
+        Schema::table('organizations', function (Blueprint $table) {
+            $table->dropColumn('is_verified');
         });
     }
 }

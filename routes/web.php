@@ -58,3 +58,7 @@ Route::post('/edit/user/', 'UserController@update')->name('users.update');
 
 Route::get('/edit/password/user', 'UserController@passwordEdit')->name('users.password');
 Route::post('/edit/password/user', 'UserController@passwordUpdate')->name('users.password');
+
+// Organizations routing
+Route::get('/organization/register', 'OrganizationController@store')->name('organizations.register');
+Route::get('/organization/{organization_id}', 'OrganizationController@show')->name('organizations.show');

@@ -115,5 +115,14 @@ class UserController extends Controller
         }
     }
 
+    public function createOrganization()
+    {
+        if (Auth::user()) {
+            return view('organization.register');
+        } else {
+            return redirect()->back();
+        }
+    }
+
 
 }

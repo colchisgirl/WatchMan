@@ -19,26 +19,11 @@ class DatabaseSeeder extends Seeder
         $data = json_decode( file_get_contents( storage_path('app/populate/users.json') ));
         $landm = json_decode( file_get_contents( storage_path('app/populate/Landmarks.json') ));
         $images = json_decode( file_get_contents( storage_path('app/populate/landmarks_images.json') ));
-        $orgs = json_decode( file_get_contents( storage_path('app/populate/organizations.json') ));
 
         DB::table('images')->delete();
         DB::table('landmarks')->delete();
         DB::table('users')->delete();
-        DB::table('organizations')->delete();
 
-        $org_ids = [];
-
-        foreach ($orgs as $dataorg)
-        {
-            $organization = new Organization;
-            $organization->name = $dataorg->name;
-            $organization->description = $dataorg->description;
-            $organization->logo = $dataorg->logo;
-
-            $organization->save();
-
-            $org_ids[] = $organization->id;
-        }
 
         foreach ($data as $i => $datauser) 
         {
@@ -47,8 +32,11 @@ class DatabaseSeeder extends Seeder
             $user->email = $datauser->email;
             $user->password =  Hash::make($datauser->password);
             $user->address = $datauser->address;
+            $user->is_organization = $datauser->is_organization;
+            $user->description = $datauser->description;
+            $user->profile_img = $datauser->profile_img;
+            $user->is_verified = $datauser->is_verified;
             $user->isOnline = $datauser->isOnline;
-            $user->organization_id = $i > 1 ? null : array_shift($org_ids);
 
             $user->save();
         }

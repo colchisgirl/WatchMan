@@ -28,8 +28,8 @@ class AddCoordinatedToLandmarksTable extends Migration
     public function down()
     {
         Schema::table('landmarks', function (Blueprint $table) {
-            $table->decimal('longitude', 8, 6)->after('latitude');
-            $table->decimal('latitude', 9, 6)->after('house_number');
+            $table->dropColumn('longitude');
+            $table->dropColumn('latitude');
         });
     }
 }
