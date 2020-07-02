@@ -4,7 +4,10 @@
     "email": "ilovehouses@gmail.com",
     "password": "savethehouse",
     "address": "18-20 Arsena St, T'bilisi",
-    "organization_id": 1,
+    "is_organization": 0,
+    "description": "I love old homes",
+    "profile_img": 0,
+    "is_verified": 0,
     "isOnline": 0
   },
   {
@@ -12,7 +15,10 @@
     "email": "sandrosmail@gmail.com",
     "password": "goodpassword",
     "address": "6 Pavle Ingorokva St, T'bilisi",
-    "organization_id": 2,
+    "is_organization": 0,
+    "description": "I love old homes",
+    "profile_img": 0,
+    "is_verified": 0,
     "isOnline": 0
   },
   {
@@ -20,6 +26,10 @@
     "email": "george@yahoo.com",
     "password": "neighborwatch",
     "address": "7 Daniel Chonqadze St, T'bilisi",
+    "is_organization": 0,
+    "description": "I love old homes",
+    "profile_img": 0,
+    "is_verified": 0,
     "isOnline": 0
   },
   {
@@ -27,6 +37,56 @@
     "email": "sofiko@yahoo.com",
     "password": "iamkaren",
     "address": "44/1 Lado Asatiani St, T'bilisi",
+    "is_organization": 0,
+    "description": "I love old homes",
+    "profile_img": 0,
+    "is_verified": 0,
+    "isOnline": 0
+  },
+  
+  {
+    "name": "Tbilisi Development Fund",
+    "email": "iloveh@gmail.com",
+    "password": "savethehouse",
+    "address": "18-20 Arsena St, T'bilisi",
+    "is_organization": 1,
+    "description": "Non-commercial preservation organization founded by Tbilisi Municipality Office in 2010. The main mission of the fund is to maintain Tbilisi's historical architectural fabric while also increasing value of the real estate.",
+    "profile_img": "tbilisi_development_fund.png",
+    "is_verified": 0,
+    "isOnline": 0
+  },
+  {
+    "name": "Tiflis Hamkari",
+    "email": "hamkari@gmail.com",
+    "password": "savethehouse",
+    "address": "18-20 Arsena St, T'bilisi",
+    "is_organization": 1,
+    "description": "Tiflis Hamkari (union of Tbilisi caretakers) was founded in March 2005 by Alexander and Tsira Elisashvili. Its name was adopted from “Tiflis,” which only changed to “Tbilisi” fairly recently , in 1936. “Amkari” (archaically, “hamkari”), was used historically to describe craftsmen’s guilds in Tbilisi. The word is of Persian origin, literally meaning joint action. Historic hamkari united artisans by craft, while Tiflis Hamkari seeks to unite residents by their love for the city.",
+    "profile_img": "tiflis_hamkari.jpg",
+    "is_verified": 0,
+    "isOnline": 0
+  },
+  {
+    "name": "ICOMOS",
+    "email": "icomos@gmail.com",
+    "password": "savethehouse",
+    "address": "18-20 Arsena St, T'bilisi",
+    "is_organization": 1,
+    "description": "ICOMOS is a non-governmental international organisation dedicated to the conservation of the world's monuments and sites.",
+    "profile_img": "icomos.jpg",
+    
+    "is_verified": 0,
+    "isOnline": 0
+  },
+  {
+    "name": "Blueshield",
+    "email": "blueshield@gmail.com",
+    "password": "savethehouse",
+    "address": "18-20 Arsena St, T'bilisi",
+    "is_organization": 1,
+    "description": "Georgian National Committee of the Blue Shield was founded in 2013 and is recognized by the International Committee of the Blue Shield, as one of the 24 national committees of the Blue Shield worldwide. Like International Committee of the Blue Shield, Georgian National Committee of the Blue Shield aims at protecting cultural heritage from natural disasters and from the damages incurred in the event of armed conflicts, raising awareness on and facilitating implementation of both protocols of the Hague Convention in Georgia, facilitate creation of risk preparedness and management plans for cultural heritage protection, raising awareness on threats to cultural heritage.",
+    "profile_img": "blueshield.png",
+    "is_verified": 0,
     "isOnline": 0
   }
 ]
