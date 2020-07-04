@@ -1699,26 +1699,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".home__container {\n  width: 100vw;\n  background: linear-gradient(#fff, #D14645) no-repeat;\n  background-size: contain;\n  padding: 1rem 4rem;\n}\n\n.home__container::before {\n  content: \"\";\n  min-width: 100vw;\n  min-height: 100vh;\n  background: url(\"/img/home/map2.png\") no-repeat fixed;\n  background-position: center center;\n  background-size: cover;\n  opacity: 0.1;\n  top: 0;\n  right: 0;\n  position: absolute;\n  display: inline-block;\n}\n\n.header {\n  z-index: 1000;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  padding: 2rem 0;\n}\n.header__logo {\n  font-size: 3rem;\n  line-height: 3rem;\n  padding: 10px;\n  font-weight: 900;\n  z-index: 1000;\n}\n.header__logo a {\n  color: #D14645;\n}\n.header__nav {\n  width: 600px;\n}\n.header__nav__list {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  padding: 0;\n}\n.header__nav__item {\n  list-style: none;\n  padding: 5px 10px;\n  color: #464646;\n  position: relative;\n  font-weight: 700;\n  font-size: 1.1rem;\n}\n.header__nav__item:hover {\n  color: #D14645;\n}\n.header__nav__item::before {\n  content: \"\";\n  position: absolute;\n  width: 100%;\n  height: 2px;\n  bottom: 0;\n  left: 0;\n  background-color: #646464;\n  visibility: hidden;\n  transform: scaleX(0);\n  transition: all 0.4s ease-in-out 0s;\n}\n.header__nav__item:hover::before {\n  visibility: visible;\n  transform: scaleX(1);\n}\n\n.main section {\n  margin: 3rem 0;\n}\n\nsection h2 {\n  text-transform: uppercase;\n  font-size: 4rem;\n  font-weight: 200;\n  letter-spacing: 5px;\n  margin: 5rem 0 4rem;\n}\n\n.main {\n  width: 100%;\n}\n.main__home {\n  max-width: 70%;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  min-height: 600px;\n}\n.main__home__intro {\n  padding: 4rem;\n  z-index: 1000;\n}\n.main__home__intro h1 {\n  font-size: 8rem;\n  font-weight: 100;\n  position: relative;\n  z-index: 1000;\n}\n.main__home__intro p {\n  margin: 2rem 0 1rem;\n  font-size: 1.1rem;\n}\n.main__home__buttons a {\n  display: inline-block;\n  color: #dbdbdb;\n  background-color: rgba(53, 53, 53, 0.678);\n  padding: 8px 12px;\n  width: 8rem;\n  margin: 10px;\n  border-radius: 15px;\n}\n.main__features {\n  color: white;\n}\n.main__features__column {\n  display: flex;\n  flex-direction: row;\n  margin-bottom: 6rem;\n}\n.main__features__img {\n  width: 50%;\n  border: none;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.main__features__img img {\n  width: 70%;\n  opacity: 0.7;\n}\n.main__features__content {\n  width: 50%;\n  padding: 5rem 4rem;\n  background-color: rgba(255, 255, 255, 0.157);\n  border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;\n}\n.main__features__content:nth-child(2) {\n  border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;\n}\n.main__features__content h4 {\n  font-size: 2rem;\n}\n.main__features__content p {\n  font-size: 1.1rem;\n}\n.main__contact {\n  color: white;\n}\n.main__contact__form {\n  max-width: 600px;\n  margin: 3rem auto;\n}\n.main__contact__form input, .main__contact__form textarea {\n  border: none;\n  font-size: 0.95rem;\n  border-radius: 10px;\n  color: white;\n  padding: 1rem;\n  background-color: rgba(255, 255, 255, 0.267);\n}\n.main__contact__form input::-moz-placeholder, .main__contact__form textarea::-moz-placeholder {\n  color: white;\n}\n.main__contact__form input:-ms-input-placeholder, .main__contact__form textarea:-ms-input-placeholder {\n  color: white;\n}\n.main__contact__form input::-ms-input-placeholder, .main__contact__form textarea::-ms-input-placeholder {\n  color: white;\n}\n.main__contact__form input::placeholder, .main__contact__form textarea::placeholder {\n  color: white;\n}\n.main__contact__form input:focus, .main__contact__form textarea:focus {\n  background-color: rgba(255, 255, 255, 0.397);\n}\n.main__contact__form textarea {\n  width: 100%;\n  resize: none;\n}\n.main__contact__inputs {\n  margin-top: 1rem;\n  display: flex;\n  justify-content: space-between;\n}\n.main__contact__inputs input {\n  width: 30%;\n}\n.main__contact__inputs input[type=submit] {\n  background-color: rgba(53, 53, 53, 0.678);\n}\n.main__download {\n  color: white;\n  padding: 4rem 0;\n}\n.main__download h3 {\n  font-size: 3rem;\n  font-weight: 200;\n}\n.main__download a {\n  padding: 15px 20px;\n  border-radius: 10px;\n  color: #b9b9b9;\n  background-color: rgba(53, 53, 53, 0.678);\n}\n\n.footer {\n  color: white;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./resources/js/components/Map/index.scss":
-/*!***********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./resources/js/components/Map/index.scss ***!
-  \***********************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "* {\n  box-sizing: border-box;\n}\n\n*:focus {\n  outline: none;\n}\n\nbody {\n  margin: 0;\n  font-family: -apple-system, \"Roboto\", \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  font-size: 16px;\n}\n\nh1 {\n  font-size: 25px;\n  margin: 0;\n  font-weight: 400;\n  line-height: 20px;\n  padding: 20px 2px;\n}\n\na {\n  color: #404040;\n  text-decoration: none;\n}\n\na:hover {\n  color: #101010;\n}\n\n/* marker styling */\n.marker-btn {\n  background: none;\n  border: none;\n  cursor: pointer;\n}\n.marker-btn img {\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n  margin-left: -20px;\n  margin-top: -20px;\n}\n\n/* marker popup */\n.landmark__popup {\n  min-width: 300px;\n  min-width: 350px;\n}\n.landmark__popup__top {\n  height: 12rem;\n  color: white;\n  padding: 1rem;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  border-radius: 15px 15px 0px 0px;\n  position: relative;\n  align-items: center;\n  overflow: hidden;\n}\n.landmark__popup__img, .landmark__popup__title {\n  position: absolute;\n  max-width: 100%;\n  height: auto;\n  flex-shrink: 0;\n  min-height: 100%;\n}\n.landmark__popup__img {\n  -webkit-filter: brightness(50%);\n          filter: brightness(50%);\n}\n.landmark__popup__title h2 {\n  font-size: 2rem;\n}\n.landmark__popup__title p {\n  font-size: 1.3rem;\n}\n.landmark__popup__middle {\n  margin: 0.5rem;\n  color: white;\n  padding: 0.5rem;\n  color: #333333;\n}\n.landmark__popup__middle > h3 {\n  color: #8a2626;\n}\n.landmark__popup__middle > a {\n  color: #d14545;\n}\n.landmark__popup__bottom {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  border-radius: 0px 0px 15px 15px;\n}\n.landmark__popup__bottom * {\n  width: 45%;\n  padding: 0.6rem;\n}\n\n.popup .mapboxgl-popup-content {\n  border-radius: 15px;\n  padding: 0;\n}\n\n.mapboxgl-popup-close-button {\n  color: white;\n  padding: 10px;\n  font-size: 1.2rem;\n}\n\n/* sibebar styling */\n.sidebar {\n  position: absolute;\n  width: 450px;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  background-color: white;\n  overflow: hidden;\n  z-index: 1000;\n}\n\n.heading {\n  /* background: #d14545; */\n  color: #363636;\n  line-height: 60px;\n  padding: 0 10px;\n}\n\n.btn-new-landmark {\n  background-color: #EEE298;\n  color: #666666;\n  border: none;\n  font-size: 0.9rem;\n  font-weight: 700;\n  border-radius: 10px;\n  padding: 10px 15px;\n}\n\n.listings {\n  overflow: scroll;\n  padding-bottom: 60px;\n}\n\n.listings .item {\n  display: block;\n  border: dashed #31339e34 2px;\n  margin: 0.5rem;\n  padding: 5px;\n  text-decoration: none;\n}\n\n.listings .item .item__title {\n  display: block;\n  margin: 0.2rem;\n  color: #9e7a18;\n  font-weight: 700;\n}\n\n.item__address {\n  margin: 0.2rem;\n  color: #3f3f3f;\n}\n\n.listings .item .item__title small {\n  font-weight: 400;\n}\n\n.listings .item.active .item__title,\n.listings .item .item__title:hover {\n  color: rgba(158, 122, 24, 0.705);\n}\n\n.listings .item.active {\n  background-color: #f8f8f8;\n}\n\n::-webkit-scrollbar {\n  width: 3px;\n  height: 3px;\n  border-left: 0;\n  background: rgba(0, 0, 0, 0.1);\n}\n\n::-webkit-scrollbar-track {\n  background: none;\n}\n\n::-webkit-scrollbar-thumb {\n  background: grey;\n  border-radius: 0;\n}\n\n.clearfix {\n  display: block;\n}\n\n.clearfix::after {\n  content: \".\";\n  display: block;\n  height: 0;\n  clear: both;\n  visibility: hidden;\n}", ""]);
+exports.push([module.i, "body {\r\n  margin: 0;\r\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\r\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\r\n    sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  font: 500 20px/26px 'Helvetica Neue', Helvetica, Arial, Sans-serif;\r\n  font-size: 16px;\r\n  \r\n}\r\n\r\n\r\n/* marker styling */\r\n.marker-btn{\r\n  background: none;\r\n  border: none;\r\n  cursor: pointer;\r\n}\r\n.marker-btn:active, .marker-btn:active{\r\n  border: none\r\n}\r\n\r\n.mapboxgl-marker:active {\r\n  border: none;\r\n}\r\n\r\n.marker-btn img {\r\n  width: 50px;\r\n  height: 50px;\r\n  border-radius: 50%;\r\n  margin-left: -20px;\r\n  margin-top: -20px\r\n}\r\n\r\n\r\n/* marker popup */\r\n.landmark__popup{\r\n  min-width: 300px;\r\n  min-width: 350px;\r\n}\r\n\r\n\r\n.landmark__popup__top{\r\n  background: linear-gradient( rgb(0,0,0,0.6), rgb(0,0,0,0.6) );\r\n  background-size: cover;\r\n  position: center center;\r\n  height: 12rem;\r\n  color: white;\r\n  padding: 1rem;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  border-radius: 15px 15px 0px 0px;\r\n}\r\n\r\n.landmark__popup__middle{\r\n \r\n  margin: 0.5rem ;\r\n  color: white;\r\n  padding: 0.5rem;\r\n  /* border: dashed #31339e34 2px; */\r\n  color: rgb(51, 51, 51);\r\n}\r\n.landmark__popup__middle>h3{\r\n  color: #8a2626;\r\n\r\n}\r\n\r\n.landmark__popup__middle>a{\r\n  color: #d14545;\r\n}\r\n\r\n.landmark__popup__bottom{\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  border-radius: 0px 0px 15px 15px;\r\n}\r\n.landmark__popup__bottom>*{\r\n  width: 45%;\r\n  padding: 0.6rem;\r\n}\r\n\r\n.popup .mapboxgl-popup-content{\r\n  border-radius: 15px;\r\n  padding: 0;\r\n}\r\n\r\n.mapboxgl-popup-close-button {\r\n color: white;\r\n padding: 10px;\r\n font-size: 1.2rem;\r\n}\r\n\r\n\r\n/* sidebar */\r\n\r\n* {\r\n  box-sizing: border-box;\r\n}\r\n\r\nh1 {\r\n  font-size: 25px;\r\n  margin: 0;\r\n  font-weight: 400;\r\n  line-height: 20px;\r\n  padding: 20px 2px;\r\n}\r\n\r\na {\r\n  color: #404040;\r\n  text-decoration: none;\r\n}\r\n\r\na:hover {\r\n  color: #101010;\r\n}\r\n\r\n.pad2 {\r\n  padding: 20px;\r\n}\r\n\r\n.map {\r\n  position: absolute;\r\n  left: 450px;\r\n  width: auto;\r\n  top: 0;\r\n  bottom: 0;\r\n}\r\n\r\n\r\n/* sibebar styling */\r\n\r\n.sidebar {\r\n  position: absolute;\r\n  width: 450px;\r\n  height: 100vh;\r\n  top: 0;\r\n  left: 0;\r\n  background-color: white;\r\n  overflow: hidden;\r\n  z-index: 1000;\r\n}\r\n.heading {\r\n  /* background: #d14545; */\r\n  color: rgb(54, 54, 54);\r\n  line-height: 60px;\r\n  padding: 0 10px;\r\n}\r\n.btn-new-landmark{\r\n  background-color: #EEE298;\r\n  color: rgb(102, 102, 102);\r\n  border: none;\r\n  font-size: 0.9rem;\r\n  font-weight: 700;\r\n  border-radius: 10px;\r\n  padding: 10px 15px\r\n}\r\n\r\n.listings {\r\n  overflow: scroll;\r\n  padding-bottom: 60px;\r\n}\r\n\r\n.listings .item {\r\n  display: block;\r\n  border: dashed #31339e34 2px; \r\n  margin: 0.5rem;\r\n  padding: 5px;\r\n  text-decoration: none;\r\n}\r\n\r\n\r\n.listings .item .item__title {\r\n  display: block;\r\n  margin: 0.2rem;\r\n  color: rgb(158, 122, 24);\r\n  font-weight: 700;\r\n}\r\n.item__address{\r\n  margin: 0.2rem;\r\n  color: #3f3f3f;\r\n}\r\n\r\n\r\n.listings .item .item__title small { font-weight: 400; }\r\n\r\n.listings .item.active .item__title,\r\n.listings .item .item__title:hover { color: rgba(158, 122, 24, 0.705); }\r\n\r\n.listings .item.active {\r\n  background-color: #f8f8f8;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n  width: 3px;\r\n  height: 3px;\r\n  border-left: 0;\r\n  background: rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n::-webkit-scrollbar-track {\r\n  background: none;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n  background: grey;\r\n  border-radius: 0;\r\n}\r\n\r\n.clearfix { display: block; }\r\n\r\n.clearfix::after {\r\n  content: '.';\r\n  display: block;\r\n  height: 0;\r\n  clear: both;\r\n  visibility: hidden;\r\n}\r\n", ""]);
 
 // exports
 
@@ -9711,6 +9692,20 @@ module.exports = hoistNonReactStatics;
 
 /***/ }),
 
+/***/ "./node_modules/isarray/index.js":
+/*!***************************************!*\
+  !*** ./node_modules/isarray/index.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = Array.isArray || function (arr) {
+  return Object.prototype.toString.call(arr) == '[object Array]';
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/mapbox-gl/dist/mapbox-gl.js":
 /*!**************************************************!*\
   !*** ./node_modules/mapbox-gl/dist/mapbox-gl.js ***!
@@ -11420,6 +11415,443 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 	return to;
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/path-to-regexp/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/path-to-regexp/index.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isarray = __webpack_require__(/*! isarray */ "./node_modules/isarray/index.js")
+
+/**
+ * Expose `pathToRegexp`.
+ */
+module.exports = pathToRegexp
+module.exports.parse = parse
+module.exports.compile = compile
+module.exports.tokensToFunction = tokensToFunction
+module.exports.tokensToRegExp = tokensToRegExp
+
+/**
+ * The main path matching regexp utility.
+ *
+ * @type {RegExp}
+ */
+var PATH_REGEXP = new RegExp([
+  // Match escaped characters that would otherwise appear in future matches.
+  // This allows the user to escape special characters that won't transform.
+  '(\\\\.)',
+  // Match Express-style parameters and un-named parameters with a prefix
+  // and optional suffixes. Matches appear as:
+  //
+  // "/:test(\\d+)?" => ["/", "test", "\d+", undefined, "?", undefined]
+  // "/route(\\d+)"  => [undefined, undefined, undefined, "\d+", undefined, undefined]
+  // "/*"            => ["/", undefined, undefined, undefined, undefined, "*"]
+  '([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))'
+].join('|'), 'g')
+
+/**
+ * Parse a string for the raw tokens.
+ *
+ * @param  {string}  str
+ * @param  {Object=} options
+ * @return {!Array}
+ */
+function parse (str, options) {
+  var tokens = []
+  var key = 0
+  var index = 0
+  var path = ''
+  var defaultDelimiter = options && options.delimiter || '/'
+  var res
+
+  while ((res = PATH_REGEXP.exec(str)) != null) {
+    var m = res[0]
+    var escaped = res[1]
+    var offset = res.index
+    path += str.slice(index, offset)
+    index = offset + m.length
+
+    // Ignore already escaped sequences.
+    if (escaped) {
+      path += escaped[1]
+      continue
+    }
+
+    var next = str[index]
+    var prefix = res[2]
+    var name = res[3]
+    var capture = res[4]
+    var group = res[5]
+    var modifier = res[6]
+    var asterisk = res[7]
+
+    // Push the current path onto the tokens.
+    if (path) {
+      tokens.push(path)
+      path = ''
+    }
+
+    var partial = prefix != null && next != null && next !== prefix
+    var repeat = modifier === '+' || modifier === '*'
+    var optional = modifier === '?' || modifier === '*'
+    var delimiter = res[2] || defaultDelimiter
+    var pattern = capture || group
+
+    tokens.push({
+      name: name || key++,
+      prefix: prefix || '',
+      delimiter: delimiter,
+      optional: optional,
+      repeat: repeat,
+      partial: partial,
+      asterisk: !!asterisk,
+      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')
+    })
+  }
+
+  // Match any characters still remaining.
+  if (index < str.length) {
+    path += str.substr(index)
+  }
+
+  // If the path exists, push it onto the end.
+  if (path) {
+    tokens.push(path)
+  }
+
+  return tokens
+}
+
+/**
+ * Compile a string to a template function for the path.
+ *
+ * @param  {string}             str
+ * @param  {Object=}            options
+ * @return {!function(Object=, Object=)}
+ */
+function compile (str, options) {
+  return tokensToFunction(parse(str, options), options)
+}
+
+/**
+ * Prettier encoding of URI path segments.
+ *
+ * @param  {string}
+ * @return {string}
+ */
+function encodeURIComponentPretty (str) {
+  return encodeURI(str).replace(/[\/?#]/g, function (c) {
+    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
+  })
+}
+
+/**
+ * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.
+ *
+ * @param  {string}
+ * @return {string}
+ */
+function encodeAsterisk (str) {
+  return encodeURI(str).replace(/[?#]/g, function (c) {
+    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
+  })
+}
+
+/**
+ * Expose a method for transforming tokens into the path function.
+ */
+function tokensToFunction (tokens, options) {
+  // Compile all the tokens into regexps.
+  var matches = new Array(tokens.length)
+
+  // Compile all the patterns before compilation.
+  for (var i = 0; i < tokens.length; i++) {
+    if (typeof tokens[i] === 'object') {
+      matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$', flags(options))
+    }
+  }
+
+  return function (obj, opts) {
+    var path = ''
+    var data = obj || {}
+    var options = opts || {}
+    var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent
+
+    for (var i = 0; i < tokens.length; i++) {
+      var token = tokens[i]
+
+      if (typeof token === 'string') {
+        path += token
+
+        continue
+      }
+
+      var value = data[token.name]
+      var segment
+
+      if (value == null) {
+        if (token.optional) {
+          // Prepend partial segment prefixes.
+          if (token.partial) {
+            path += token.prefix
+          }
+
+          continue
+        } else {
+          throw new TypeError('Expected "' + token.name + '" to be defined')
+        }
+      }
+
+      if (isarray(value)) {
+        if (!token.repeat) {
+          throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
+        }
+
+        if (value.length === 0) {
+          if (token.optional) {
+            continue
+          } else {
+            throw new TypeError('Expected "' + token.name + '" to not be empty')
+          }
+        }
+
+        for (var j = 0; j < value.length; j++) {
+          segment = encode(value[j])
+
+          if (!matches[i].test(segment)) {
+            throw new TypeError('Expected all "' + token.name + '" to match "' + token.pattern + '", but received `' + JSON.stringify(segment) + '`')
+          }
+
+          path += (j === 0 ? token.prefix : token.delimiter) + segment
+        }
+
+        continue
+      }
+
+      segment = token.asterisk ? encodeAsterisk(value) : encode(value)
+
+      if (!matches[i].test(segment)) {
+        throw new TypeError('Expected "' + token.name + '" to match "' + token.pattern + '", but received "' + segment + '"')
+      }
+
+      path += token.prefix + segment
+    }
+
+    return path
+  }
+}
+
+/**
+ * Escape a regular expression string.
+ *
+ * @param  {string} str
+ * @return {string}
+ */
+function escapeString (str) {
+  return str.replace(/([.+*?=^!:${}()[\]|\/\\])/g, '\\$1')
+}
+
+/**
+ * Escape the capturing group by escaping special characters and meaning.
+ *
+ * @param  {string} group
+ * @return {string}
+ */
+function escapeGroup (group) {
+  return group.replace(/([=!:$\/()])/g, '\\$1')
+}
+
+/**
+ * Attach the keys as a property of the regexp.
+ *
+ * @param  {!RegExp} re
+ * @param  {Array}   keys
+ * @return {!RegExp}
+ */
+function attachKeys (re, keys) {
+  re.keys = keys
+  return re
+}
+
+/**
+ * Get the flags for a regexp from the options.
+ *
+ * @param  {Object} options
+ * @return {string}
+ */
+function flags (options) {
+  return options && options.sensitive ? '' : 'i'
+}
+
+/**
+ * Pull out keys from a regexp.
+ *
+ * @param  {!RegExp} path
+ * @param  {!Array}  keys
+ * @return {!RegExp}
+ */
+function regexpToRegexp (path, keys) {
+  // Use a negative lookahead to match only capturing groups.
+  var groups = path.source.match(/\((?!\?)/g)
+
+  if (groups) {
+    for (var i = 0; i < groups.length; i++) {
+      keys.push({
+        name: i,
+        prefix: null,
+        delimiter: null,
+        optional: false,
+        repeat: false,
+        partial: false,
+        asterisk: false,
+        pattern: null
+      })
+    }
+  }
+
+  return attachKeys(path, keys)
+}
+
+/**
+ * Transform an array into a regexp.
+ *
+ * @param  {!Array}  path
+ * @param  {Array}   keys
+ * @param  {!Object} options
+ * @return {!RegExp}
+ */
+function arrayToRegexp (path, keys, options) {
+  var parts = []
+
+  for (var i = 0; i < path.length; i++) {
+    parts.push(pathToRegexp(path[i], keys, options).source)
+  }
+
+  var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options))
+
+  return attachKeys(regexp, keys)
+}
+
+/**
+ * Create a path regexp from string input.
+ *
+ * @param  {string}  path
+ * @param  {!Array}  keys
+ * @param  {!Object} options
+ * @return {!RegExp}
+ */
+function stringToRegexp (path, keys, options) {
+  return tokensToRegExp(parse(path, options), keys, options)
+}
+
+/**
+ * Expose a function for taking tokens and returning a RegExp.
+ *
+ * @param  {!Array}          tokens
+ * @param  {(Array|Object)=} keys
+ * @param  {Object=}         options
+ * @return {!RegExp}
+ */
+function tokensToRegExp (tokens, keys, options) {
+  if (!isarray(keys)) {
+    options = /** @type {!Object} */ (keys || options)
+    keys = []
+  }
+
+  options = options || {}
+
+  var strict = options.strict
+  var end = options.end !== false
+  var route = ''
+
+  // Iterate over the tokens and create our regexp string.
+  for (var i = 0; i < tokens.length; i++) {
+    var token = tokens[i]
+
+    if (typeof token === 'string') {
+      route += escapeString(token)
+    } else {
+      var prefix = escapeString(token.prefix)
+      var capture = '(?:' + token.pattern + ')'
+
+      keys.push(token)
+
+      if (token.repeat) {
+        capture += '(?:' + prefix + capture + ')*'
+      }
+
+      if (token.optional) {
+        if (!token.partial) {
+          capture = '(?:' + prefix + '(' + capture + '))?'
+        } else {
+          capture = prefix + '(' + capture + ')?'
+        }
+      } else {
+        capture = prefix + '(' + capture + ')'
+      }
+
+      route += capture
+    }
+  }
+
+  var delimiter = escapeString(options.delimiter || '/')
+  var endsWithDelimiter = route.slice(-delimiter.length) === delimiter
+
+  // In non-strict mode we allow a slash at the end of match. If the path to
+  // match already ends with a slash, we remove it for consistency. The slash
+  // is valid at the end of a path match, not in the middle. This is important
+  // in non-ending mode, where "/test/" shouldn't match "/test//route".
+  if (!strict) {
+    route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?'
+  }
+
+  if (end) {
+    route += '$'
+  } else {
+    // In non-ending mode, we need the capturing groups to match as much as
+    // possible by using a positive lookahead to the end or next path segment.
+    route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)'
+  }
+
+  return attachKeys(new RegExp('^' + route, flags(options)), keys)
+}
+
+/**
+ * Normalize the given path string, returning a regular expression.
+ *
+ * An empty array can be passed in for the keys, which will hold the
+ * placeholder key descriptions. For example, using `/user/:id`, `keys` will
+ * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.
+ *
+ * @param  {(string|RegExp|Array)} path
+ * @param  {(Array|Object)=}       keys
+ * @param  {Object=}               options
+ * @return {!RegExp}
+ */
+function pathToRegexp (path, keys, options) {
+  if (!isarray(keys)) {
+    options = /** @type {!Object} */ (keys || options)
+    keys = []
+  }
+
+  options = options || {}
+
+  if (path instanceof RegExp) {
+    return regexpToRegexp(path, /** @type {!Array} */ (keys))
+  }
+
+  if (isarray(path)) {
+    return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
+  }
+
+  return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
+}
 
 
 /***/ }),
@@ -44107,7 +44539,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var mini_create_react_context__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! mini-create-react-context */ "./node_modules/mini-create-react-context/dist/esm/index.js");
 /* harmony import */ var tiny_invariant__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tiny-invariant */ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js");
 /* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
-/* harmony import */ var path_to_regexp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! path-to-regexp */ "./node_modules/react-router/node_modules/path-to-regexp/index.js");
+/* harmony import */ var path_to_regexp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! path-to-regexp */ "./node_modules/path-to-regexp/index.js");
 /* harmony import */ var path_to_regexp__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(path_to_regexp__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
 /* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_is__WEBPACK_IMPORTED_MODULE_9__);
@@ -44884,457 +45316,6 @@ if (true) {
 
 
 //# sourceMappingURL=react-router.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/react-router/node_modules/isarray/index.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/react-router/node_modules/isarray/index.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = Array.isArray || function (arr) {
-  return Object.prototype.toString.call(arr) == '[object Array]';
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/react-router/node_modules/path-to-regexp/index.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/react-router/node_modules/path-to-regexp/index.js ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isarray = __webpack_require__(/*! isarray */ "./node_modules/react-router/node_modules/isarray/index.js")
-
-/**
- * Expose `pathToRegexp`.
- */
-module.exports = pathToRegexp
-module.exports.parse = parse
-module.exports.compile = compile
-module.exports.tokensToFunction = tokensToFunction
-module.exports.tokensToRegExp = tokensToRegExp
-
-/**
- * The main path matching regexp utility.
- *
- * @type {RegExp}
- */
-var PATH_REGEXP = new RegExp([
-  // Match escaped characters that would otherwise appear in future matches.
-  // This allows the user to escape special characters that won't transform.
-  '(\\\\.)',
-  // Match Express-style parameters and un-named parameters with a prefix
-  // and optional suffixes. Matches appear as:
-  //
-  // "/:test(\\d+)?" => ["/", "test", "\d+", undefined, "?", undefined]
-  // "/route(\\d+)"  => [undefined, undefined, undefined, "\d+", undefined, undefined]
-  // "/*"            => ["/", undefined, undefined, undefined, undefined, "*"]
-  '([\\/.])?(?:(?:\\:(\\w+)(?:\\(((?:\\\\.|[^\\\\()])+)\\))?|\\(((?:\\\\.|[^\\\\()])+)\\))([+*?])?|(\\*))'
-].join('|'), 'g')
-
-/**
- * Parse a string for the raw tokens.
- *
- * @param  {string}  str
- * @param  {Object=} options
- * @return {!Array}
- */
-function parse (str, options) {
-  var tokens = []
-  var key = 0
-  var index = 0
-  var path = ''
-  var defaultDelimiter = options && options.delimiter || '/'
-  var res
-
-  while ((res = PATH_REGEXP.exec(str)) != null) {
-    var m = res[0]
-    var escaped = res[1]
-    var offset = res.index
-    path += str.slice(index, offset)
-    index = offset + m.length
-
-    // Ignore already escaped sequences.
-    if (escaped) {
-      path += escaped[1]
-      continue
-    }
-
-    var next = str[index]
-    var prefix = res[2]
-    var name = res[3]
-    var capture = res[4]
-    var group = res[5]
-    var modifier = res[6]
-    var asterisk = res[7]
-
-    // Push the current path onto the tokens.
-    if (path) {
-      tokens.push(path)
-      path = ''
-    }
-
-    var partial = prefix != null && next != null && next !== prefix
-    var repeat = modifier === '+' || modifier === '*'
-    var optional = modifier === '?' || modifier === '*'
-    var delimiter = res[2] || defaultDelimiter
-    var pattern = capture || group
-
-    tokens.push({
-      name: name || key++,
-      prefix: prefix || '',
-      delimiter: delimiter,
-      optional: optional,
-      repeat: repeat,
-      partial: partial,
-      asterisk: !!asterisk,
-      pattern: pattern ? escapeGroup(pattern) : (asterisk ? '.*' : '[^' + escapeString(delimiter) + ']+?')
-    })
-  }
-
-  // Match any characters still remaining.
-  if (index < str.length) {
-    path += str.substr(index)
-  }
-
-  // If the path exists, push it onto the end.
-  if (path) {
-    tokens.push(path)
-  }
-
-  return tokens
-}
-
-/**
- * Compile a string to a template function for the path.
- *
- * @param  {string}             str
- * @param  {Object=}            options
- * @return {!function(Object=, Object=)}
- */
-function compile (str, options) {
-  return tokensToFunction(parse(str, options), options)
-}
-
-/**
- * Prettier encoding of URI path segments.
- *
- * @param  {string}
- * @return {string}
- */
-function encodeURIComponentPretty (str) {
-  return encodeURI(str).replace(/[\/?#]/g, function (c) {
-    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
-  })
-}
-
-/**
- * Encode the asterisk parameter. Similar to `pretty`, but allows slashes.
- *
- * @param  {string}
- * @return {string}
- */
-function encodeAsterisk (str) {
-  return encodeURI(str).replace(/[?#]/g, function (c) {
-    return '%' + c.charCodeAt(0).toString(16).toUpperCase()
-  })
-}
-
-/**
- * Expose a method for transforming tokens into the path function.
- */
-function tokensToFunction (tokens, options) {
-  // Compile all the tokens into regexps.
-  var matches = new Array(tokens.length)
-
-  // Compile all the patterns before compilation.
-  for (var i = 0; i < tokens.length; i++) {
-    if (typeof tokens[i] === 'object') {
-      matches[i] = new RegExp('^(?:' + tokens[i].pattern + ')$', flags(options))
-    }
-  }
-
-  return function (obj, opts) {
-    var path = ''
-    var data = obj || {}
-    var options = opts || {}
-    var encode = options.pretty ? encodeURIComponentPretty : encodeURIComponent
-
-    for (var i = 0; i < tokens.length; i++) {
-      var token = tokens[i]
-
-      if (typeof token === 'string') {
-        path += token
-
-        continue
-      }
-
-      var value = data[token.name]
-      var segment
-
-      if (value == null) {
-        if (token.optional) {
-          // Prepend partial segment prefixes.
-          if (token.partial) {
-            path += token.prefix
-          }
-
-          continue
-        } else {
-          throw new TypeError('Expected "' + token.name + '" to be defined')
-        }
-      }
-
-      if (isarray(value)) {
-        if (!token.repeat) {
-          throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
-        }
-
-        if (value.length === 0) {
-          if (token.optional) {
-            continue
-          } else {
-            throw new TypeError('Expected "' + token.name + '" to not be empty')
-          }
-        }
-
-        for (var j = 0; j < value.length; j++) {
-          segment = encode(value[j])
-
-          if (!matches[i].test(segment)) {
-            throw new TypeError('Expected all "' + token.name + '" to match "' + token.pattern + '", but received `' + JSON.stringify(segment) + '`')
-          }
-
-          path += (j === 0 ? token.prefix : token.delimiter) + segment
-        }
-
-        continue
-      }
-
-      segment = token.asterisk ? encodeAsterisk(value) : encode(value)
-
-      if (!matches[i].test(segment)) {
-        throw new TypeError('Expected "' + token.name + '" to match "' + token.pattern + '", but received "' + segment + '"')
-      }
-
-      path += token.prefix + segment
-    }
-
-    return path
-  }
-}
-
-/**
- * Escape a regular expression string.
- *
- * @param  {string} str
- * @return {string}
- */
-function escapeString (str) {
-  return str.replace(/([.+*?=^!:${}()[\]|\/\\])/g, '\\$1')
-}
-
-/**
- * Escape the capturing group by escaping special characters and meaning.
- *
- * @param  {string} group
- * @return {string}
- */
-function escapeGroup (group) {
-  return group.replace(/([=!:$\/()])/g, '\\$1')
-}
-
-/**
- * Attach the keys as a property of the regexp.
- *
- * @param  {!RegExp} re
- * @param  {Array}   keys
- * @return {!RegExp}
- */
-function attachKeys (re, keys) {
-  re.keys = keys
-  return re
-}
-
-/**
- * Get the flags for a regexp from the options.
- *
- * @param  {Object} options
- * @return {string}
- */
-function flags (options) {
-  return options && options.sensitive ? '' : 'i'
-}
-
-/**
- * Pull out keys from a regexp.
- *
- * @param  {!RegExp} path
- * @param  {!Array}  keys
- * @return {!RegExp}
- */
-function regexpToRegexp (path, keys) {
-  // Use a negative lookahead to match only capturing groups.
-  var groups = path.source.match(/\((?!\?)/g)
-
-  if (groups) {
-    for (var i = 0; i < groups.length; i++) {
-      keys.push({
-        name: i,
-        prefix: null,
-        delimiter: null,
-        optional: false,
-        repeat: false,
-        partial: false,
-        asterisk: false,
-        pattern: null
-      })
-    }
-  }
-
-  return attachKeys(path, keys)
-}
-
-/**
- * Transform an array into a regexp.
- *
- * @param  {!Array}  path
- * @param  {Array}   keys
- * @param  {!Object} options
- * @return {!RegExp}
- */
-function arrayToRegexp (path, keys, options) {
-  var parts = []
-
-  for (var i = 0; i < path.length; i++) {
-    parts.push(pathToRegexp(path[i], keys, options).source)
-  }
-
-  var regexp = new RegExp('(?:' + parts.join('|') + ')', flags(options))
-
-  return attachKeys(regexp, keys)
-}
-
-/**
- * Create a path regexp from string input.
- *
- * @param  {string}  path
- * @param  {!Array}  keys
- * @param  {!Object} options
- * @return {!RegExp}
- */
-function stringToRegexp (path, keys, options) {
-  return tokensToRegExp(parse(path, options), keys, options)
-}
-
-/**
- * Expose a function for taking tokens and returning a RegExp.
- *
- * @param  {!Array}          tokens
- * @param  {(Array|Object)=} keys
- * @param  {Object=}         options
- * @return {!RegExp}
- */
-function tokensToRegExp (tokens, keys, options) {
-  if (!isarray(keys)) {
-    options = /** @type {!Object} */ (keys || options)
-    keys = []
-  }
-
-  options = options || {}
-
-  var strict = options.strict
-  var end = options.end !== false
-  var route = ''
-
-  // Iterate over the tokens and create our regexp string.
-  for (var i = 0; i < tokens.length; i++) {
-    var token = tokens[i]
-
-    if (typeof token === 'string') {
-      route += escapeString(token)
-    } else {
-      var prefix = escapeString(token.prefix)
-      var capture = '(?:' + token.pattern + ')'
-
-      keys.push(token)
-
-      if (token.repeat) {
-        capture += '(?:' + prefix + capture + ')*'
-      }
-
-      if (token.optional) {
-        if (!token.partial) {
-          capture = '(?:' + prefix + '(' + capture + '))?'
-        } else {
-          capture = prefix + '(' + capture + ')?'
-        }
-      } else {
-        capture = prefix + '(' + capture + ')'
-      }
-
-      route += capture
-    }
-  }
-
-  var delimiter = escapeString(options.delimiter || '/')
-  var endsWithDelimiter = route.slice(-delimiter.length) === delimiter
-
-  // In non-strict mode we allow a slash at the end of match. If the path to
-  // match already ends with a slash, we remove it for consistency. The slash
-  // is valid at the end of a path match, not in the middle. This is important
-  // in non-ending mode, where "/test/" shouldn't match "/test//route".
-  if (!strict) {
-    route = (endsWithDelimiter ? route.slice(0, -delimiter.length) : route) + '(?:' + delimiter + '(?=$))?'
-  }
-
-  if (end) {
-    route += '$'
-  } else {
-    // In non-ending mode, we need the capturing groups to match as much as
-    // possible by using a positive lookahead to the end or next path segment.
-    route += strict && endsWithDelimiter ? '' : '(?=' + delimiter + '|$)'
-  }
-
-  return attachKeys(new RegExp('^' + route, flags(options)), keys)
-}
-
-/**
- * Normalize the given path string, returning a regular expression.
- *
- * An empty array can be passed in for the keys, which will hold the
- * placeholder key descriptions. For example, using `/user/:id`, `keys` will
- * contain `[{ name: 'id', delimiter: '/', optional: false, repeat: false }]`.
- *
- * @param  {(string|RegExp|Array)} path
- * @param  {(Array|Object)=}       keys
- * @param  {Object=}               options
- * @return {!RegExp}
- */
-function pathToRegexp (path, keys, options) {
-  if (!isarray(keys)) {
-    options = /** @type {!Object} */ (keys || options)
-    keys = []
-  }
-
-  options = options || {}
-
-  if (path instanceof RegExp) {
-    return regexpToRegexp(path, /** @type {!Array} */ (keys))
-  }
-
-  if (isarray(path)) {
-    return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
-  }
-
-  return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
-}
 
 
 /***/ }),
@@ -50717,8 +50698,8 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/yanekkris/www/bootcamp/WatchMan/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/yanekkris/www/bootcamp/WatchMan/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Projects\WATCHMAN\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Projects\WATCHMAN\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
