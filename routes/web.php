@@ -12,6 +12,9 @@ Route::get('/map', function () {
 Route::get('/landmarks/{landmark_id}', function() {
     return view('welcome');
 });
+Route::get('/landmarks/{landmark_id}/createEvent', function() {
+    return view('welcome');
+});
 
 
 // Authentication routing

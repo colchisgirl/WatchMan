@@ -1,0 +1,214 @@
+
+.home__container{
+    width: 100vw;
+    
+    background: linear-gradient(#fff, #D14645) no-repeat;
+    background-size: contain;
+    
+    padding: 1rem 4rem;
+}
+.home__container::before {
+    content: "";
+    min-width: 100vw;
+    min-height: 100vh;
+    background: url("/img/home/map2.png") no-repeat fixed;
+    background-position: center center;
+    background-size: cover;
+    opacity: 0.1;
+    top: 0;
+    right: 0;
+    position: absolute;
+    display: inline-block;
+}
+
+.header{
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    &__logo {
+        font-size: 3rem;
+        line-height: 3rem;
+        padding: 10px;
+        font-weight: 900;
+        z-index: 1000;
+        a{
+        color: #D14645;
+        }
+    }
+    &__nav{
+        width: 600px;
+        
+        &__list{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            padding: 0;
+        }
+        &__item{
+            list-style: none;
+            padding: 5px 10px;
+            color: rgb(70, 70, 70);
+            position: relative;
+            font-weight: 700;
+            font-size: 1.1rem;
+            &:hover{
+                color: #D14645;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: rgb(100, 100, 100);
+                visibility: hidden;
+                transform: scaleX(0);
+                transition: all 0.4s ease-in-out 0s;
+              }
+            &:hover::before {
+                visibility: visible;
+                transform: scaleX(1);
+              }
+        }
+    }
+}
+.main section{
+    margin: 3rem 0;
+}
+section h2{
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 200;
+    letter-spacing: 5px;
+    margin: 5rem 0 4rem;
+}
+
+.main{
+    width: 100%;
+    &__home{
+        max-width:70%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        min-height: 600px;
+        &__intro {
+            padding: 4rem;
+            z-index: 1000;
+            h1{
+                font-size: 8rem;
+                font-weight: 100;
+                position: relative;
+                z-index: 1000;  
+            }
+            p{
+                margin: 2rem 0 1rem;
+                font-size: 1.1rem;
+            }
+        }
+        &__buttons{
+            a{      
+                display:inline-block; 
+                color: rgb(219, 219, 219);     
+                background-color: rgba(53, 53, 53, 0.678);
+                padding: 8px 12px;
+                width: 8rem;
+                margin: 10px;
+                border-radius: 15px
+            }
+                }
+    }
+    &__features{
+        color: white;
+        &__column{
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 6rem;
+        }
+        &__img{
+            width: 50%;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 70%;
+                opacity: 0.7;
+            }
+        }
+        &__content{
+            width: 50%;
+            padding: 5rem 4rem;
+            background-color: rgba(255, 255, 255, 0.157);
+            border-radius:  60% 40% 30% 70% / 60% 30% 70% 40%;
+            &:nth-child(2){
+                border-radius:  30% 60% 70% 40% / 50% 60% 30% 60%;
+            }
+            h4{
+                font-size: 2rem;
+            }
+            p{
+                font-size: 1.1rem;
+            }
+        }
+    }
+    &__contact{
+        color: white;
+        &__form{
+        max-width: 600px;
+        margin: 3rem auto;
+            input, textarea{
+                border: none;
+                font-size: 0.95rem;
+                border-radius: 10px;
+                color: white;
+                padding: 1rem;
+                background-color: rgba(255, 255, 255, 0.267);
+            }
+            input::placeholder, textarea::placeholder{
+                color: white;
+            }
+            input:focus, textarea:focus{
+                background-color: rgba(255, 255, 255, 0.397);
+            }
+            textarea{
+                width: 100%;
+                resize: none;
+            }
+
+        }
+        &__inputs{
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            input{
+                width: 30%;
+            }
+            input[type="submit"]{
+                background-color: rgba(53, 53, 53, 0.678);
+            }
+        }
+    }
+    &__download{
+        color: white;
+        padding: 4rem 0;
+        h3{
+            font-size: 3rem;
+            font-weight: 200;
+        }
+        a{
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: rgb(185, 185, 185);
+            background-color: rgba(53, 53, 53, 0.678);
+        }
+    }
+}
+
+.footer{
+    color: white;
+}
