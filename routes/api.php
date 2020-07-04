@@ -18,4 +18,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/landmarks',                    'LandmarkController@index')     ->name('landmarks.index');
+Route::post('/login', 'Auth\LoginController@login');
+
+Route::get('/landmarks','LandmarkController@index')->name('landmarks.index');
+Route::post('/user/register','Auth\RegisterController@createUser')->name('user.register');
+Route::post('/organization/register','Auth\RegisterController@createOrg')->name('organization.register');
+
+Route::group(['middleware' => ['auth:api']], function ($group) {
+ 
+ 
+ 
+});
