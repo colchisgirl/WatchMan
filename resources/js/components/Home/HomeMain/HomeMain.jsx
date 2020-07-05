@@ -28,7 +28,7 @@ export default class HomePageContent extends Component {
                         </div>
                         <div className="main__features__column">
                             <div className="main__features__img">
-                                <img src="/img/home/marker-b:w.png" />
+                                <img src="/img/home/marker-bw.png" />
                             </div>
                             <div className="main__features__content">
                                 <h4>Create new landmark</h4>

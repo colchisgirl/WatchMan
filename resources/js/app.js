@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Map from './components/Map/Map.jsx';
 import Home from './components/Home/Home';
 import RegisterComponent from './components/RegisterComponent/RegisterComponent';
-import LoginFormComponent from './components/LoginFormComponent';
+import LoginFormComponent from './components/LoginComponent/LoginFormComponent';
 
 import LandmarkDetails from './components/LandmarkDetails/LandmarkDetails';
 

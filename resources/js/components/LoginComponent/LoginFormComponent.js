@@ -1,9 +1,9 @@
 import React from 'react';
 import LoginForm from './LoginForm';
-import Map from './Map/Map';
+import Map from '../Map/Map';
 
 
-export default class OginFormComponent extends React.Component {
+export default class LoginFormComponent extends React.Component {
     constructor(props) {
         super(props);
 
@@ -30,7 +30,7 @@ export default class OginFormComponent extends React.Component {
         // change the current state of this App to reflect
         // that we are logged-in
         this.setState({
-            logged_in: true,
+            logged_in: false,
             token: token
         })
     }
