@@ -38,7 +38,7 @@ export default class RegisterComponent extends React.Component {
     render() {
         return (
             <div
-                className={`container ${this.state.isOrgPressed ? 'right_panel_active' : ''}`}
+                className={`register_container ${this.state.isOrgPressed ? 'right_panel_active' : ''}`}
                 id="container"
             >
                 <UserRegisterComponent />
