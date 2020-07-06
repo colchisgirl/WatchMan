@@ -10,6 +10,7 @@ import Logo from '../Logo'
 import Sidebar from './Sidebar/Sidebar'
 import Landmark from './Landmark/Landmark'
 import Event from './Event/Event'
+import CreateEvent from './CreateEvent/CreateEvent'
 
 export default class LandmarkDetails extends Component {
     constructor(props) {

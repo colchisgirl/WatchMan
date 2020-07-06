@@ -24,8 +24,9 @@
                     @endauth
                 </div>
             @endif
-            </div> --}}
+            </div> --}} 
             <div id="app"></div>
+           
             
             
             
