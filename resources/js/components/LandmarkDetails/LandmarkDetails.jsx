@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import './index.scss'
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import Badge from '@material-ui/core/Badge';
 
 import Logo from '../Logo'
 import Sidebar from './Sidebar/Sidebar'
@@ -62,12 +64,27 @@ export default class LandmarkDetails extends Component {
                 </div>
 
                 <div className="ldetails__container__landmark">
+                    <nav className="ldetails__container__nav">
+                        <ul>
+                            <li>Dashboard</li>
+                            <li>Profile</li>
+                            <li>Logout</li>
+                        </ul>
+                        <div className="ldetails__container__notifications">
+                            <Badge badgeContent={4} color="secondary">
+                                <NotificationsIcon />
+                            </Badge>
+                        </div>
+                    </nav>
                     <Switch>
                         <Route exact path="/landmarks/:landmark_id">
                             <Landmark landmark={landmark} />
                         </Route>
                         <Route path="/landmarks/:landmark_id/:event_id">
-                            <Event />
+                            <Event landmark={landmark} />
+                        </Route>
+                        <Route path="/landmarks/:landmark_id/createEvent">
+                            <CreateEvent />
                         </Route>
                     </Switch>
                 </div>

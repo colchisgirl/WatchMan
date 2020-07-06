@@ -3,21 +3,13 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/map', function () {
-    return view('welcome');
-});
-Route::get('/landmarks/{landmark_id}', function() {
-    return view('welcome');
-});
-Route::get('/landmarks/{landmark_id}/createEvent', function() {
-    return view('welcome');
-});
-Route::get('/register', function() {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
+Route::view('/map', 'welcome');
+Route::view('/landmarks/{landmark_id}', 'welcome');
+Route::view('/landmarks/{landmark_id}/createEvent', 'welcome');
+Route::view('/landmarks/{landmark_id}/{event_id}', 'welcome');
+
+Route::view('/register', 'welcome');
 
 
 // Authentication routing
@@ -34,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/landmarks/create',             'LandmarkController@create')    ->name('landmarks.create');
 // Route::post('/landmarks',                   'LandmarkController@store')     ->name('landmarks.store');
 // Route::get('/landmarks/{landmark_id}/edit', 'LandmarkController@edit')      ->name('landmarks.edit')->where('landmark_id', '[0-9]+');
-// // Route::put('/landmarks/{landmark_id}',      'LandmarkController@update')    ->name('landmarks.update')->where('landmark_id', '[0-9]+');
+// Route::put('/landmarks/{landmark_id}',      'LandmarkController@update')    ->name('landmarks.update')->where('landmark_id', '[0-9]+');
 
 // Route::delete('/landmarks/{landmark_id}/delete', 'LandmarkController@deleteLandmark')->name('landmarks.deleteLandmark');
 

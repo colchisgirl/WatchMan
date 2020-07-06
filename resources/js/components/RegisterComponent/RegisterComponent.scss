@@ -1,88 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 
-
-.multi-button {
-	display: flex;
-	justify-content: space-around;
-	position: absolute;
-	z-index: 1000;
-	width: 18em;
-	top: 0;
-	right: 0;
-	margin-right: 1.5rem;
-	.homebutton {
-		height: 2em;
-	   }
-	
-	.loginbutton {
-	height: 2em;
-	}
-}
-
-.successmessage {
-	color: darkseagreen;
-	font-size: 16px;
-	font-weight: bold;
-	margin-bottom: 2em;
-
-}
-
-.logo {
-	.header__logo{
-		display: block;
-		position: absolute;
-		z-index: 1000;
-		padding: 1.5rem 2rem;
-	}
-	&.logo_white a{
-		color: white;
-	}
-	&.logo_red {
-		color: #D14645;
-	}
-}
-
-.form_container{
-	position: absolute;
-	top: 0;
-    height: 100%;
-    width: 50%;
-	transition: all 0.6s ease-in-out;
-	form {
-		background-color: #ffffff;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		padding: 0 50px;
-		height: 100%;
-		text-align: center;
-		input, textarea {
-			background-color: #eee;
-			border: none;
-			border-radius: 7px;
-			padding: 12px 15px;
-			margin: 8px 0;
-			width: 20rem;
-			font-size: 14px;
-		
-			&:focus {
-				box-shadow: 0 0 1pt 1pt gray;
-			}
-		}
-		label {
-			margin-bottom: 0;
-			margin-top: .5em;
-			text-transform:capitalize;
-		}
-		.auth_submit_button{
-			margin-top: 2rem;
-		}
-	}
-
-}
-
-
 .register_container {
 	background-color: #fff;
 	/* border-radius: 10px;*/
@@ -152,6 +69,92 @@
 		border-color: #ffffff;
 	}
 }
+
+.multi-button {
+	display: flex;
+	justify-content: space-around;
+	position: absolute;
+	z-index: 1000;
+	width: 18em;
+	top: 0;
+	right: 0;
+	margin-right: 1.5rem;
+	.homebutton {
+		height: 2em;
+	   }
+	
+	.loginbutton {
+	height: 2em;
+	}
+}
+
+.successmessage {
+	color: darkseagreen;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 2em;
+
+}
+
+	.header__logo{
+		display: block;
+		position: absolute;
+		z-index: 1000;
+		
+		font-size: 2.5rem;
+            width: 6rem;
+            margin-top: 1.6rem;
+            text-align: center;
+	}
+	.logo_white a{
+		color: white;
+	}
+	.logo_red {
+		color: #D14645;
+	}
+
+
+.form_container{
+	position: absolute;
+	top: 0;
+    height: 100%;
+    width: 50%;
+	transition: all 0.6s ease-in-out;
+	form {
+		background-color: #ffffff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		padding: 0 50px;
+		height: 100%;
+		text-align: center;
+		input, textarea {
+			background-color: #eee;
+			border: none;
+			border-radius: 7px;
+			padding: 12px 15px;
+			margin: 8px 0;
+			width: 20rem;
+			font-size: 14px;
+		
+			&:focus {
+				box-shadow: 0 0 1pt 1pt gray;
+			}
+		}
+		label {
+			margin-bottom: 0;
+			margin-top: .5em;
+			text-transform:capitalize;
+		}
+		.auth_submit_button{
+			margin-top: 2rem;
+		}
+	}
+
+}
+
+
 
 
 .user_sign_up_container {

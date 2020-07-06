@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import Badge from '@material-ui/core/Badge';
 
 export default class Landmark extends Component {
     constructor(props) {
@@ -26,19 +24,6 @@ export default class Landmark extends Component {
 
         return (
             <>
-                <nav className="ldetails__container__nav">
-                    <ul>
-                        <li>Dashboard</li>
-                        <li>Profile</li>
-                        <li>Logout</li>
-                    </ul>
-                    <div className="ldetails__container__notifications">
-                        <Badge badgeContent={4} color="secondary">
-                            <NotificationsIcon />
-                        </Badge>
-                    </div>
-                </nav>
-
                 <div className="ldetails__container__data">
                     <div className="ldetails__container__title">
                         <h2>{landmark.title}</h2>
