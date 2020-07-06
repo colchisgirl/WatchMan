@@ -1,0 +1,146 @@
+.ldetails__container{
+    max-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    text-align: left; 
+    color: rgb(77, 77, 77);
+
+    &__logo{
+        height: 100vh;
+        width: 6rem;
+        position: fixed;
+        box-shadow: rgb(185, 185, 185) 5px 0px 15px;
+        .watchman__logo{
+            font-size: 2.5rem;
+            width: 6rem;
+            margin-top: 1.6rem;
+            text-align: center;
+        }
+    }
+    &__landmark{
+        margin-left: 6rem;
+        padding: 3rem 4rem;
+        width: calc(100% - 350px - 6rem);
+        background-color: #fbfbfb;
+    }
+    &__nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ul{
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+        li{
+            list-style: none;
+            padding: 1rem 3rem 1rem 0;
+            
+        }
+    }
+    &__notifications{
+        color: rgb(104, 104, 104);
+        padding: 1rem 3rem;
+    }
+    &__data{
+        margin-top: 2rem;
+        p{
+            line-height: 1.7rem;
+            margin: 1rem 0 0;
+            text-align: justify;
+           
+        }
+    }
+    &__title{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        h2{
+            font-size: 2rem;
+            margin: 0.2rem 0;
+            color: rgb(134, 65, 1);
+        }
+    }
+    &__buttons{
+        padding:0 15px;
+        >*{
+            margin: 0 1rem;
+        }
+        .ui.menu{
+            border: none;
+            box-shadow: none;
+            .active.item{
+                background: none;
+            }
+            .dropdown.item:hover{
+                background: none;
+            }
+        }
+    }
+    &__tracking{
+        color: rgb(75, 75, 75);
+    }
+    &__images{
+        background-color: white;
+        max-width: 100%;
+        box-shadow: rgb(185, 185, 185) 0px 8px 15px;
+        padding:1rem 2rem 2rem;
+        >div{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            
+        }
+        .gallery-item {
+            width: 28%;
+            margin: 1rem;
+            overflow: hidden;
+        }
+        .gallery-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 400ms ease-out;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.15);
+        }
+    }
+    &__extra{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0 1rem 2rem;
+        text-align: center;
+        div{
+            width: 30%;
+            color: rgba(95, 67, 2, 0.644);
+            padding: 10px 0;
+            span{
+                font-weight: 700;
+            }
+        }
+    }
+    &__line{
+        border: dashed #31339e34 1px;
+    }
+}
+
+
+
+.ldetails__container .sidebar {
+    left: auto;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    box-shadow: rgb(185, 185, 185) -5px 0px 15px;
+}
+
+button{
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+}

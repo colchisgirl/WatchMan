@@ -6,6 +6,10 @@
 *:focus{
   outline: none;
 }
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
 
 body {
   margin: 0;
@@ -16,6 +20,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   font-size: 16px;
+  overflow-x: hidden;
 
   
 }
@@ -34,6 +39,12 @@ a {
 
 a:hover {
   color: #101010;
+}
+
+button{
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
 }
 
 
@@ -127,19 +138,22 @@ a:hover {
 
 .sidebar {
   position: absolute;
-  width: 450px;
+  width: 350px;
   height: 100vh;
   top: 0;
   left: 0;
   background-color: white;
   overflow: hidden;
   z-index: 1000;
+  padding: 3rem 1rem;
 }
 .heading {
-  /* background: #d14545; */
   color: rgb(54, 54, 54);
   line-height: 60px;
   padding: 0 10px;
+  h1{
+    font-size: 2.2rem;
+  }
 }
 .btn-new-landmark{
   background-color: #EEE298;
@@ -152,7 +166,7 @@ a:hover {
 }
 
 .listings {
-  overflow: scroll;
+  overflow: auto;
   padding-bottom: 60px;
 }
 

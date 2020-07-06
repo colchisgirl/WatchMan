@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/landmarks',                    'LandmarkController@index')     ->name('landmarks.index');
+Route::get('/landmarks/{landmark_id}',      'LandmarkController@show')     ->name('landmarks.show');
