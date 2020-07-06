@@ -28,11 +28,15 @@ export default class RegisterComponent extends React.Component {
     // }
 
     rightOverlayActive = () => {
-        this.setState({ isOrgPressed: true });
+        this.setState({
+            isOrgPressed: true
+        });
     };
 
     rightOverlayInactive = () => {
-        this.setState({ isOrgPressed: false });
+        this.setState({
+            isOrgPressed: false
+        });
     };
 
     render() {
@@ -44,7 +48,7 @@ export default class RegisterComponent extends React.Component {
                 <UserRegisterComponent />
                 <OrgRegisterComponent />
 
-                <div className='logo'>
+                <div className={`logo ${this.state.isOrgPressed ? 'logo_white' : 'logo_red'}`} >
                     <Logo />
                 </div>
 

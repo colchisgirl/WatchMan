@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
+import ContactForm from './ContactForm'
+
 export default class HomePageContent extends Component {
     render() {
         return (
@@ -48,17 +50,7 @@ export default class HomePageContent extends Component {
                 </section>
                 <section id="contact" className="main__contact">
                     <h2>Get In Touch</h2>
-                    <div className="main__contact__form">
-                        <form action="">
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-                            <br></br>
-                            <div className="main__contact__inputs">
-                                <input type="email" placeholder="Email" />
-                                <input type="text" placeholder="Full Name" />
-                                <input type="submit" />
-                            </div>
-                        </form>
-                    </div>
+                    <ContactForm />
                 </section>
                 <section className="main__download">
                     <h3>Let's write a little story about why we want our users to download our app.</h3>

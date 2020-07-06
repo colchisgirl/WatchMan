@@ -20,12 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('/landmarks','LandmarkController@index')->name('landmarks.index');
+Route::get('/landmarks',                'LandmarkController@index')     ->name('landmarks.index');
+Route::get('/landmarks/{landmark_id}',  'LandmarkController@show')      ->name('landmarks.show');
+
 Route::post('/user/register','Auth\RegisterController@createUser')->name('user.register');
 Route::post('/organization/register','Auth\RegisterController@createOrg')->name('organization.register');
 
 Route::group(['middleware' => ['auth:api']], function ($group) {
  
- 
- 
 });
+

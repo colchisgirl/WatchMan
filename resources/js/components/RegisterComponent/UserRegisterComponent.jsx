@@ -50,7 +50,7 @@ export default class UserRegisterComponent extends React.Component {
                     setTimeout(() => {
                         this.setState({ redirect: "/login" });
                     }, 2000)
-                //     this.props.onLoginSuccess(data.data.token);
+                    //     this.props.onLoginSuccess(data.data.token);
                 }
             });
     };
@@ -58,7 +58,7 @@ export default class UserRegisterComponent extends React.Component {
     render() {
         if (this.state.redirect) {
             return <Redirect to={this.state.redirect} />
-          }
+        }
         return (
             <div className="form_container user_sign_up_container">
                 <form
@@ -67,7 +67,7 @@ export default class UserRegisterComponent extends React.Component {
                     onSubmit={this.handleFormSubmit}
                     ref={this.formRef}
                 >
-                    <div className="successmessage">{ this.state.message }</div>
+                    <div className="successmessage">{this.state.message}</div>
 
                     <InputComponent
                         id="username"
@@ -99,7 +99,7 @@ export default class UserRegisterComponent extends React.Component {
                         errors={this.state.errors}
                     />
 
-                    <div>
+                    <div className="auth_submit_button">
                         <button type="submit">Sign Up</button>
                     </div>
                 </form>

@@ -35,7 +35,7 @@ export default class OrgRegisterComponent extends React.Component {
                 "Content-Type": "application/json"
             }
         })
-        .then(response => response.json())
+            .then(response => response.json())
             .then(data => {
                 if (data && data.errors) {
                     this.setState({
@@ -61,7 +61,7 @@ export default class OrgRegisterComponent extends React.Component {
                     ref={this.formRef}
                 >
 
-                <div className="successmessage">{ this.state.message }</div>
+                    <div className="successmessage">{this.state.message}</div>
 
                     <InputComponent
                         id="orgname"
@@ -100,7 +100,7 @@ export default class OrgRegisterComponent extends React.Component {
                         errors={this.state.errors}
                     />
 
-                    <div>
+                    <div className="auth_submit_button">
                         <button type="submit">Sign Up</button>
                     </div>
                 </form>

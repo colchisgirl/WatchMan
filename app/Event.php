@@ -10,12 +10,12 @@ class Event extends Model
 
     public function landmark() 
     {
-        return $this->belongsTo('App\Landmark', 'landmark_id');
+        return $this->belongsTo(Landmark::class);
     }
 
     public function user() 
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo(User::class);
     }
 
     public function images() 

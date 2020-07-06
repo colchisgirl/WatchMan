@@ -1,8 +1,9 @@
 
 import React from 'react';
-import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import './index.scss'
+
 import { Link } from 'react-router-dom'
+import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 
 import Sidebar from './Sidebar/Sidebar'
 
@@ -30,7 +31,7 @@ export default class Map extends React.Component {
 
     componentDidMount = () => {
 
-        fetch('http://www.watchman.test:8081/api/landmarks', {
+        fetch('/api/landmarks', {
             headers: {
                 'Accept': 'application/json', // we expect JSON as response
                 'Content-Type': 'application/json', // if we are sending something in the body, it is JSON
@@ -91,8 +92,6 @@ export default class Map extends React.Component {
                                     this.setState({
                                         selectedLandmark: landmark
                                     })
-
-                                    console.log(selectedLandmark)
                                 }}
                             >
                                 <img src={'img/' + landmark.images[0].url} alt="Skate Park Icon" />
@@ -106,9 +105,11 @@ export default class Map extends React.Component {
                             className="popup"
                             latitude={parseFloat(selectedLandmark.latitude)}
                             longitude={parseFloat(selectedLandmark.longitude)}
-                            onClose={() => {
-                                selectedLandmark(null)
-                            }}
+                        // onClose={
+                        //     this.setState({
+                        //         selectedLandmark: null
+                        //     })
+                        // }
                         >
                             <div className="landmark__popup">
                                 <div className="landmark__popup__top">
@@ -138,12 +139,13 @@ export default class Map extends React.Component {
                                 </div>
                                 <div className="landmark__popup__bottom">
 
-                                    <Link to={`/landmarks/${selectedLandmark.id}/createEvent`}>
+                                    <Link to={`/landmarks/${selectedLandmark.id}/createEvent`} params={{ testvalue: "hello" }}>
                                         Add Event
                                     </Link>
-                                    <Link to={`/landmarks/${selectedLandmark.id}`}>
+                                    <Link to={`/landmarks/${selectedLandmark.id}`} params={{ testvalue: "hello" }}>
                                         See more details...
                                     </Link>
+
 
                                 </div>
                             </div>
