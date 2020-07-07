@@ -11,6 +11,12 @@ export default class Landmark extends Component {
         }
     }
 
+    handleTrackingLandmark = () => {
+        this.setState({
+            tracked: (this.state.tracked ? false : true)
+        })
+    }
+
     render() {
         const { tracked } = this.state
         const { landmark } = this.props

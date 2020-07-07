@@ -12,10 +12,8 @@
         box-shadow: rgb(185, 185, 185) 5px 0px 15px;
     }
     &__landmark{
-        margin-left: 6rem;
-        padding: 3rem 4rem;
-        width: calc(100% - 350px - 6rem);
-        background-color: #fbfbfb;
+        padding: 3rem 6rem;
+        width: calc(100% - 350px);
     }
     &__nav{
         display: flex;
@@ -80,6 +78,7 @@
         max-width: 100%;
         box-shadow: rgb(185, 185, 185) 0px 8px 15px;
         padding:1rem 2rem 2rem;
+        margin: 2rem 0;
         >div{
             display: flex;
             flex-wrap: wrap;
@@ -121,6 +120,36 @@
     &__line{
         border: dashed #31339e34 1px;
     }
+    &__comments{
+        
+        max-width: 80%;
+        box-shadow: rgb(185, 185, 185) 0px 8px 15px;
+        padding:4rem 3rem ;
+        margin: 4rem auto;
+        // background: linear-gradient(to right, #c94143bb, #8f4748bb);
+        // .ui.header, .ui.comments .comment .text, .ui.comments .comment .author,
+        // .ui.comments .comment .metadata, .ui.comments .comment .actions a{
+        //     color: white;
+        // }
+        .ui.form textarea{
+            background-color: rgba(255, 255, 255, 0.322);
+            
+            &::placeholder{
+                color:white;
+            }
+        }
+        .ui.button{
+            background-color: transparent;
+            border-radius: 20px;
+            border: 2px solid #eb8e8f;
+            color: #8f4748;
+        }
+        textarea{
+           
+                resize: none;
+            
+        }
+    }
 }
 
 
@@ -137,4 +166,43 @@ button{
     border: none;
     padding: 10px 15px;
     border-radius: 10px;
+}
+
+
+// create a new event form 
+.event__container__create-form{
+    margin: 4rem auto;
+    padding: 4rem ;
+    width: 35rem;
+    background-color: rgb(236, 236, 236);
+    h2{
+        text-align: center;
+    }
+    label{
+        width: 100%;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        >*{
+            margin: 1rem 0rem;
+        }
+    }
+    input[type="submit"]{
+        border-radius: 20px;
+        border: 1px solid #eb8e8f;
+        background-color: #eb8e8f;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        width: 10rem;
+        margin: auto;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+}
+
+.activeLink div{
+    background-color: #f6e9e9;
 }

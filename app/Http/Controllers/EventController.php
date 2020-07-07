@@ -8,38 +8,27 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public function index()
-    {
-
-        $events = Event::all();
-
-        return view('events.index', compact('events'));
-    }
 
     public function show($event_id)
     {
-        $event = Event::findOrFail($event_id);
+        $event = Event::with('images')->findOrFail($event_id);
 
-        return view('events.show', compact('event'));
+        return $event;
     }
 
-    public function create() 
-    {
-        return view('events.create');
-    }
 
-    public function store(Request $request)
+    public function create(Request $request)
     {
         $event = new Event;
         $event->title = $request->input('title');
         $event->description = $request->input('description');
-        $event->landmark_id = 1;
-        $event->user_id = \Auth::id();
-        $event->alarm = 0;
+        $event->landmark_id = $request->input('landmark_id');
+        $event->user_id = 1;
+        $event->alarm = 1;
 
         $event->save();
-
-        return redirect()->action('EventController@index');
+ 
+        return Event::where('title', $request->input('title'))->get();
 
     }
 

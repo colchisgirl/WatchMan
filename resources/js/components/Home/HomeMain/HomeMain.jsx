@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import ContactForm from './ContactForm'
 import LogoutComponent from '../../LoginComponent/LogoutComponent';
 
-export default class HomePageContent extends Component {
+export default class HomeMain extends Component {
     render() {
         return (
             <main className="main">
