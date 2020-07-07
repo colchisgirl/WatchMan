@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import ContactForm from './ContactForm'
+import LogoutComponent from '../../LoginComponent/LogoutComponent';
 
 export default class HomePageContent extends Component {
     render() {
@@ -20,7 +21,7 @@ export default class HomePageContent extends Component {
                     <h2>Main Features</h2>
                     <div className="main__features__container">
                         <div className="main__features__column">
-                            <div className="main__features__content" v>
+                            <div className="main__features__content">
                                 <h4>Get notifications on your email/phone</h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis esse voluptatem vero debitis quisquam animi!</p>
                             </div>
@@ -38,7 +39,7 @@ export default class HomePageContent extends Component {
                             </div>
                         </div>
                         <div className="main__features__column">
-                            <div className="main__features__content" v>
+                            <div className="main__features__content">
                                 <h4>Get notifications on your email/phone</h4>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis esse voluptatem vero debitis quisquam animi!</p>
                             </div>

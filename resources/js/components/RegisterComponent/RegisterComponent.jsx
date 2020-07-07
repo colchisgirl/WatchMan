@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./RegisterComponent.scss";
 import UserRegisterComponent from "./UserRegisterComponent.jsx";
 import OrgRegisterComponent from "./OrgRegisterComponent.jsx";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Logo from '../Logo.jsx';
 
 export default class RegisterComponent extends React.Component {
@@ -12,6 +12,7 @@ export default class RegisterComponent extends React.Component {
         this.state = {
             render: "",
             isOrgPressed: false
+
         };
     }
     // handleClick(compName) {
@@ -40,7 +41,13 @@ export default class RegisterComponent extends React.Component {
     };
 
     render() {
+
+        if (this.props.state.user) {
+            return <Redirect to="/" />;
+        }
+
         return (
+
             <div
                 className={`register_container ${this.state.isOrgPressed ? 'right_panel_active' : ''}`}
                 id="container"

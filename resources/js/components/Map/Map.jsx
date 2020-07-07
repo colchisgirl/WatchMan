@@ -35,7 +35,6 @@ export default class Map extends React.Component {
             headers: {
                 'Accept': 'application/json', // we expect JSON as response
                 'Content-Type': 'application/json', // if we are sending something in the body, it is JSON
-                'Authorization': 'Bearer ' + this.props.token
             }
         })
             .then(response => {

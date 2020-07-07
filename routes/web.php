@@ -1,21 +1,49 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 
-Route::view('/', 'welcome');
-Route::view('/map', 'welcome');
+Route::view('/', 'welcome');
+Route::view('/map', 'welcome');
 Route::view('/landmarks/{landmark_id}', 'welcome');
-Route::view('/landmarks/{landmark_id}/createEvent', 'welcome');
-Route::view('/landmarks/{landmark_id}/{event_id}', 'welcome');
+Route::view('/landmarks/{landmark_id}/createEvent', 'welcome');
+Route::view('/landmarks/{landmark_id}/{event_id}', 'welcome');
 
 Route::view('/register', 'welcome');
+Route::view('/login', 'welcome');
+
+Route::prefix('api')->group(function () {
+
+    // API routes go here
+
+    Route::namespace('Auth')->group(function () {
+        Route::post('/login', 'LoginController@login');
+        Route::post('/logout', 'LoginController@logout');
+    });
+
+    Route::get('/landmarks',                'LandmarkController@index')->name('landmarks.index');
+    Route::get('/landmarks/{landmark_id}',  'LandmarkController@show')->name('landmarks.show');
+
+    Route::post('/user/register', 'Auth\RegisterController@createUser')->name('user.register');
+    Route::post('/organization/register', 'Auth\RegisterController@createOrg')->name('organization.register');
+
+    Route::group(['middleware' => ['auth:web']], function () {
+
+        // API routes with authentication go here
+
+        Route::get('/user', function (Request $request) {
+            return $request->user();
+        });
+    });
+});
 
 
 // Authentication routing
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Landmarks routing
@@ -35,13 +63,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Events routing
 
-Route::get('/events',                   'EventController@index')    ->name('events.index');
-Route::get('/events/{event_id}',         'EventController@show')     ->name('events.show')->where('event_id', '[0-9]+');
+Route::get('/events',                   'EventController@index')->name('events.index');
+Route::get('/events/{event_id}',         'EventController@show')->name('events.show')->where('event_id', '[0-9]+');
 
-Route::get('/events/create',            'EventController@create')   ->name('events.create');
-Route::post('/events',                  'EventController@store')     ->name('events.store');
-Route::get('/events/{event_id}/edit',   'EventController@edit')     ->name('events.edit')->where('event_id', '[0-9]+');
-Route::put('/events/{event_id}',        'EventController@update')   ->name('events.update')->where('event_id', '[0-9]+');
+Route::get('/events/create',            'EventController@create')->name('events.create');
+Route::post('/events',                  'EventController@store')->name('events.store');
+Route::get('/events/{event_id}/edit',   'EventController@edit')->name('events.edit')->where('event_id', '[0-9]+');
+Route::put('/events/{event_id}',        'EventController@update')->name('events.update')->where('event_id', '[0-9]+');
 
 Route::delete('/events/{event_id}/delete', 'EventController@deleteEvent')->name('events.deleteEvent');
 

@@ -17,7 +17,7 @@
         <form action="{{ action('EventController@deleteEvent', $event->id)}}" method="post">
             @method('delete')
             @csrf
-            <input type="hidden" name="event_id" value="{{ $event->id}}">
+            <input type="hidden" name="event_id" value="{{ $event->id }}">
             <input type="submit" value="Delete">
         </form>
     @endcan

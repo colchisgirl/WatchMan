@@ -18,7 +18,6 @@ export default class LoginButtonComponent extends React.Component {
                 : ( 
                     <a href='http://watchman.test:8081/login'>
                       <button>Login</button>
-                     
                     </a>
                   )
             }

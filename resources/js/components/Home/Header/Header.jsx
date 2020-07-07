@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 
-import NavItem from './NavItem'
-import Logo from '../../Logo'
+import NavItem from './NavItem';
+import Logo from '../../Logo';
+
+import LogoutComponent from '../../LoginComponent/LogoutComponent';
 
 
 export default class Header extends Component {
@@ -13,8 +15,17 @@ export default class Header extends Component {
                     <ul className="header__nav__list">
                         <NavItem title="Home" path="/" />
                         <NavItem title="Contact" path="/#contact" />
-                        <NavItem title="Login" path="/login" />
-                        <NavItem title="Register" path="/register" />
+                        {
+                            this.props.state.user ?
+                            <LogoutComponent state={this.props.state} /> :
+                            (
+                                <>
+                                <NavItem title="Login" path="/login" />
+                                <NavItem title="Register" path="/register" />
+                                </>
+                            )
+  
+                        }
                     </ul>
                 </nav>
 

@@ -14,19 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
-Route::post('/login', 'Auth\LoginController@login');
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::get('/landmarks',                'LandmarkController@index')     ->name('landmarks.index');
-Route::get('/landmarks/{landmark_id}',  'LandmarkController@show')      ->name('landmarks.show');
+// Route::post('/login', 'Auth\LoginController@login');
+// Route::post('/logout', 'Auth\LoginControlller@logout');
 
-Route::post('/user/register','Auth\RegisterController@createUser')->name('user.register');
-Route::post('/organization/register','Auth\RegisterController@createOrg')->name('organization.register');
+// Route::get('/landmarks',                'LandmarkController@index')->name('landmarks.index');
+// Route::get('/landmarks/{landmark_id}',  'LandmarkController@show')->name('landmarks.show');
 
-Route::group(['middleware' => ['auth:api']], function ($group) {
- 
-});
+Route::post('/user/register', 'Auth\RegisterController@createUser')->name('user.register');
+Route::post('/organization/register', 'Auth\RegisterController@createOrg')->name('organization.register');
 
+// Route::group(['middleware' => ['auth:api']], function ($group) {
+    
+// });

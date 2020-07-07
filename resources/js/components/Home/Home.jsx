@@ -9,7 +9,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className="home__container" >
-                <Header />
+                <Header state={this.props.state} />
 
                 <HomeMain />
 

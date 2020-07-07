@@ -1,6 +1,6 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import LoginForm from './LoginForm';
-import Map from '../Map/Map';
 
 
 export default class LoginFormComponent extends React.Component {
@@ -9,43 +9,38 @@ export default class LoginFormComponent extends React.Component {
 
         this.state = {
             logged_in: null,
-            token: window.localStorage.getItem('_token') // get the initial value of the token from the browser's storage
+            user: null
         }
     }
 
     componentDidMount() {
-        // change the state to reflect existence of a token
         // UPGRADE: we should check the value against another
         //          API endpoint to see if it is valid
         this.setState({
-            logged_in: this.state.token !== null
-        })
+            logged_in: this.state.user !== null
+        });
     }
 
-    onLoginSuccess = (token) => {
- 
-        // store the token in the browser's storage
-        window.localStorage.setItem('_token', token)
+    onLoginSuccess = (data) => {
      
         // change the current state of this App to reflect
         // that we are logged-in
         this.setState({
-            logged_in: false,
-            token: token
-        })
+            logged_in: true,
+            user: data.user
+        });
+        this.props.state.updateUser(data.user);
     }
 
     onFailedAuthentication = () => {
 
-        // remove the token from the browser's storage
-        window.localStorage.removeItem('_token');
-
         // change the current state of this App to reflect
-        // that we don't have a good token (we are not logged-in)
+        // that we are not logged-in
         this.setState({
             logged_in: false,
-            token: null
-        })
+            user: null
+        });
+        this.props.state.updateUser(null);
     }
 
     render() {
@@ -70,10 +65,7 @@ export default class LoginFormComponent extends React.Component {
                         (
                             this.state.logged_in 
                             ?
-                            <Map 
-                                token={ this.state.token } 
-                                onFailedAuthentication={ this.onFailedAuthentication }
-                            />
+                            <Redirect to="/map" />
                             :
                             <LoginForm onLoginSuccess={ this.onLoginSuccess } />
                         )
