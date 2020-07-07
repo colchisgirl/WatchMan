@@ -13,8 +13,7 @@
     display: inline-block;
 }
 .home__container{
-    width: 100vw;
-    
+    width: 100vw;   
     background: linear-gradient(rgba(255, 255, 255, 0.692), #d14545) no-repeat;
     background-size: contain;
     padding: 1rem 4rem;
@@ -117,9 +116,11 @@ section h2{
                 color: rgb(219, 219, 219);     
                 background-color: rgba(53, 53, 53, 0.678);
                 padding: 8px 12px;
-                width: 8rem;
                 margin: 10px;
-                border-radius: 15px
+                border-radius: 20px;
+                border: 1px solid #eb8e8f;
+                background-color: transparent;
+                color: #6b0606;
             }
                 }
     }

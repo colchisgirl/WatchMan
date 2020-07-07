@@ -23,6 +23,10 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/landmarks',                'LandmarkController@index')     ->name('landmarks.index');
 Route::get('/landmarks/{landmark_id}',  'LandmarkController@show')      ->name('landmarks.show');
 
+Route::post('/events/create',  'EventController@create')->name('events.create');
+
+Route::get('/events/{event_id}', 'EventController@show');
+
 Route::post('/user/register','Auth\RegisterController@createUser')->name('user.register');
 Route::post('/organization/register','Auth\RegisterController@createOrg')->name('organization.register');
 

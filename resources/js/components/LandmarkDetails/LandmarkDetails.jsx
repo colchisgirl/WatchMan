@@ -23,6 +23,7 @@ export default class LandmarkDetails extends Component {
 
     componentDidMount = () => {
         const { landmark_id } = this.props.match.params
+        console.log(landmark_id);
 
         fetch(`/api/landmarks/${landmark_id}`, {
             headers: {
@@ -47,25 +48,16 @@ export default class LandmarkDetails extends Component {
             })
     }
 
-    handleTrackingLandmark = () => {
-        this.setState({
-            tracked: (this.state.tracked ? false : true)
-        })
-    }
-
     render() {
 
-        const { landmark, options, tracked } = this.state
+        const { landmark } = this.state
 
         return (
             <div className="ldetails__container">
 
-                <div className="ldetails__container__logo">
-                    <Logo />
-                </div>
-
                 <div className="ldetails__container__landmark">
                     <nav className="ldetails__container__nav">
+                        <Logo />
                         <ul>
                             <li>Dashboard</li>
                             <li>Profile</li>
@@ -81,12 +73,9 @@ export default class LandmarkDetails extends Component {
                         <Route exact path="/landmarks/:landmark_id">
                             <Landmark landmark={landmark} />
                         </Route>
-                        <Route path="/landmarks/:landmark_id/:event_id">
-                            <Event landmark={landmark} />
-                        </Route>
-                        <Route path="/landmarks/:landmark_id/createEvent">
-                            <CreateEvent />
-                        </Route>
+                        <Route path="/landmarks/:landmark_id/createEvent" component={CreateEvent} />
+                        <Route path="/landmarks/:landmark_id/:event_id" component={Event} />
+
                     </Switch>
                 </div>
                 <Sidebar data={landmark} />
