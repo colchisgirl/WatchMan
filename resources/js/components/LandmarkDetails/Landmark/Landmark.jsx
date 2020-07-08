@@ -46,7 +46,6 @@ export default class Landmark extends Component {
                     </div>
                     <div className="ldetails__container__images">
                         <h3>Images</h3>
-                        {console.log(landmark.images)}
                         <div>
                             {/* {landmark.images?.map((image) => {
                                     return (

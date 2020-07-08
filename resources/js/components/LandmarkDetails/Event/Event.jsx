@@ -3,20 +3,23 @@ import React, { Component } from 'react'
 import CommentsSection from '../Comments/Comments'
 
 import { Link } from 'react-router-dom'
+import FileUploadComponent from '../../FileUploadComponent';
 
 export default class Event extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            event: []
+            event: [],
+            title: "",
+            description: "",
+            user: ""
 
         }
     }
 
     componentDidMount = () => {
         const { event_id } = this.props.match.params
-        console.log(event_id);
 
         fetch(`/api/events/${event_id}`, {
             headers: {
@@ -30,8 +33,12 @@ export default class Event extends Component {
                     response.json()
                         .then(data => {
                             this.setState({
-                                event: data
+                                event: data,
+                                title: data.title,
+                                description: data.description,
+
                             })
+                            // console.log(this.state.title);
                         })
                 } else {
                     if (response.status === 401) {
@@ -43,7 +50,9 @@ export default class Event extends Component {
 
 
     render() {
+
         const { event } = this.state
+        // console.log(this.props.match.params)
 
         return (
             <>
@@ -56,23 +65,20 @@ export default class Event extends Component {
                     <p>{event.description}</p>
                     <div className="ldetails__container__extra">
                     </div>
+                    { event.images && event.images.length ? 
                     <div className="ldetails__container__images">
                         <h3>Images</h3>
-                        {console.log(event.images)}
                         <div>
-                            {event.images?.map((image) => {
+                            {event.images?.map((image, i) => {
                                 return (
-                                    <div class="gallery-item">
-                                        <img src={`/img/${image.url}`} />
+                                    <div className="gallery-item" key={i}>
+                                        <img className="gallery-image" src={image.url} />
                                     </div>
                                 )
                             })}
-                            <div className="gallery-item"><img className="gallery-image" src={`/img/rustaveli_54.jpg`} /></div>
-                            <div className="gallery-item"><img className="gallery-image" src={`/img/rome_4.jpg`} /></div>
-                            <div className="gallery-item"><img className="gallery-image" src={`/img/giorgi_mazniashvili_16.jpg`} /></div>
-
                         </div>
-                    </div>
+                    </div> :
+                    null }
                     <CommentsSection />
                 </div>
             </>

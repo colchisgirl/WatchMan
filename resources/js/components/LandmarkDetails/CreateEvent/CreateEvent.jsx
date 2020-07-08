@@ -1,6 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+import FileUploadComponent from '../../FileUploadComponent';
 
 import TextField from '@material-ui/core/TextField';
+import { Link, Redirect } from "react-router-dom";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 export default class CreateEvent extends Component {
@@ -11,15 +14,15 @@ export default class CreateEvent extends Component {
             title: '',
             description: '',
             alarm: false,
-            landmark_id: this.props.match.params.landmark_id
-
+            landmark_id: this.props.match.params.landmark_id,
+            event_id: null
         }
     }
 
-    handleCreateEventSubmit = (event) => {
-        event.preventDefault();
+    handleCreateEventSubmit = async (e) => {
+        e.preventDefault();
 
-        fetch('/api/events/create', {
+        const response = await fetch('/api/events/create', {
             method: 'POST',
             body: JSON.stringify({
                 title: this.state.title,
@@ -33,13 +36,31 @@ export default class CreateEvent extends Component {
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 'Authorization': 'Bearer ' + this.props.token
             }
-        })
-            .then(this.props.history.push(`/landmarks/${this.state.newEvent.landmark_id}`))
+        });
+
+        const event = await response.json();
+        this.setState({
+            event_id: event.id
+        });
+
     }
 
 
     render() {
+
+        if (!this.props.state.user) {
+            return <Redirect to="/login" />;
+        }
+
         return (
+            this.state.event_id 
+            ?
+            <>
+            <h2>Event created! You can add a photo to event now.</h2>
+            <FileUploadComponent {...this.props} {...this.state} />
+            <Link to={`/landmarks/${this.state.landmark_id}/${this.state.event_id}`}><button>Take me to the event</button></Link>
+            </>
+            :
             <div className="event__container__create-form">
                 <h2>Create a new event</h2>
                 <form onSubmit={this.handleCreateEventSubmit}>
@@ -57,7 +78,7 @@ export default class CreateEvent extends Component {
                         onChange={(e) => { this.setState({ description: e.target.value }) }}
                         variant="outlined" />
 
-                    <input type="submit" value="Submit" />
+                    <input type="submit" value="Submit"/>
                 </form>
             </div>
         )

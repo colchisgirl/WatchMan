@@ -1,49 +1,67 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Map from '../Map/Map.jsx';
-import Home from '../Home/Home';
-import RegisterComponent from '../RegisterComponent/RegisterComponent';
-import LoginFormComponent from '../LoginComponent/LoginFormComponent';
+import Map from "../Map/Map.jsx";
+import Home from "../Home/Home";
+import RegisterComponent from "../RegisterComponent/RegisterComponent";
+import LoginFormComponent from "../LoginComponent/LoginFormComponent";
 
-import LandmarkDetails from '../LandmarkDetails/LandmarkDetails';
+import LandmarkDetails from "../LandmarkDetails/LandmarkDetails";
+import CreateEvent from "../LandmarkDetails/CreateEvent/CreateEvent";
+import Event from "../LandmarkDetails/Event/Event";
 
 export default class AppComponent extends React.Component {
-
-    updateUser = (user) => {
+    updateUser = user => {
         this.setState({ user: user });
         if (user) {
-            user = typeof user === 'string' ? user : JSON.stringify(user);
-            window.localStorage.setItem('_user', user);
+            user = typeof user === "string" ? user : JSON.stringify(user);
+            window.localStorage.setItem("_user", user);
         } else {
-            window.localStorage.removeItem('_user');
+            window.localStorage.removeItem("_user");
         }
     };
 
     state = {
-        user: null,
+        user: window.localStorage.getItem("_user") || null,
         updateUser: this.updateUser
-    };
-
-    componentDidMount = () => {
-        this.setState({
-            user: window.localStorage.getItem('_user') || null
-        });
     };
 
     render() {
         return (
-            <Router> 
-            {/* anything before switch wil be shared among pages  */}
+            <Router>
+                {/* anything before switch wil be shared among pages  */}
                 <Switch>
                     <Route exact path="/">
                         <Home state={this.state} />
                     </Route>
-                    <Route path="/map" component={Map}></Route>
-                    <Route path="/landmarks/:landmark_id" component={LandmarkDetails} />
-                    
+
+                    <Route path="/map">
+                        <Map state={this.state} />
+                    </Route>
+
+                    <Route exact
+                        path="/landmarks/:landmark_id"
+                        component={props => (
+                            <LandmarkDetails {...props} state={this.state} />
+                        )}
+                    />
+
+                    <Route
+                        path="/landmarks/:landmark_id/createEvent"
+                        component={props => (
+                            <CreateEvent {...props} state={this.state} />
+                        )}
+                    />
+
+                    <Route
+                        path="/landmarks/:landmark_id/:event_id"
+                        component={props => (
+                            <Event {...props} state={this.state} />
+                        )}
+                    />
+
                     <Route path="/register">
-                        <RegisterComponent state={this.state}/>
+                        <RegisterComponent state={this.state} />
                     </Route>
 
                     <Route path="/login">

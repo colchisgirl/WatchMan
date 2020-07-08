@@ -23,15 +23,15 @@ if (!mix.inProduction()) {
 }
 
 mix.react('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/app.scss', 'public/css');
 
-    .browserSync({
-        host: 'localhost',
-        port: 3000,
-        proxy: {
-            target: process.env.APP_URL // Yay! Using APP_URL from the .env file!
-        }
-    });
+    // .browserSync({
+    //     host: 'localhost',
+    //     port: 3000,
+    //     proxy: {
+    //         target: process.env.APP_URL // Yay! Using APP_URL from the .env file!
+    //     }
+    // });
 
 // add versioning 
 mix.version();

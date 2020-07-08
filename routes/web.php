@@ -26,8 +26,11 @@ Route::prefix('api')->group(function () {
     Route::get('/landmarks',                'LandmarkController@index')->name('landmarks.index');
     Route::get('/landmarks/{landmark_id}',  'LandmarkController@show')->name('landmarks.show');
 
+
     Route::post('/user/register', 'Auth\RegisterController@createUser')->name('user.register');
     Route::post('/organization/register', 'Auth\RegisterController@createOrg')->name('organization.register');
+
+    Route::get('/events/{event_id}', 'EventController@show');
 
     Route::group(['middleware' => ['auth:web']], function () {
 
@@ -36,6 +39,10 @@ Route::prefix('api')->group(function () {
         Route::get('/user', function (Request $request) {
             return $request->user();
         });
+
+        Route::post('/events/create',  'EventController@create')->name('events.create');
+
+        Route::resource('fileupload', 'ImageController');
     });
 });
 
