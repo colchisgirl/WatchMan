@@ -19,7 +19,7 @@ class LandmarkController extends Controller
     public function show($landmark_id)
     {
         $id =intval($landmark_id);
-        $landmark = Landmark::with('images', 'events', 'user')->findOrFail($id);
+        $landmark = Landmark::with('images', 'events', 'user')->findOrFail($id);
         
         return $landmark;
     }

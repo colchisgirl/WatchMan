@@ -79,7 +79,7 @@ export default class Details extends Component {
                 </div>
                 < Sidebar data={landmark} />
 
-            </div >
+            </div>
         )
     }
 }
