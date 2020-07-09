@@ -38,7 +38,6 @@ export default class Event extends Component {
                                 description: data.description,
 
                             })
-                            // console.log(this.state.title);
                         })
                 } else {
                     if (response.status === 401) {
@@ -52,7 +51,6 @@ export default class Event extends Component {
     render() {
 
         const { event } = this.state
-        // console.log(this.props.match.params)
 
         return (
             <>

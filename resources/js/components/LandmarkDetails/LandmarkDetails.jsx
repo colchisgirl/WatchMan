@@ -65,16 +65,19 @@ export default class LandmarkDetails extends Component {
                         </div>
                     </nav>
                     <Switch>
-                        <Route path="/landmarks/:landmark_id/:event_id">
-                            <Event {...this.props} />
-                        </Route>
-                        
-                        <Route exact path="/landmarks/:landmark_id">
-                            <Landmark landmark={landmark} />
-                        </Route>
 
-                        <Route path="/landmarks/:landmark_id/createEvent">
-                            <CreateEvent {...this.props} />
+                        <Route
+                            path="/landmarks/:landmark_id/createEvent">
+                                <CreateEvent {...this.props} />
+                            </Route>
+
+                        <Route
+                            path="/landmarks/:landmark_id/:event_id"
+                            component={props => <Event {...props} />}
+                        />
+
+                        <Route path="/landmarks/:landmark_id">
+                            <Landmark landmark={landmark} />
                         </Route>
                     </Switch>
                 </div>

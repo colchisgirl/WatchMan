@@ -11,7 +11,6 @@ export default class FileUploadComponent extends React.Component {
           user_id: this.props.user_id,
           event_id: this.props.event_id
         }
-        console.log(this.props);
       }
 
       onFormSubmit = (e) => {
@@ -32,10 +31,7 @@ export default class FileUploadComponent extends React.Component {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
-        }).then(response => console.log(response));
-
-        // return  post(url, formData)
-        //         .then(response => console.log(response))
+        });
       }
 
       

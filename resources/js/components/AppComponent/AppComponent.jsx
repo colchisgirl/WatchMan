@@ -39,24 +39,10 @@ export default class AppComponent extends React.Component {
                         <Map state={this.state} />
                     </Route>
 
-                    <Route exact
+                    <Route
                         path="/landmarks/:landmark_id"
                         component={props => (
                             <LandmarkDetails {...props} state={this.state} />
-                        )}
-                    />
-
-                    <Route
-                        path="/landmarks/:landmark_id/createEvent"
-                        component={props => (
-                            <CreateEvent {...props} state={this.state} />
-                        )}
-                    />
-
-                    <Route
-                        path="/landmarks/:landmark_id/:event_id"
-                        component={props => (
-                            <Event {...props} state={this.state} />
                         )}
                     />
 

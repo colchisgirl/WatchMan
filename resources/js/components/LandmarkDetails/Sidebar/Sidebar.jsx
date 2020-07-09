@@ -37,7 +37,7 @@ export default class Sidebar extends React.Component {
                             <p>No events</p>
                         )}
                 </div>
-            </div >
+            </div>
         );
     }
 
