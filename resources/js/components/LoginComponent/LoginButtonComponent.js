@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 export default class LoginButtonComponent extends React.Component {
     render() {
         const isLoggedIn = this.state.isLoggedIn;
-
-        console.log('here');
       
         return (
           <div>

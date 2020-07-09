@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Map from '../Map/Map.jsx';
 import Home from '../Home/Home';
@@ -19,24 +19,19 @@ export default class AppComponent extends React.Component {
         };
     }
 
-
     updateUser = (user) => {
         this.setState({ user: user });
         if (user) {
             user = typeof user === "string" ? user : JSON.stringify(user);
             window.localStorage.setItem('_user', user);
-        } else {
-            window.localStorage.removeItem('_user');
         }
-    };
-
-
+    }
 
     componentDidMount = () => {
         this.setState({
             user: JSON.parse(window.localStorage.getItem('_user')) || null
-        });
-    };
+        })
+    }
 
     render() {
         console.log('app state', this.state);
@@ -58,6 +53,12 @@ export default class AppComponent extends React.Component {
                     </Route>
 
                     <Route path="/landmarks/:landmark_id" component={Details} />
+                    <Route
+                        path="/landmarks/:landmark_id"
+                        component={props => (
+                            <LandmarkDetails {...props} state={this.state} />
+                        )}
+                    />
 
                     <Route path="/register">
                         <RegisterComponent state={this.state} />
@@ -72,3 +73,4 @@ export default class AppComponent extends React.Component {
         );
     }
 }
+

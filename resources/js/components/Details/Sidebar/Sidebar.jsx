@@ -25,8 +25,9 @@ export default class Sidebar extends React.Component {
                 </div>
                 <div id='listings' className='listings'>
                     {data.events !== [] ? (
-                        data.events?.map((event) => (
-                            <NavLink to={`/landmarks/${data.id}/${event.id}`} activeClassName="activeLink">
+                        data.events?.map((event, i) => (
+                        
+                            <NavLink to={`/landmarks/${data.id}/${event.id}`} activeClassName="activeLink" key={i}>
                                 <div className="item">
                                     <h3 className="item__title">{event.title}</h3>
                                 </div>
@@ -36,7 +37,7 @@ export default class Sidebar extends React.Component {
                             <p>No events</p>
                         )}
                 </div>
-            </div >
+            </div>
         );
     }
 

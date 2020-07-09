@@ -19,17 +19,23 @@ class EventController extends Controller
 
     public function create(Request $request)
     {
+
+        $request->validate([
+            'landmark_id' => 'required|exists:landmarks,id',
+            'title' => 'required',
+            'description' => 'required'
+        ]);
+
         $event = new Event;
         $event->title = $request->input('title');
         $event->description = $request->input('description');
-        $landmark_id = $request->input('landmark_id');
-        $event->landmark_id = $landmark_id;
-        $event->user_id = 1;
+        $event->landmark_id = $request->input('landmark_id');
+        $event->user_id = $request->user()->id;
         $event->alarm = 1;
 
         $event->save();
  
-        return Landmark::with('events', 'images')->findOrFail($landmark_id)->get();
+        return $event;
 
     }
 
