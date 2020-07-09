@@ -93,6 +93,10 @@ button{
     
   }
   &__title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     h2 {
       font-size: 2rem;
     }
@@ -134,12 +138,59 @@ button{
  font-size: 1.2rem;
 }
 
+//map containers/settings
+
+.map__container__buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 20rem 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 10px;
+  color: rgb(95, 95, 95);
+  background-color: #ffffff;
+  
+  >*{
+    padding: 0.5rem 1rem;
+    color: rgb(95, 95, 95);
+  }
+  .map__container__user{
+    flex:3;
+    background: none;
+  }
+  .mapboxgl-ctrl-group{
+    flex:1;
+    border: none;
+    box-shadow: none;
+    background: none;
+  }
+  .mapboxgl-marker.mapboxgl-user-location-dot{
+    position: fixed !important;
+  }
+}
+
+
+
 
 /* sibebar styling */
+.map__container{
+  display: flex;
+  flex-direction: row;
+  
+    .searchbar{
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  
+}
 
 .sidebar {
-  position: absolute;
-  width: 350px;
+  
+  width: 30%;
   height: 100vh;
   top: 0;
   left: 0;
@@ -168,7 +219,8 @@ button{
 
 .listings {
   overflow: auto;
-  padding-bottom: 60px;
+
+    height: 85%;
 }
 
 .listings .item {
@@ -202,19 +254,7 @@ button{
 }
 
 ::-webkit-scrollbar {
-  width: 3px;
-  height: 3px;
-  border-left: 0;
-  background: rgba(0, 0, 0, 0.1);
-}
-
-::-webkit-scrollbar-track {
-  background: none;
-}
-
-::-webkit-scrollbar-thumb {
-  background: grey;
-  border-radius: 0;
+  display: none;
 }
 
 .clearfix { display: block; }

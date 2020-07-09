@@ -7,9 +7,8 @@ export default class LoginForm extends React.Component {
 
         this.state = {
             email: '',
-            password: '',
-            errors: []
-        }  
+            password: ''
+        }
     }
 
     handleEmailChange = (event) => {
@@ -31,40 +30,43 @@ export default class LoginForm extends React.Component {
             method: 'POST',
             body: JSON.stringify(this.state),
             headers: {
-                'Accept':       'application/json',
+                'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                this.props.onLoginSuccess(data.data)
-            }
-        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    console.log('logindata', data);
+                    this.props.onLoginSuccess(data.data)
+                }
+            })
     }
 
     render() {
+        console.log(this.state.email)
+        console.log(this.state.password)
         return (
-            <form action="" onSubmit={ this.handleFormSubmit }>
+            <form action="" onSubmit={this.handleFormSubmit}>
 
-                <input 
-                    type="email" 
-                    name="email" 
-                    placeholder="email" 
-                    onChange={ this.handleEmailChange } 
-                    value={ this.state.email }
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="email"
+                    onChange={this.handleEmailChange}
+                    value={this.state.email}
                 />
-                <br/>
+                <br />
 
-                <input 
-                    type="password" 
-                    name="password" 
-                    placeholder="password" 
-                    onChange={ this.handlePasswordChange } 
-                    value={ this.state.password }
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    onChange={this.handlePasswordChange}
+                    value={this.state.password}
                 />
-                <br/>
+                <br />
 
                 <input type="submit" value="log in" />
 

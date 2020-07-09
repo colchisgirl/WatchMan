@@ -1,0 +1,63 @@
+.container__dashboard{
+    padding: 3rem 4rem;
+    main{
+        margin: 4rem 0;
+    }
+    &__content { 
+        width: 100%;   
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__main{
+        width: 65%;
+        margin-bottom: 4rem;
+        section:not(:first-child){
+            margin: 2rem 0;
+            padding: 5rem;
+            background-color: white;
+            box-shadow: rgb(185, 185, 185) 0px 8px 15px;
+        }
+    }
+    &__userInfo {
+    text-align:left;
+    }
+    &__userInfoDiv{
+        display: flex;
+        flex-direction: row;
+        >*{
+            padding-right:1.5rem ;
+        }
+    }
+    &__landmarks{
+
+    }
+    &__aside {
+        width: 30%;
+        background-color: white;
+        box-shadow: rgb(185, 185, 185) 0px 8px 15px;
+        section{
+            margin: 2rem 0;
+            padding: 3rem;
+        }
+    }
+    &__nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ul{
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+        li{
+            list-style: none;
+            padding: 1rem 3rem 1rem 0;
+            
+        }
+    }
+    &__user{
+        display: flex;
+        flex-direction: row;
+    }
+}

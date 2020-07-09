@@ -28,7 +28,7 @@ class LandmarkController extends Controller
 
         $landmarks = Landmark::where('user_id', \Auth::id())->get();
 
-        return view('landmarks.myLandmarks', compact('landmarks'));
+        return $landmarks;      
     }
 
     public function create() 

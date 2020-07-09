@@ -11,7 +11,7 @@ class EventController extends Controller
 
     public function show($event_id)
     {
-        $event = Event::with('images')->findOrFail($event_id);
+        $event = Event::with('images', 'landmark')->findOrFail($event_id);
 
         return $event;
     }
@@ -22,13 +22,14 @@ class EventController extends Controller
         $event = new Event;
         $event->title = $request->input('title');
         $event->description = $request->input('description');
-        $event->landmark_id = $request->input('landmark_id');
+        $landmark_id = $request->input('landmark_id');
+        $event->landmark_id = $landmark_id;
         $event->user_id = 1;
         $event->alarm = 1;
 
         $event->save();
  
-        return Event::where('title', $request->input('title'))->get();
+        return Landmark::with('events', 'images')->findOrFail($landmark_id)->get();
 
     }
 

@@ -3,9 +3,13 @@ import React from 'react';
 import './index.scss'
 
 import { Link } from 'react-router-dom'
-import ReactMapGL, { Marker, Popup } from 'react-map-gl'
+import 'mapbox-gl/dist/mapbox-gl.css'
+import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
+import ReactMapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl'
+import Geocoder from 'react-map-gl-geocoder'
 
 import Sidebar from './Sidebar/Sidebar'
+import UserDropdown from '../UserDropdown'
 
 const MAPBOX_TOKEN = "pk.eyJ1IjoieWFuZWtrcmlzIiwiYSI6ImNrYnoxODl2aTBqbzEycm1yaW03NzdkM3AifQ.37oJsDI3o7haiPOyTBeg8w"
 
@@ -18,7 +22,7 @@ export default class Map extends React.Component {
             viewport: {
                 latitude: 41.702605,
                 longitude: 44.790558,
-                width: '100vw',
+                width: '70%',
                 height: '100vh',
                 zoom: 13
             },
@@ -59,24 +63,66 @@ export default class Map extends React.Component {
         this.setState({ mounted: true })
     }
 
+    mapRef = React.createRef()
+
+    handleViewportChange = (viewport) => {
+        this.setState({
+            viewport: { ...this.state.viewport, ...viewport }
+        })
+    }
+
+    handleGeocoderViewportChange = (viewport) => {
+        const geocoderDefaultOverrides = { transitionDuration: 1000 }
+
+        return this.handleViewportChange({
+            ...viewport,
+            ...geocoderDefaultOverrides
+        })
+    }
 
 
     render() {
         const { selectedLandmark, data, viewport, mounted } = this.state
 
+        const userDropdown = (this.props.state.user ? (
+            <UserDropdown state={this.props.state} />
+        ) : (
+                null
+            )
+        )
+
         return (
-            <>
+            <div className="map__container">
                 <Sidebar data={data} />
 
                 <ReactMapGL
-                    className="pes"
+                    ref={this.mapRef}
                     {...viewport}
                     onViewportChange={(viewport) => {
                         if (mounted) { this.setState({ viewport }) }
                     }}
-                    mapStyle="mapbox://styles/yanekkris/ckbyxui8b3if51io1ecx6vaw4"
+                    // mapStyle="mapbox://styles/yanekkris/ckbyxui8b3if51io1ecx6vaw4"
                     mapboxApiAccessToken={MAPBOX_TOKEN}
+                    onClick={this.handleMapToggle}
                 >
+
+                    <Geocoder
+                        className="searchbar"
+                        mapRef={this.mapRef}
+                        onViewportChange={this.handleGeocoderViewportChange}
+                        mapboxApiAccessToken={MAPBOX_TOKEN}
+                    />
+
+                    <div className="map__container__buttons">
+                        <GeolocateControl
+                            positionOptions={{ enableHighAccuracy: true }}
+                            trackUserLocation={true}
+                        />
+
+                        {userDropdown}
+
+                    </div>
+
 
                     {data.map((landmark) => (
                         <Marker
@@ -151,7 +197,7 @@ export default class Map extends React.Component {
                         </Popup>
                     ) : null}
                 </ReactMapGL>
-            </>
+            </div>
         )
     }
 }

@@ -42,6 +42,8 @@
         "react-dom": "^16.13.1",
         "react-loader-spinner": "^3.1.14",
         "react-map-gl": "^5.2.7",
+        "react-map-gl-geocoder": "^2.0.11",
+        "react-mapbox-gl-cluster": "^1.9.0",
         "react-router-dom": "^5.2.0",
         "semantic-ui-css": "^2.4.1",
         "semantic-ui-react": "^0.88.2"

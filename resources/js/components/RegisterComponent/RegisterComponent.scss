@@ -101,12 +101,11 @@ $dark_red: #8f4748;
 .header__logo{
 	z-index: 1000;
 	font-size: 3.5rem;
-	width: 6rem;
-	margin-top: 1.6rem;
+	line-height: 3.5rem;
 	text-align: center;
 	font-weight: 700;
-	a{
-		color: #c94143;
+	img{
+		width: 4.5rem;
 	}
 }
 .logo_white a{

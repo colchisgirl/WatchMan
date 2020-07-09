@@ -43,7 +43,6 @@
     "is_verified": 0,
     "isOnline": 0
   },
-  
   {
     "name": "Tbilisi Development Fund",
     "email": "iloveh@gmail.com",
@@ -74,7 +73,6 @@
     "is_organization": 1,
     "description": "ICOMOS is a non-governmental international organisation dedicated to the conservation of the world's monuments and sites.",
     "profile_img": "icomos.jpg",
-    
     "is_verified": 0,
     "isOnline": 0
   },

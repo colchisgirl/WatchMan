@@ -11,8 +11,12 @@ Route::view('/landmarks/{landmark_id}', 'welcome');
 Route::view('/landmarks/{landmark_id}/createEvent', 'welcome');
 Route::view('/landmarks/{landmark_id}/{event_id}', 'welcome');
 
+Route::view('/dashboard', 'welcome');
+
 Route::view('/register', 'welcome');
 Route::view('/login', 'welcome');
+
+
 
 Route::prefix('api')->group(function () {
 
