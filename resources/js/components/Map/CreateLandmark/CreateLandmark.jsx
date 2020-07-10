@@ -123,13 +123,13 @@ export default class CreateEvent extends Component {
                             onChange={(e) => { this.setState({ city: e.target.value }) }}
                             variant="outlined" />
 
-                        <TextField id="city_input"
+                        <TextField id="longitude"
                             label="Longitude"
                             value={this.props.marker.longitude}
 
                             variant="outlined" />
 
-                        <TextField id="city_input"
+                        <TextField id="latitude"
                             label="Latitude"
                             value={this.props.marker.latitude}
 

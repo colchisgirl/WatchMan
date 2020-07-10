@@ -47,10 +47,10 @@ export default class Landmark extends Component {
                     <div className="ldetails__container__images">
                         <h3>Images</h3>
                         <div>
-                            {landmark.images?.map((image) => {
+                            {landmark.images?.map((image, i) => {
                                 return (
-                                    <div className="gallery-item">
-                                        <img className="gallery-image" src={`/img/${image.url}`} />
+                                    <div className="gallery-item" key={i}>
+                                        <img className="gallery-image" src={image.url} />
                                     </div>
                                 )
                             })}

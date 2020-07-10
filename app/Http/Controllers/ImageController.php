@@ -36,11 +36,16 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $rules = [
             'landmark_id' => 'required|exists:landmarks,id',
-            'event_id' => 'required|exists:events,id',
             'image' => 'required|file'
-        ]);
+        ];
+
+        if ($request->input('event_id')) {
+            $rules['event_id'] = 'required|exists:events,id';
+        }
+
+        $request->validate($rules);
 
         $path = $request->file('image')->store('events', 'public');
 

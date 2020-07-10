@@ -18,8 +18,12 @@ export default class FileUploadComponent extends React.Component {
 
         files.map((image, i) => {
             const formData = new FormData();
+            
+            if (this.state.event_id) {
+                formData.append("event_id", this.state.event_id);
+            }
+            
             formData.append("landmark_id", this.state.landmark_id);
-            formData.append("event_id", this.state.event_id);
             formData.append("image", image);
 
             return axios({
