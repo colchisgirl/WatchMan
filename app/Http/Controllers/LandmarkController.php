@@ -26,7 +26,7 @@ class LandmarkController extends Controller
 
     public function myLandmarks(){
 
-        $landmarks = Landmark::where('user_id', \Auth::id())->get();
+        $landmarks = Landmark::where('user_id', \Auth::id())->with('images')->get();
 
         return $landmarks;      
     }

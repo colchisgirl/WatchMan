@@ -74,6 +74,17 @@ $light_red: #c94144;
 		background-color: transparent;
 		border-color: #ffffff;
 	}
+	.logo{
+		position: absolute;
+		padding: 1.5rem;
+		.logo_white a{
+			color: white;
+			transition: 1.3s;
+		}
+		.logo_red a {
+			color: $dark_red;
+		}
+	}
 }
 
 .multi-button {
@@ -84,7 +95,11 @@ $light_red: #c94144;
 	width: 18em;
 	top: 0;
 	right: 0;
-	margin-right: 1.5rem;
+	margin: 1.5rem;
+	a{
+		margin: 0
+	}
+
 	.homebutton {
 		height: 2em;
 	   }
@@ -103,7 +118,7 @@ $light_red: #c94144;
 }
 
 .header__logo{
-	position: absolute;
+	position: relative;
 	z-index: 1000;
 	font-size: 3.5rem;
 	line-height: 3.5rem;
@@ -112,13 +127,6 @@ $light_red: #c94144;
 	img{
 		width: 4.5rem;
 	}
-}
-.logo_white a{
-	color: white;
-	transition: 1.3s;
-}
-.logo_red {
-	color: $dark_red;
 }
 
 

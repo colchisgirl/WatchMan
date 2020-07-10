@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default class NavItem extends Component {
     constructor(props) {
@@ -8,7 +8,7 @@ export default class NavItem extends Component {
 
     render() {
         return (
-            <Link className="header__nav__item" to={this.props.path} >{this.props.title}</Link>
+            <NavLink className="header__nav__item" activeClassName="active__navItem" to={this.props.path} >{this.props.title}</NavLink>
         )
     }
 }

@@ -1,7 +1,13 @@
 .container__dashboard{
-    padding: 3rem 4rem;
-    main{
+    padding: 1rem 4rem;
+    section{
         margin: 4rem 0;
+        >div{
+            padding: 2rem;
+        }
+    }
+    main{
+        margin: 2rem 0;
     }
     &__content { 
         width: 100%;   
@@ -12,15 +18,16 @@
     &__main{
         width: 65%;
         margin-bottom: 4rem;
-        section:not(:first-child){
-            margin: 2rem 0;
-            padding: 5rem;
-            background-color: white;
-            box-shadow: rgb(185, 185, 185) 0px 8px 15px;
-        }
+        
     }
     &__userInfo {
     text-align:left;
+    h1{
+        color: #8f4748;
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        
+    }
     }
     &__userInfoDiv{
         display: flex;
@@ -32,11 +39,6 @@
     &__aside {
         width: 30%;
         background-color: white;
-        box-shadow: rgb(185, 185, 185) 0px 8px 15px;
-        section{
-            margin: 2rem 0;
-            padding: 3rem;
-        }
     }
     &__nav{
         display: flex;
@@ -57,4 +59,63 @@
         display: flex;
         flex-direction: row;
     }
+    &__bottom{
+        margin-top: 4rem;
+        padding: 2rem;
+        box-shadow: none !important;
+    }
+    &__myLandmarks{
+        display: flex;
+        flex-wrap: nowrap; 
+        overflow-x: auto; 
+        -webkit-overflow-scrolling: touch; 
+        background-color: white;
+        box-shadow: rgb(185, 185, 185) 0px 8px 15px;
+        
+        ::-webkit-scrollbar {
+            display: block;
+        }
+    }
+    
+    &__landmarkContainer{
+        width: 19rem;
+        flex: 0 0 auto;
+        margin: 2rem;
+        box-shadow: rgb(185, 185, 185) 0px 8px 15px;
+        background-color: none;
+        border-radius: 15px;
+        
+        .bottom {
+            padding: 1rem 0.5rem
+        }
+    }
+    &__landmarks{
+        overflow-x: auto;
+        display: flex;
+        position: relative;
+        .arrow{
+            position: absolute;
+            right: 0;
+            top: 50%
+        }
+    }
+    &__watchingLandmarks{
+        background-color: white;
+        box-shadow: rgb(185, 185, 185) 0px 8px 15px;
+    }
+    &__notifications{
+        background-color: white;
+        box-shadow: rgb(185, 185, 185) 0px 8px 15px;
+    }
 }
+
+.dashboard__section__title{
+    text-align: left;
+
+    line-height: 0rem;
+    font-size: 2.5rem;
+    margin-left: 1.5rem;
+    margin-bottom: 0rem;
+    color: #8f4748;
+}
+

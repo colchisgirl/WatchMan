@@ -96,8 +96,8 @@ export default class Event extends Component {
                                 })}
                                 {
                                     this.state.images.length !== event.images.length
-                                    ? <button onClick={this.showMoreImages}>Show more...</button>
-                                    : null
+                                        ? <button onClick={this.showMoreImages}>Show more...</button>
+                                        : null
                                 }
                             </div>
                         </div>

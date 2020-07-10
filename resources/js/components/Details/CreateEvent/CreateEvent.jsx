@@ -11,7 +11,6 @@ export default class CreateEvent extends Component {
         super(props)
 
         this.state = {
-
             title: '',
             description: '',
             alarm: false,
@@ -53,35 +52,35 @@ export default class CreateEvent extends Component {
             return <Redirect to="/login" />;
         }
         return (
-            this.state.event_id 
-            ?
-            <>
-            <h2>Event created! You can add a photo to event now.</h2>
-            <FileUploadComponent {...this.props} {...this.state} />
-            
-            <Link to={`/landmarks/${this.state.landmark_id}/${this.state.event_id}`}><button>Take me to the event</button></Link>
-            </>
-            :
-            <div className="event__container__create-form">
-                <h2>Create a new event</h2>
-                <form onSubmit={this.handleCreateEventSubmit}>
+            this.state.event_id
+                ?
+                <>
+                    <h2>Event created! You can add a photo to event now.</h2>
+                    <FileUploadComponent {...this.props} {...this.state} />
+
+                    <Link to={`/landmarks/${this.state.landmark_id}/${this.state.event_id}`}><button>Take me to the event</button></Link>
+                </>
+                :
+                <div className="event__container__create-form">
+                    <h2>Create a new event</h2>
+                    <form onSubmit={this.handleCreateEventSubmit}>
 
 
-                    <TextField id="title_input"
-                        label="Event Title"
-                        value={this.state.title}
-                        onChange={(e) => { this.setState({ title: e.target.value }) }}
-                        variant="outlined" />
-                    <br />
-                    <TextField id="description_input"
-                        label="Description"
-                        value={this.state.description}
-                        onChange={(e) => { this.setState({ description: e.target.value }) }}
-                        variant="outlined" />
+                        <TextField id="title_input"
+                            label="Event Title"
+                            value={this.state.title}
+                            onChange={(e) => { this.setState({ title: e.target.value }) }}
+                            variant="outlined" />
+                        <br />
+                        <TextField id="description_input"
+                            label="Description"
+                            value={this.state.description}
+                            onChange={(e) => { this.setState({ description: e.target.value }) }}
+                            variant="outlined" />
 
-                    <input type="submit" value="Submit"/>
-                </form>
-            </div>
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>
         )
     }
 }

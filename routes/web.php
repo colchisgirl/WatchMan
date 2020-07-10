@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::view('/', 'welcome');
 Route::view('/map', 'welcome');
+Route::view('/map/createLandmark', 'welcome');
 Route::view('/landmarks/{landmark_id}', 'welcome');
 Route::view('/landmarks/{landmark_id}/createEvent', 'welcome');
 Route::view('/landmarks/{landmark_id}/{event_id}', 'welcome');
@@ -29,12 +30,14 @@ Route::prefix('api')->group(function () {
 
     Route::get('/landmarks',                'LandmarkController@index')->name('landmarks.index');
     Route::get('/landmarks/{landmark_id}',  'LandmarkController@show')->name('landmarks.show');
-
+    
 
     Route::post('/user/register', 'Auth\RegisterController@createUser')->name('user.register');
     Route::post('/organization/register', 'Auth\RegisterController@createOrg')->name('organization.register');
 
     Route::get('/events/{event_id}', 'EventController@show');
+    Route::get('/{user_id}/landmarks', 'LandmarkController@myLandmarks');
+    
 
     Route::group(['middleware' => ['auth:web']], function () {
 
@@ -45,6 +48,8 @@ Route::prefix('api')->group(function () {
         });
 
         Route::post('/events/create',  'EventController@create')->name('events.create');
+
+        Route::get('/landmarks/create',  'LandmarkController@create')->name('landmarks.create');
 
         Route::resource('fileupload', 'ImageController');
     });
