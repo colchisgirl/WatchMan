@@ -73,11 +73,10 @@ export default class Dashboard extends Component {
     }
 
     render() {
-        console.log(this.state.user_id)
 
-        const { user } = this.props.state
-        const { landmarks, usersLandmarks } = this.state
-        console.log(usersLandmarks)
+        const { user } = this.props.state;
+        const { landmarks, usersLandmarks } = this.state;
+        
         return (
             <div className="container__dashboard">
                 <nav className="container__dashboard__nav">
@@ -110,11 +109,11 @@ export default class Dashboard extends Component {
                                 <div className="container__dashboard__myLandmarks">
 
                                     {usersLandmarks !== [] ?
-                                        usersLandmarks.map((landmark) => {
+                                        usersLandmarks.map((landmark, i) => {
                                             return (
-                                                <div className="container__dashboard__landmarkContainer">
+                                                <div className="container__dashboard__landmarkContainer" key={i}>
                                                     <div className="top landmark__popup__top">
-                                                        <img className="landmark__popup__img" src={`/img/${landmark.images[0].url}`} alt={`Picture of ${landmark.title}`} />
+                                                        <img className="landmark__popup__img" src={landmark.images[0]?.url} alt={`Picture of ${landmark.title}`} />
                                                     </div>
                                                     <div className="bottom">
                                                         <h3>{landmark.title}</h3>
@@ -188,7 +187,7 @@ export default class Dashboard extends Component {
                                 return (
                                     <div className="container__dashboard__landmarkContainer">
                                         <div className="top landmark__popup__top">
-                                            <img className="landmark__popup__img" src={`/img/${landmark.images[0].url}`} alt={`Picture of ${landmark.title}`} />
+                                            <img className="landmark__popup__img" src={`/img/${landmark.images[0]?.url}`} alt={`Picture of ${landmark.title}`} />
                                         </div>
                                         <div className="bottom">
                                             <h3>{landmark.title}</h3>
