@@ -6,10 +6,14 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Logo from "../Logo";
 import Sidebar from "./Sidebar/Sidebar";
+import Profile from "../Dashboard/Profile"
 import Landmark from "./Landmark/Landmark";
 import Event from "./Event/Event";
+import NavItem from "../Home/Header/NavItem"
 import CreateEvent from "./CreateEvent/CreateEvent";
 import Notifications from '../Notifications'
+import LogoutComponent from '../LoginComponent/LogoutComponent'
+import UserDropdown from '../UserDropdown'
 
 export default class Details extends Component {
     constructor(props) {
@@ -53,12 +57,30 @@ export default class Details extends Component {
                 <div className="ldetails__container__landmark">
                     <nav className="ldetails__container__nav">
                         <Logo />
-                        <ul>
-                            <li><Link to="/dashboard">Dashboard</Link></li>
-                            <li>Profile</li>
-                            <li>Logout</li>
-                        </ul>
-                        <Notifications />
+                        {
+                            this.props.state.user ? (
+                                <>
+                                    <ul>
+                                        <li><NavItem title="Home" path="/" /></li>
+                                        <li><NavItem title="Map" path="/map" /></li>
+                                        <li><NavItem title="Dashboard" path="/dashboard" /></li>
+                                        <li><LogoutComponent state={this.props.state} /></li>
+                                    </ul>
+                                    <div className="ldetails__container__userInfo">
+                                        <Notifications />
+                                        <UserDropdown state={this.props.state} />
+                                    </div>
+                                </>
+                            ) :
+                                (
+                                    <>
+                                        <ul>
+                                            <NavItem title="Login" path="/login" />
+                                            <NavItem title="Register" path="/register" />
+                                        </ul>
+                                    </>
+                                )
+                        }
                     </nav>
                     <Switch>
 
@@ -76,7 +98,7 @@ export default class Details extends Component {
                             <Landmark landmark={landmark} />
                         </Route>
                     </Switch>
-                </div>
+                </div >
                 < Sidebar data={landmark} />
 
             </div >

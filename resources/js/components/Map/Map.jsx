@@ -5,11 +5,13 @@ import './index.scss'
 import { Link } from 'react-router-dom'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
-import ReactMapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl'
+import ReactMapGL, { Marker, Popup, GeolocateControl, Pin } from 'react-map-gl'
+import { ZoomControl, MapContext, Feature, Layer } from "react-mapbox-gl";
 import Geocoder from 'react-map-gl-geocoder'
 
 import Sidebar from './Sidebar/Sidebar'
 import UserDropdown from '../UserDropdown'
+import PopupComponent from './PopupComponent'
 
 const MAPBOX_TOKEN = "pk.eyJ1IjoieWFuZWtrcmlzIiwiYSI6ImNrYnoxODl2aTBqbzEycm1yaW03NzdkM3AifQ.37oJsDI3o7haiPOyTBeg8w"
 
@@ -27,8 +29,12 @@ export default class Map extends React.Component {
                 zoom: 13
             },
             selectedLandmark: null,
+            newLandmarkButtonClicked: false,
             data: [],
-            mounted: false
+            marker: {
+                latitude: 41.703605,
+                longitude: 44.790558
+            },
 
         }
     }
@@ -80,6 +86,35 @@ export default class Map extends React.Component {
         })
     }
 
+    //new draggable landmark 
+    _onMarkerDragEnd = (event) => {
+        this._logDragEvent('onDragEnd', event);
+        this.setState({
+            marker: {
+                longitude: event.lngLat[0],
+                latitude: event.lngLat[1],
+            }
+        });
+
+    };
+
+    _logDragEvent(name, event) {
+        this.setState({
+            events: {
+                ...this.state.events,
+                [name]: event.lngLat,
+            }
+        })
+    }
+
+    onNewLandmarkClick = () => {
+        this.setState({
+            newLandmarkButtonClicked: true
+        })
+
+    }
+
+
 
     render() {
         const { selectedLandmark, data, viewport, mounted } = this.state
@@ -92,8 +127,9 @@ export default class Map extends React.Component {
         )
 
         return (
-            <div className="map__container">
-                <Sidebar data={data} />
+
+            <div className="map__container" >
+                <Sidebar data={data} state={this.props.state} marker={this.state.marker} />
 
                 <ReactMapGL
                     ref={this.mapRef}
@@ -104,7 +140,9 @@ export default class Map extends React.Component {
                     // mapStyle="mapbox://styles/yanekkris/ckbyxui8b3if51io1ecx6vaw4"
                     mapboxApiAccessToken={MAPBOX_TOKEN}
                     onClick={this.handleMapToggle}
+                    getMap={(map) => { console.log('map objeckt', map); }}
                 >
+
 
                     <Geocoder
                         className="searchbar"
@@ -114,88 +152,50 @@ export default class Map extends React.Component {
                     />
 
                     <div className="map__container__buttons">
-                        <GeolocateControl
+                        {/* <GeolocateControl
                             positionOptions={{ enableHighAccuracy: true }}
                             trackUserLocation={true}
-                        />
-
-                        {userDropdown}
-
+                        /> */}
+                        <Link to="/map/createLandmark"><button className="btn-new-landmark" onClick={this.onNewLandmarkClick}> + Add new landmark</button></Link>
                     </div>
 
+                    {this.state.newLandmarkButtonClicked === true ? (
+                        <Marker
+                            longitude={this.state.marker.longitude}
+                            latitude={this.state.marker.latitude}
+                            draggable
+                            onDragEnd={this._onMarkerDragEnd}
+                        >
+                            <p>this is that fucking marker</p>
+                        </Marker>
+                    ) : null}
 
                     {data.map((landmark) => (
                         <Marker
-                            key={landmark.title}
+                            key={landmark.id}
                             latitude={parseFloat(landmark.latitude)}
                             longitude={parseFloat(landmark.longitude)}
                         >
                             <button
                                 className="marker-btn"
                                 onClick={e => {
-                                    e.preventDefault()
-                                    this.setState({
-                                        selectedLandmark: landmark
-                                    })
+                                    //e.preventDefault()
+                                    //this.setState({
+                                    //  selectedLandmark: landmark
+                                    //})
                                 }}
                             >
-                                <img src={'img/' + landmark.images[0].url} alt="Skate Park Icon" />
+                                <img src={'/img/' + landmark.images[0].url} alt="Skate Park Icon" />
 
                             </button>
                         </Marker>
                     ))}
 
                     {selectedLandmark ? (
-                        <Popup
-                            className="popup"
-                            latitude={parseFloat(selectedLandmark.latitude)}
-                            longitude={parseFloat(selectedLandmark.longitude)}
-                        // onClose={
-                        //     this.setState({
-                        //         selectedLandmark: null
-                        //     })
-                        // }
-                        >
-                            <div className="landmark__popup">
-                                <div className="landmark__popup__top">
-                                    <img className="landmark__popup__img" src={`/img/${selectedLandmark.images[0].url}`} alt="" />
-                                    <div className="landmark__popup__title">
-                                        <h2>{selectedLandmark.title}</h2>
-                                        <p>{selectedLandmark.house_number} {selectedLandmark.street}, {selectedLandmark.city}</p>
-                                    </div>
-                                </div>
-                                <div className="landmark__popup__middle">
-                                    <h3>Events</h3>
+                        <PopupComponent selectedLandmark={selectedLandmark} />
 
-                                    {selectedLandmark.events.length !== 0 ? (
-                                        <>
-                                            <p><a>
-                                                {selectedLandmark.events[0].title}
-                                                |
-                                                {selectedLandmark.events[0].user.name}
-                                                |
-                                                22.6.2020
-                                            </a></p>
-                                            <a href="#">more...</a>
-                                        </>
-                                    ) : (
-                                            <p>No events</p>
-                                        )}
-                                </div>
-                                <div className="landmark__popup__bottom">
-
-                                    <Link to={`/landmarks/${selectedLandmark.id}/createEvent`} params={{ testvalue: "hello" }}>
-                                        Add Event
-                                    </Link>
-                                    <Link to={`/landmarks/${selectedLandmark.id}`} params={{ testvalue: "hello" }}>
-                                        See more details...
-                                    </Link>
-
-
-                                </div>
-                            </div>
-                        </Popup>
                     ) : null}
+
                 </ReactMapGL>
             </div>
         )

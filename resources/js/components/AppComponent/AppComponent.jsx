@@ -52,11 +52,10 @@ export default class AppComponent extends React.Component {
                         <Dashboard state={this.state} />
                     </Route>
 
-                    <Route path="/landmarks/:landmark_id" component={Details} />
                     <Route
                         path="/landmarks/:landmark_id"
                         component={props => (
-                            <LandmarkDetails {...props} state={this.state} />
+                            <Details {...props} state={this.state} />
                         )}
                     />
 

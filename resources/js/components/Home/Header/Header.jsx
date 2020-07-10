@@ -17,14 +17,14 @@ export default class Header extends Component {
                         <NavItem title="Contact" path="/#contact" />
                         {
                             this.props.state.user ?
-                            <LogoutComponent state={this.props.state} /> :
-                            (
-                                <>
-                                <NavItem title="Login" path="/login" />
-                                <NavItem title="Register" path="/register" />
-                                </>
-                            )
-  
+                                <LogoutComponent state={this.props.state} /> :
+                                (
+                                    <>
+                                        <NavItem title="Login" path="/login" />
+                                        <NavItem title="Register" path="/register" />
+                                    </>
+                                )
+
                         }
                     </ul>
                 </nav>

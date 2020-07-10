@@ -24,7 +24,8 @@
                 </div>
             @endif
             </div> --}}
-            <div id="app"></div>
+            <div id="map"></div>
+            <pre id="coordinates" class="coordinates"></pre>
             
             
             

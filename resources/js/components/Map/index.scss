@@ -197,7 +197,18 @@ button{
   background-color: white;
   overflow: hidden;
   z-index: 1000;
-  padding: 3rem 1rem;
+  padding: 1rem 1rem;
+  &__nav{
+    background-color: rgba(243, 243, 243, 0.691);
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    >*{
+      width: 25%;
+    }
+  }
 }
 .heading {
   color: rgb(54, 54, 54);
@@ -253,6 +264,10 @@ button{
   background-color: #f8f8f8;
 }
 
+.listings .item:hover {
+  background-color: rgb(255, 246, 246);
+}
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -265,4 +280,20 @@ button{
   height: 0;
   clear: both;
   visibility: hidden;
+}
+
+
+//create new landmark form
+.landmark__container__create-form {
+  margin: 3rem 0;
+  overflow: auto;
+  height: 85%;
+  form{
+    display:flex;
+    flex-direction: column;
+    padding: 2rem;
+    .MuiFormControl-root{
+      margin:1rem 0;
+    }
+  } 
 }

@@ -64,20 +64,20 @@ export default class Event extends Component {
                     <p>{event.description}</p>
                     <div className="ldetails__container__extra">
                     </div>
-                    { event.images && event.images.length ? 
-                    <div className="ldetails__container__images">
-                        <h3>Images</h3>
-                        <div>
-                            {event.images?.map((image, i) => {
-                                return (
-                                    <div className="gallery-item" key={i}>
-                                        <img className="gallery-image" src={image.url} />
-                                    </div>
-                                )
-                            })}
-                        </div>
-                    </div> :
-                    null }
+                    {event.images && event.images.length ?
+                        <div className="ldetails__container__images">
+                            <h3>Images</h3>
+                            <div>
+                                {event.images?.map((image, i) => {
+                                    return (
+                                        <div className="gallery-item" key={i}>
+                                            <img className="gallery-image" src={image.url} />
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div> :
+                        null}
                     <CommentsSection />
                 </div>
             </>
