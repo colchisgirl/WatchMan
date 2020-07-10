@@ -7,7 +7,7 @@ export default class FileUploadComponent extends React.Component {
         this.state = {
             landmark_id: this.props.landmark_id,
             user_id: this.props.user_id,
-            event_id: this.props.event_id
+            event_id: this.props.event_id || null
         };
     }
 

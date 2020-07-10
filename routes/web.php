@@ -49,7 +49,7 @@ Route::prefix('api')->group(function () {
 
         Route::post('/events/create',  'EventController@create')->name('events.create');
 
-        Route::get('/landmarks/create',  'LandmarkController@create')->name('landmarks.create');
+        Route::post('/landmarks/create',  'LandmarkController@create')->name('landmarks.create');
 
         Route::resource('fileupload', 'ImageController');
     });

@@ -19,8 +19,9 @@ export default class CreateEvent extends Component {
             house_number: '',
             street: '',
             city: '',
-            longitude: '',
-            latitude: ''
+            longitude: props.marker.longitude,
+            latitude: props.marker.latitude,
+            event_id: null
         }
     }
 
@@ -37,8 +38,9 @@ export default class CreateEvent extends Component {
                 house_number: this.state.house_number,
                 street: this.state.street,
                 city: this.state.city,
-                latitude: '',
-                longitude: ''
+                protected: true,
+                latitude: this.state.latitude,
+                longitude: this.state.longitude
 
             }),
             headers: {
@@ -49,10 +51,11 @@ export default class CreateEvent extends Component {
             }
         });
 
-        const event = await response.json();
+        const landmark = await response.json();
         this.setState({
             landmark_id: landmark.id
         });
+
 
     }
 
@@ -64,7 +67,7 @@ export default class CreateEvent extends Component {
         }
 
         return (
-            this.state.event_id
+            this.state.landmark_id
                 ?
                 <div className="newEvent__uploadImage__container">
                     <h2>Landmark created! You can add a photo to landmark now.</h2>

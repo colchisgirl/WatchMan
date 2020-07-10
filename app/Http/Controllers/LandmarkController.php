@@ -31,12 +31,7 @@ class LandmarkController extends Controller
         return $landmarks;      
     }
 
-    public function create() 
-    {
-        return view('landmarks.create');
-    }
-
-    public function store(Request $request)
+    public function create(Request $request)
     {
         $landmark = new Landmark;
 
@@ -46,17 +41,20 @@ class LandmarkController extends Controller
         $landmark->built_in = $request->input('built_in');
         $landmark->title = $request->input('title');
 
-        $protected = ($request->input('protected') == 'on') ? 1 : 0;
+        $protected = ($request->input('protected') == true) ? 1 : 0;
         $landmark->protected = $protected;
 
         $landmark->city = $request->input('city');
         $landmark->street = $request->input('street');
         $landmark->house_number = $request->input('house_number');
+
+        $landmark->latitude = $request->input('latitude');
+        $landmark->longitude = $request->input('longitude');
         $landmark->user_id = \Auth::id();
 
         $landmark->save();
 
-        return view('landmarks.show', compact('landmark'));
+        return $landmark;
     }
 
     public function edit($landmark_id)
