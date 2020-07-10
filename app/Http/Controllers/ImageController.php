@@ -38,12 +38,9 @@ class ImageController extends Controller
     {
         $rules = [
             'landmark_id' => 'required|exists:landmarks,id',
+            'event_id' => 'exists:events,id',
             'image' => 'required|file'
         ];
-
-        if ($request->input('event_id')) {
-            $rules['event_id'] = 'required|exists:events,id';
-        }
 
         $request->validate($rules);
 
