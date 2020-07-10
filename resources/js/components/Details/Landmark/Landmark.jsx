@@ -1,41 +1,27 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Tracking from './Tracking';
 
 
 export default class Landmark extends Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            tracked: true
-
-        }
     }
 
-    handleTrackingLandmark = () => {
-        this.setState({
-            tracked: (this.state.tracked ? false : true)
-        })
-    }
+    
 
     render() {
-        const { tracked } = this.state
         const { landmark } = this.props
 
-        const tracking =
-            (tracked ?
-                <button className="ldetails__container__tracking track" onClick={this.handleTrackingLandmark}>Track</button>
-                :
-                <button className="ldetails__container__tracking tracked" onClick={this.handleTrackingLandmark}>Tracked</button>
-            )
+        
 
         return (
             <>
+            <Tracking {...this.props} />
                 <div className="ldetails__container__data">
                     <div className="ldetails__container__title">
                         <h2>{landmark.title}</h2>
-                        <div className="ldetails__container__buttons">
-                            {tracking}
-                        </div>
+                        
                     </div>
                     <hr className="ldetails__container__line"></hr>
                     <p>{landmark.description}</p>
