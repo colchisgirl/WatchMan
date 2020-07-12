@@ -31,7 +31,6 @@ export default class Details extends Component {
             headers: {
                 Accept: "application/json", // we expect JSON as response
                 "Content-Type": "application/json", // if we are sending something in the body, it is JSON
-                Authorization: "Bearer " + this.props.token
             }
         }).then(response => {
             if (response.status === 200) {
@@ -105,7 +104,11 @@ export default class Details extends Component {
 
                         <Route path="/landmarks/:landmark_id">
                             <Landmark landmark={landmark}>
-                                <Tracking landmark={landmark} onTrackingChange={this.onTrackingChange} />
+
+                                { this.props.state.user ?
+                                <Tracking landmark={landmark} onTrackingChange={this.onTrackingChange} /> :
+                                null }
+
                             </Landmark>
                         </Route>
                     </Switch>
