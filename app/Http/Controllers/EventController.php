@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 use App\Landmark;
 use App\User;
 use App\Event;
+use App\Events\LandmarkEventCreated;
+use App\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -34,6 +37,15 @@ class EventController extends Controller
         $event->alarm = 1;
 
         $event->save();
+
+        $notification = new Notification;
+        $notification->user_id = $request->user()->id;
+        $notification->event_id = $event->id;
+        $notification->text = "Event '{$event->title}' created for {$event->landmark->title}";
+        $notification->isSeen = 0;
+        $notification->save();
+
+        broadcast(new LandmarkEventCreated($notification))->toOthers();
  
         return $event;
 

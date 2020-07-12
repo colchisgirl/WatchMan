@@ -74,6 +74,8 @@ export default class Dashboard extends Component {
 
     render() {
 
+
+
         const { user } = this.props.state;
         const { landmarks, usersLandmarks } = this.state;
         
@@ -183,9 +185,9 @@ export default class Dashboard extends Component {
                     <section className="container__dashboard__bottom">
                         <h3 className="dashboard__section__title">All Landmarks</h3>
                         <div className="container__dashboard__landmarks">
-                            {landmarks.map((landmark) => {
+                            {landmarks.map((landmark, i) => {
                                 return (
-                                    <div className="container__dashboard__landmarkContainer">
+                                    <div key={i} className="container__dashboard__landmarkContainer">
                                         <div className="top landmark__popup__top">
                                             <img className="landmark__popup__img" src={`/img/${landmark.images[0]?.url}`} alt={`Picture of ${landmark.title}`} />
                                         </div>
