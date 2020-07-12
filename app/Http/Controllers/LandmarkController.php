@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Landmark;
-use DB;
+use Illuminate\Support\Facades\Auth;
 
 class LandmarkController extends Controller
 {
@@ -19,16 +19,16 @@ class LandmarkController extends Controller
     public function show($landmark_id)
     {
         $id =intval($landmark_id);
-        $landmark = Landmark::with('images', 'events', 'user')->findOrFail($id);
+        $landmark = Landmark::with(['images', 'events', 'user', 'tracking' => function ($query) {
+            $query->where('user_id', Auth::id());
+        }])->findOrFail($id);
         
         return $landmark;
     }
 
-    public function myLandmarks(){
+    public function myLandmarks() {
 
-        $landmarks = Landmark::where('user_id', \Auth::id())->with('images')->get();
-
-        return $landmarks;      
+        return Landmark::where('user_id', Auth::id())->with('images')->get();
     }
 
     public function create(Request $request)

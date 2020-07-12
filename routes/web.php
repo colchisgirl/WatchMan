@@ -37,6 +37,8 @@ Route::prefix('api')->group(function () {
 
     Route::get('/events/{event_id}', 'EventController@show');
     Route::get('/{user_id}/landmarks', 'LandmarkController@myLandmarks');
+
+    
     
 
     Route::group(['middleware' => ['auth:web']], function () {
@@ -52,6 +54,8 @@ Route::prefix('api')->group(function () {
         Route::post('/landmarks/create',  'LandmarkController@create')->name('landmarks.create');
 
         Route::resource('fileupload', 'ImageController');
+
+        Route::post('/landmarks/{landmark_id}/tracking', 'TrackingController@index');
     });
 });
 

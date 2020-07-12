@@ -23,13 +23,15 @@ export default class AppComponent extends React.Component {
         this.setState({ user: user });
         if (user) {
             user = typeof user === "string" ? user : JSON.stringify(user);
-            window.localStorage.setItem('_user', user);
+            localStorage.setItem('_user', user);
+        } else {
+            localStorage.removeItem('_user');
         }
     }
 
     componentDidMount = () => {
         this.setState({
-            user: JSON.parse(window.localStorage.getItem('_user')) || null
+            user: JSON.parse(localStorage.getItem('_user')) || null
         })
     }
 

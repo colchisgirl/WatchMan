@@ -6,7 +6,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Logo from "../Logo";
 import Sidebar from "./Sidebar/Sidebar";
-import Profile from "../Dashboard/Profile"
 import Landmark from "./Landmark/Landmark";
 import Event from "./Event/Event";
 import NavItem from "../Home/Header/NavItem"
@@ -14,13 +13,14 @@ import CreateEvent from "./CreateEvent/CreateEvent";
 import Notifications from '../Notifications'
 import LogoutComponent from '../LoginComponent/LogoutComponent'
 import UserDropdown from '../UserDropdown'
+import Tracking from "./Landmark/Tracking";
 
 export default class Details extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            landmark: []
+            landmark: {}
         };
     }
 
@@ -44,6 +44,15 @@ export default class Details extends Component {
                 if (response.status === 401) {
                     this.props.onFailedAuthentication();
                 }
+            }
+        });
+    };
+
+    onTrackingChange = tracking => {
+        this.setState({
+            landmark: {
+                ...this.state.landmark,
+                tracking: tracking,
             }
         });
     };
@@ -95,10 +104,12 @@ export default class Details extends Component {
                         />
 
                         <Route path="/landmarks/:landmark_id">
-                            <Landmark landmark={landmark} />
+                            <Landmark landmark={landmark}>
+                                <Tracking landmark={landmark} onTrackingChange={this.onTrackingChange} />
+                            </Landmark>
                         </Route>
                     </Switch>
-                </div >
+                </div>
                 < Sidebar data={landmark} />
 
             </div>
