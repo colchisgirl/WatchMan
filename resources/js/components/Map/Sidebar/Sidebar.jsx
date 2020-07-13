@@ -25,8 +25,11 @@ export default class Sidebar extends React.Component {
                         <div id='listings' className='listings'>
                             {this.props.data.map((landmark, i) => (
                                 <div key={i} className="item">
-                                    <h3 className="item__title">{landmark.title}</h3>
-                                    <p className="item__address">{landmark.house_number} {landmark.street} {landmark.city}</p>
+                                    <button name={landmark.id}
+                                        className="button__showLandmark"
+                                        onClick={this.props.action}>
+                                        {landmark.title}
+                                    </button>
                                 </div>
                             ))}
                         </div>

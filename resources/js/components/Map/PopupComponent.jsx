@@ -33,7 +33,7 @@ export default class PopupComponent extends Component {
                                 <p><a>
                                     {selectedLandmark.events[0].title}
                                                 |
-                                                {selectedLandmark.events[0].user.name}
+                                                {selectedLandmark.events[0].user?.name}
                                                 |
                                                 22.6.2020
                                             </a></p>

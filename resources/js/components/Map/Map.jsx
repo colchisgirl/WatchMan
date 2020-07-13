@@ -34,9 +34,9 @@ export default class Map extends React.Component {
             marker: {
                 latitude: 41.703605,
                 longitude: 44.790558
-            },
-
+            }
         }
+        this.handleSidebarClick = this.handleSidebarClick.bind(this)
     }
 
     componentDidMount = () => {
@@ -114,6 +114,39 @@ export default class Map extends React.Component {
 
     }
 
+    handleSidebarClick(e) {
+        e.preventDefault();
+
+        const landmark_id = parseInt(e.target.name);
+        console.log(landmark_id)
+
+        fetch(`/api/landmarks/${landmark_id}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(response => {
+
+                if (response.status === 200) {
+
+                    response.json()
+                        .then(data => {
+
+                            this.setState({
+                                selectedLandmark: data
+                            })
+                        })
+                } else {
+
+                    if (response.status === 401) {
+
+                        this.props.onFailedAuthentication()
+                    }
+                }
+            })
+    }
+
 
 
     render() {
@@ -129,7 +162,7 @@ export default class Map extends React.Component {
         return (
 
             <div className="map__container" >
-                <Sidebar data={data} state={this.props.state} marker={this.state.marker} />
+                <Sidebar data={data} state={this.props.state} marker={this.state.marker} action={this.handleSidebarClick} />
 
                 <ReactMapGL
                     ref={this.mapRef}
@@ -179,10 +212,10 @@ export default class Map extends React.Component {
                             <button
                                 className="marker-btn"
                                 onClick={e => {
-                                    //e.preventDefault()
-                                    //this.setState({
-                                    //  selectedLandmark: landmark
-                                    //})
+                                    e.preventDefault()
+                                    this.setState({
+                                        selectedLandmark: landmark
+                                    })
                                 }}
                             >
                                 <img src={'/img/' + landmark.images[0].url} alt="Skate Park Icon" />
