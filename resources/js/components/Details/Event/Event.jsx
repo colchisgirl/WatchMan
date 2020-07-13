@@ -21,6 +21,8 @@ export default class Event extends Component {
     componentDidMount = () => {
         const { event_id } = this.props.match.params;
 
+        console.log(this.props);
+
         fetch(`/api/events/${event_id}`, {
             headers: {
                 Accept: "application/json", // we expect JSON as response
@@ -52,6 +54,7 @@ export default class Event extends Component {
     };
 
     render() {
+
         const { event } = this.state;
 
         return (

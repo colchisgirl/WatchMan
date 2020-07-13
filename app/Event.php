@@ -23,10 +23,17 @@ class Event extends Model
         return $this->hasMany(Image::class);
     }
 
+<<<<<<< HEAD
     public function comments()
     {
         return $this->hasMany(Comment::class)->whereNull('reply_to_id');
     }
 
     
+=======
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
+>>>>>>> c77dabe8719f9c7dd80640102bdd5aaca7052f14
 }

@@ -6,6 +6,7 @@ import Home from '../Home/Home';
 import Dashboard from '../Dashboard/Dashboard';
 import RegisterComponent from '../RegisterComponent/RegisterComponent';
 import LoginFormComponent from '../LoginComponent/LoginFormComponent';
+import Event from '../Details/Event/Event';
 
 import Details from '../Details/Details';
 
@@ -23,13 +24,15 @@ export default class AppComponent extends React.Component {
         this.setState({ user: user });
         if (user) {
             user = typeof user === "string" ? user : JSON.stringify(user);
-            window.localStorage.setItem('_user', user);
+            localStorage.setItem('_user', user);
+        } else {
+            localStorage.removeItem('_user');
         }
     }
 
     componentDidMount = () => {
         this.setState({
-            user: JSON.parse(window.localStorage.getItem('_user')) || null
+            user: JSON.parse(localStorage.getItem('_user')) || null
         })
     }
 
@@ -58,6 +61,8 @@ export default class AppComponent extends React.Component {
                             <Details {...props} state={this.state} />
                         )}
                     />
+
+                    
 
                     <Route path="/register">
                         <RegisterComponent state={this.state} />
