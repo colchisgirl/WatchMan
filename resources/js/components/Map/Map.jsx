@@ -219,7 +219,6 @@ export default class Map extends React.Component {
                                 }}
                             >
                                 <img src={'/img/' + landmark.images[0].url} alt="Skate Park Icon" />
-
                             </button>
                         </Marker>
                     ))}
@@ -234,4 +233,3 @@ export default class Map extends React.Component {
         )
     }
 }
-

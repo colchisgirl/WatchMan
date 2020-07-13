@@ -38,15 +38,12 @@ export default class LoginForm extends React.Component {
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
-                    console.log('logindata', data);
                     this.props.onLoginSuccess(data.data)
                 }
             })
     }
 
     render() {
-        console.log(this.state.email)
-        console.log(this.state.password)
         return (
             <form action="" onSubmit={this.handleFormSubmit}>
 

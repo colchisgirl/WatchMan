@@ -19,8 +19,7 @@ export default class CreateEvent extends Component {
             house_number: '',
             street: '',
             city: '',
-            longitude: '',
-            latitude: ''
+            event_id: null
         }
     }
 
@@ -37,7 +36,9 @@ export default class CreateEvent extends Component {
                 house_number: this.state.house_number,
                 street: this.state.street,
                 city: this.state.city,
-                coordina
+                protected: true,
+                longitude: this.props.marker.longitude,
+                latitude: this.props.marker.latitude
 
             }),
             headers: {
@@ -48,10 +49,11 @@ export default class CreateEvent extends Component {
             }
         });
 
-        const event = await response.json();
+        const landmark = await response.json();
         this.setState({
             landmark_id: landmark.id
         });
+
 
     }
 
@@ -63,12 +65,12 @@ export default class CreateEvent extends Component {
         }
 
         return (
-            this.state.event_id
+            this.state.landmark_id
                 ?
                 <div className="newEvent__uploadImage__container">
                     <h2>Landmark created! You can add a photo to landmark now.</h2>
                     <FileUploadComponent {...this.props} {...this.state} />
-                    <Link to={`/landmarks/${this.state.landmark_id}`}><button>Take me to the event</button></Link>
+                    <Link to={`/landmarks/${this.state.landmark_id}`}><button>Take me to the landmark</button></Link>
                 </div>
                 :
                 <div className="landmark__container__create-form">
@@ -119,13 +121,13 @@ export default class CreateEvent extends Component {
                             onChange={(e) => { this.setState({ city: e.target.value }) }}
                             variant="outlined" />
 
-                        <TextField id="city_input"
+                        <TextField id="longitude"
                             label="Longitude"
                             value={this.props.marker.longitude}
 
                             variant="outlined" />
 
-                        <TextField id="city_input"
+                        <TextField id="latitude"
                             label="Latitude"
                             value={this.props.marker.latitude}
 

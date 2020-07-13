@@ -34,7 +34,6 @@ export default class AppComponent extends React.Component {
     }
 
     render() {
-        console.log('app state', this.state);
         return (
             <Router>
                 {/* anything before switch wil be shared among pages  */}
@@ -51,6 +50,7 @@ export default class AppComponent extends React.Component {
                     <Route path="/dashboard">
                         <Dashboard state={this.state} />
                     </Route>
+
 
                     <Route
                         path="/landmarks/:landmark_id"

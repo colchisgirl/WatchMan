@@ -218,3 +218,14 @@ button{
 .activeLink div{
     background-color: #f6e9e9;
 }
+
+// comment section
+
+.reply_form{
+    &.hidden{
+        display: none;
+    }
+    &.show{
+        display: block;
+    }
+}

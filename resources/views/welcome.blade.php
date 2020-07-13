@@ -9,6 +9,7 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css" rel="stylesheet" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
+    <link rel="icon" href="/img/home/logo_favicon_background.ico" type="image/ico" sizes="16x16" />
 </head>
 <body>
             <div id="app"></div>

@@ -6,7 +6,7 @@ $light_red: #c94144;
 
 
 
-.register_container {
+.register {
 	background-color: #fff;
 	/* border-radius: 10px;*/
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -178,7 +178,7 @@ $light_red: #c94144;
     z-index: 2;
 }
 
-.register_container.right_panel_active .user_sign_up_container {
+.register.right_panel_active .user_sign_up_container {
     transform: translateX(100%);
 }
 
@@ -188,7 +188,7 @@ $light_red: #c94144;
     opacity: 0;
 }
 
-.register_container.right_panel_active .org_sign_up_container {
+.register.right_panel_active .org_sign_up_container {
 	transform: translateX(100%);
 	opacity: 1;
 	z-index: 5;
@@ -256,21 +256,21 @@ $light_red: #c94144;
 	}
 }
 
-.register_container.right_panel_active .overlay_container {
+.register.right_panel_active .overlay_container {
 	transform: translateX(-100%);
 }
 
-.register_container.right_panel_active .overlay {
+.register.right_panel_active .overlay {
 	transform: translateX(50%);
 }
 
 
-.register_container.right_panel_active .overlay_left {
+.register.right_panel_active .overlay_left {
 	transform: translateX(0);
 }
 
 
-.register_container.right_panel_active .overlay_right {
+.register.right_panel_active .overlay_right {
 	transform: translateX(20%);
 }
 

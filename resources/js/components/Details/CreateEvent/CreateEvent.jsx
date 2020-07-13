@@ -15,7 +15,8 @@ export default class CreateEvent extends Component {
             description: '',
             alarm: false,
             landmark_id: this.props.match.params.landmark_id,
-            event_id: null
+            event_id: this.props.location.event_id || null
+
         }
     }
 
@@ -47,17 +48,16 @@ export default class CreateEvent extends Component {
 
 
     render() {
-
         if (!this.props.state.user) {
             return <Redirect to="/login" />;
         }
-
         return (
             this.state.event_id
                 ?
                 <>
                     <h2>Event created! You can add a photo to event now.</h2>
                     <FileUploadComponent {...this.props} {...this.state} />
+
                     <Link to={`/landmarks/${this.state.landmark_id}/${this.state.event_id}`}><button>Take me to the event</button></Link>
                 </>
                 :
