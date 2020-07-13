@@ -40,7 +40,9 @@ export default class Tracking extends React.Component {
             </div> */}
 
                 <button
-                    className="ldetails__container__tracking"
+                    className={`ldetails__container__tracking ${
+                        tracked ? "tracked" : "track"
+                        }`}
                     onClick={this.handleTrackingLandmark}
                 >
                     {tracked ? "Tracked" : "Track"}
