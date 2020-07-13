@@ -14,13 +14,9 @@ class UserController extends Controller
 {
     public function show()
     {
-        // $user = User::findOrFail(\Auth::id());
-        if (Auth::user()) {
+        
+        return User::with('landmarks', 'events', 'notifications', 'notifications.user', 'notifications.event.landmark')->where('id', \Auth::id())->get();
 
-            $user = User::find(Auth::user()->id);
-
-            return view('users.show')->withUser($user); //return $user;
-        }   
     }
 
     public function edit() 

@@ -22,5 +22,5 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 // });
 
 Broadcast::channel('notifications', function ($user) {
-    return $user;
+    return true;
 });

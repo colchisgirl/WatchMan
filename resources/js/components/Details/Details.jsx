@@ -97,10 +97,14 @@ export default class Details extends Component {
                             <CreateEvent {...this.props} />
                         </Route>
 
-                        <Route
-                            path="/landmarks/:landmark_id/:event_id"
-                            component={props => <Event {...props} />}
-                        />
+                        <Route path="/landmarks/:landmark_id/:event_id">
+                            <Event {...this.props}>
+                                { this.props.state.user ?
+                                <Notifications /> :
+                                null }
+                            </Event>
+                        </Route>
+
 
                         <Route path="/landmarks/:landmark_id">
                             <Landmark landmark={landmark}>

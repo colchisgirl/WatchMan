@@ -8,6 +8,7 @@ use App\Events\LandmarkEventCreated;
 use App\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Broadcasting\InteractsWithSockets;
 
 class EventController extends Controller
 {
@@ -46,7 +47,7 @@ class EventController extends Controller
         $notification->save();
 
         broadcast(new LandmarkEventCreated($notification))->toOthers();
- 
+
         return $event;
 
     }

@@ -6,6 +6,7 @@ import Home from '../Home/Home';
 import Dashboard from '../Dashboard/Dashboard';
 import RegisterComponent from '../RegisterComponent/RegisterComponent';
 import LoginFormComponent from '../LoginComponent/LoginFormComponent';
+import Event from '../Details/Event/Event';
 
 import Details from '../Details/Details';
 
@@ -59,6 +60,8 @@ export default class AppComponent extends React.Component {
                             <Details {...props} state={this.state} />
                         )}
                     />
+
+                    
 
                     <Route path="/register">
                         <RegisterComponent state={this.state} />

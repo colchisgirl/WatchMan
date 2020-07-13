@@ -45,7 +45,23 @@
     &__notifications{
         color: rgb(104, 104, 104);
         padding: 1rem 3rem;
+        
     }
+    .notification.shown{
+        display: block;
+        position: absolute;
+        top: 7.5em;
+        z-index: 2;
+        border: 1px solid black;
+        width: 15em;
+        height: 10em;
+        background-color: white;
+        color: black;
+    }
+    .notification.hidden{
+        display: none;
+    }
+
     &__data{
         margin-top: 2rem;
         p{

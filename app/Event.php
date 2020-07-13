@@ -23,5 +23,8 @@ class Event extends Model
         return $this->hasMany(Image::class);
     }
 
-    
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
 }
