@@ -225,7 +225,7 @@ export default class Map extends React.Component {
                                     })
                                 }}
                             >
-                                <img src={landmark.images[0].url} alt="marker" />
+                                <img src={landmark.images[0]?.url} alt="marker" />
                             </button>
                         </Marker>
                     ))}

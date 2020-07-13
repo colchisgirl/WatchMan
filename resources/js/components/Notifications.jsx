@@ -19,7 +19,7 @@ export default class Notifications extends Component {
             this.setState({
                 notifications: [e.data, ...this.state.notifications]
             });
-            //console.log(this.state.notifications[0].event_id);
+            
         });
     };
 
@@ -27,7 +27,8 @@ export default class Notifications extends Component {
         this.setState(prevState => ({
             readNotification: !prevState.readNotification
         }));
-        console.log(this.state.readNotification)
+
+        console.log(this.state.notifications)
     };
 
     componentWillUnmount = () => {
@@ -35,6 +36,7 @@ export default class Notifications extends Component {
     };
 
     render() {
+        
         return (
             <>
                 <div
@@ -58,9 +60,9 @@ export default class Notifications extends Component {
                         <ul>
                             {this.state.notifications.map((notification, i) => (
                                 <Link
-                                    to={`/events/${notification.event_id}`}
+                                    to={`/landmarks/${notification.event.landmark_id}/${notification.event_id}`} key={i}
                                 >
-                                    <li key={i}>{notification.text}</li>
+                                    <li>{notification.text}</li>
                                 </Link>
                             )
                             )}

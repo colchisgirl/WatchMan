@@ -48,7 +48,7 @@ class EventController extends Controller
         $notification->isSeen = 0;
         $notification->save();
 
-        broadcast(new LandmarkEventCreated($notification))->toOthers();
+        broadcast(new LandmarkEventCreated($notification->with('event')->first()))->toOthers();
 
         return $event;
     }
