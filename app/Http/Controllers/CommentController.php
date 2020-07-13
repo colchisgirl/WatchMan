@@ -18,24 +18,33 @@ class CommentController extends Controller
             return $comments = Comment::with('user')->whereNull('landmark_id')->where('events_id', $event_id)->get();
         }
 
-        
-
         return $comments;
 
     }
     public function store(Request $request)
     {
     	$request->validate([
-            'body'=>'required',
+            'text'=>'required',
         ]);
    
-        $input = $request->all();
-        $input['user_id'] = auth()->user()->id;
-    
-        Comment::create($input);
-
-        $comments = Comment::where('');
+        $comment = new Comment;
+        $comment->text = $request->input('text');
+        $comment->landmark_id = $request->input('landmark_id');
+        $comment->events_id = $request->input('event_id');
+        $comment->user_id = $request->user()->id;
+        $comment->reply_to_id = $request->input['reply_to_id'];
+        $comment->save();
    
-        return $comments;
+
+        $comments = [];
+        
+        $event_id = $request->input('event_id');
+        $landmark_id = $request->input('landmark_id');
+
+        if($event_id == null){
+            return $comments = Comment::with('user')->where('landmark_id', $landmark_id)->whereNull('events_id')->get();
+        } else {
+            return $comments = Comment::with('user')->whereNull('landmark_id')->where('events_id', $event_id)->get();
+        }
     }
 }

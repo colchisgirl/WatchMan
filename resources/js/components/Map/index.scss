@@ -150,10 +150,18 @@ button{
   border-radius: 10px;
   color: rgb(95, 95, 95);
   background-color: #ffffff;
+  width: auto;
+  z-index: 1000;
   
   >*{
-    padding: 0.5rem 1rem;
+    margin: 0.5rem ;
     color: rgb(95, 95, 95);
+  }
+  .notifications {
+    padding: 0.5rem;
+  }
+  img{
+    width: 25px
   }
   .map__container__user{
     flex:3;

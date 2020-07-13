@@ -41,6 +41,7 @@ Route::prefix('api')->group(function () {
     Route::get('/{user_id}/landmarks', 'LandmarkController@myLandmarks');
 
     Route::get('/comments/{landmark_id}/{event_id}', 'CommentController@show');
+    Route::post('/addComment', 'CommentController@store');
     
 
     Route::group(['middleware' => ['auth:web']], function () {

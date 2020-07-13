@@ -35,8 +35,8 @@ export default class Tracking extends React.Component {
 
         return (
             <div className="ldetails__container__buttons">
-                            {tracking}
-                        </div>
+                {tracking}
+            </div>
         )
     }
 }

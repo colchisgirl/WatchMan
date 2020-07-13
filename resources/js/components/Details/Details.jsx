@@ -20,7 +20,7 @@ export default class Details extends Component {
         super(props);
 
         this.state = {
-            landmark: []
+            landmark: null
         };
     }
 
@@ -91,15 +91,15 @@ export default class Details extends Component {
 
                         <Route
                             path="/landmarks/:landmark_id/:event_id"
-                            component={props => <Event {...props} />}
+                            component={props => <Event {...props} state={this.props.state} />}
                         />
 
                         <Route path="/landmarks/:landmark_id">
-                            <Landmark landmark={landmark} />
+                            <Landmark landmark={landmark} state={this.props.state} />
                         </Route>
                     </Switch>
                 </div >
-                < Sidebar data={landmark} />
+                < Sidebar data={landmark} state={this.props.state} />
 
             </div>
         )

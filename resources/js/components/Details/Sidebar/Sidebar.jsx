@@ -9,24 +9,32 @@ export default class Sidebar extends React.Component {
 
     render() {
         const { data } = this.props
+        if (data === null)
+            return "loading"
         return (
             <div className='sidebar' >
                 <div className='heading'>
                     <h1>Events</h1>
-                    <Link
-                        to={{
-                            pathname: `/landmarks/${data.id}/createEvent`,
-                            state: {
-                                landmark_id: data.url
-                            }
-                        }}>
-                        <button className="btn-new-landmark">New event</button>
-                    </Link>
+                    {
+                        this.props.state.user ? (
+                            <Link
+                                to={{
+                                    pathname: `/landmarks/${data.id}/createEvent`,
+                                    state: {
+                                        landmark_id: data.url
+                                    }
+                                }}>
+                                <button className="btn-new-landmark"> + Add new event</button>
+                            </Link>
+                        ) : (
+                                <p className="login__required__text">If you want to add new event, you have to <Link to="/login"><span className="login__required">login</span></Link>.</p>
+                            )
+                    }
                 </div>
                 <div id='listings' className='listings'>
                     {data.events !== [] ? (
                         data.events?.map((event, i) => (
-                        
+
                             <NavLink to={`/landmarks/${data.id}/${event.id}`} activeClassName="activeLink" key={i}>
                                 <div className="item">
                                     <h3 className="item__title">{event.title}</h3>
@@ -37,7 +45,7 @@ export default class Sidebar extends React.Component {
                             <p>No events</p>
                         )}
                 </div>
-            </div>
+            </div >
         );
     }
 

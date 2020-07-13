@@ -16,7 +16,7 @@ export default class LogoutComponent extends Component {
 
     render() {
         return (
-            <a className="header__nav__item" href="#" onClick={this.logOutUser}>Log out</a>
+            <a href="#" onClick={this.logOutUser}><img className=" logout__icon icons" src="/img/home/logout_3.svg" /></a>
         );
     }
 }

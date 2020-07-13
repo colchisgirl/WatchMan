@@ -55,7 +55,7 @@
            
         }
     }
-    &__title{
+    &__titleColumn{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -64,6 +64,14 @@
             font-size: 2rem;
             margin: 0.2rem 0;
             color: rgb(134, 65, 1);
+        }    
+    }
+    &__title{
+        display: flex;
+        flex-direction: row;
+        img{
+            width: 15px;
+            margin: -0.5rem 0.5rem 0; 
         }
     }
     &__buttons{
@@ -84,6 +92,13 @@
     }
     &__tracking{
         color: rgb(75, 75, 75);
+        &.track{
+            background-color: #8f4748;
+            color: white
+        }
+        &tracked{
+            background-color: #EFEFEF;
+        }
     }
     &__images{
         background-color: white;
@@ -229,3 +244,16 @@ button{
         display: block;
     }
 }
+
+.logout__icon{
+    width: 20px;
+}
+p.login__required__text{
+    margin: 1rem;
+    text-align: center;
+}
+
+span.login__required {
+    color: #eb8e8f;
+}
+

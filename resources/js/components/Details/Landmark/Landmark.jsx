@@ -12,13 +12,24 @@ export default class Landmark extends Component {
 
     render() {
         const { landmark } = this.props
+        console.log("landmark", landmark)
+        if (landmark === null)
+            return "loading"
+        const protectedIcon = (landmark.protected == 1 ?
+            <img src="/img/home/protected.svg" alt="" />
+            :
+            null
+        )
 
         return (
             <>
-                <Tracking {...this.props} />
                 <div className="ldetails__container__data">
-                    <div className="ldetails__container__title">
-                        <h2>{landmark.title}</h2>
+                    <div className="ldetails__container__titleColumn">
+                        <div className="ldetails__container__title">
+                            <h2>{landmark.title}</h2>
+                            {protectedIcon}
+                        </div>
+                        <Tracking {...this.props} />
 
                     </div>
                     <hr className="ldetails__container__line"></hr>
@@ -40,7 +51,7 @@ export default class Landmark extends Component {
                             })}
                         </div>
                     </div>
-                    <CommentsSection landmark={landmark.id} event={null} />
+                    <CommentsSection landmark={landmark.id} event={null} state={this.props.state} />
                 </div>
             </>
         )

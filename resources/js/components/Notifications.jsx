@@ -15,7 +15,7 @@ export default class Notifications extends Component {
     render() {
         return (
             <>
-                <div className="ldetails__container__notifications">
+                <div className="notifications ldetails__container__notifications">
                     <Badge badgeContent={4} color="secondary">
                         <NotificationsIcon />
                     </Badge>

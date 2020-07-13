@@ -155,7 +155,7 @@ export default class Dashboard extends Component {
                                                 <p>8/7/2020 </p>
                                             </div>
                                             <div className="item">
-                                                <h4 className="item__title">New event was added to your tracked landmark</h4>
+                                                <Link to={`/landmarks/1/22`}>New event</Link>
                                                 <p>2/7/2020 </p>
                                             </div>
                                             <div className="item">
@@ -212,7 +212,7 @@ export default class Dashboard extends Component {
                     </Switch>
                 </main>
 
-            </div>
+            </div >
         )
     }
 }

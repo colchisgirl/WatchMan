@@ -12,6 +12,8 @@ import Geocoder from 'react-map-gl-geocoder'
 import Sidebar from './Sidebar/Sidebar'
 import UserDropdown from '../UserDropdown'
 import PopupComponent from './PopupComponent'
+import Notifications from '../Notifications'
+import LogoutComponent from '../LoginComponent/LogoutComponent'
 
 const MAPBOX_TOKEN = "pk.eyJ1IjoieWFuZWtrcmlzIiwiYSI6ImNrYnoxODl2aTBqbzEycm1yaW03NzdkM3AifQ.37oJsDI3o7haiPOyTBeg8w"
 
@@ -153,7 +155,11 @@ export default class Map extends React.Component {
         const { selectedLandmark, data, viewport, mounted } = this.state
 
         const userDropdown = (this.props.state.user ? (
-            <UserDropdown state={this.props.state} />
+            <>
+                <Notifications />
+                <UserDropdown state={this.props.state} />
+                <LogoutComponent state={this.props.state} />
+            </>
         ) : (
                 null
             )
@@ -185,11 +191,12 @@ export default class Map extends React.Component {
                     />
 
                     <div className="map__container__buttons">
-                        {/* <GeolocateControl
+                        <Link to="/map/createLandmark"><button className="btn-new-landmark" onClick={this.onNewLandmarkClick}> + Add new landmark</button></Link>
+                        <GeolocateControl
                             positionOptions={{ enableHighAccuracy: true }}
                             trackUserLocation={true}
-                        /> */}
-                        <Link to="/map/createLandmark"><button className="btn-new-landmark" onClick={this.onNewLandmarkClick}> + Add new landmark</button></Link>
+                        />
+                        {userDropdown}
                     </div>
 
                     {this.state.newLandmarkButtonClicked === true ? (
@@ -218,7 +225,7 @@ export default class Map extends React.Component {
                                     })
                                 }}
                             >
-                                <img src={'/img/' + landmark.images[0].url} alt="Skate Park Icon" />
+                                <img src={landmark.images[0].url} alt="marker" />
                             </button>
                         </Marker>
                     ))}
