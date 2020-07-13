@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+
 import Tracking from './Tracking';
+import CommentsSection from '../Comments/Comments'
 
 
 export default class Landmark extends Component {
@@ -8,20 +10,16 @@ export default class Landmark extends Component {
 
     }
 
-    
-
     render() {
         const { landmark } = this.props
 
-        
-
         return (
             <>
-            <Tracking {...this.props} />
+                <Tracking {...this.props} />
                 <div className="ldetails__container__data">
                     <div className="ldetails__container__title">
                         <h2>{landmark.title}</h2>
-                        
+
                     </div>
                     <hr className="ldetails__container__line"></hr>
                     <p>{landmark.description}</p>
@@ -42,6 +40,7 @@ export default class Landmark extends Component {
                             })}
                         </div>
                     </div>
+                    <CommentsSection landmark={landmark.id} event={null} />
                 </div>
             </>
         )

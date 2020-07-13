@@ -102,7 +102,7 @@ export default class Event extends Component {
                             </div>
                         </div>
                     ) : null}
-                    <CommentsSection />
+                    <CommentsSection landmark_id={null} event_id={event.id} />
                 </div>
             </>
         );

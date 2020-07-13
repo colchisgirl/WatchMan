@@ -19,8 +19,6 @@ export default class CreateEvent extends Component {
             house_number: '',
             street: '',
             city: '',
-            longitude: props.marker.longitude,
-            latitude: props.marker.latitude,
             event_id: null
         }
     }
@@ -39,8 +37,8 @@ export default class CreateEvent extends Component {
                 street: this.state.street,
                 city: this.state.city,
                 protected: true,
-                latitude: this.state.latitude,
-                longitude: this.state.longitude
+                longitude: this.props.marker.longitude,
+                latitude: this.props.marker.latitude
 
             }),
             headers: {
@@ -72,7 +70,7 @@ export default class CreateEvent extends Component {
                 <div className="newEvent__uploadImage__container">
                     <h2>Landmark created! You can add a photo to landmark now.</h2>
                     <FileUploadComponent {...this.props} {...this.state} />
-                    <Link to={`/landmarks/${this.state.landmark_id}`}><button>Take me to the event</button></Link>
+                    <Link to={`/landmarks/${this.state.landmark_id}`}><button>Take me to the landmark</button></Link>
                 </div>
                 :
                 <div className="landmark__container__create-form">

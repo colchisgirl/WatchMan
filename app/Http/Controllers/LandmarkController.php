@@ -31,6 +31,23 @@ class LandmarkController extends Controller
         return $landmarks;      
     }
 
+    public function search(Request $request){
+        $search = 'blue';
+
+        if(!empty($request->input)){
+            $search = $request->input( 'search' );
+            $landmarks = Landmark::where('title','LIKE','%'.$search.'%')
+                ->orWhere('architect','LIKE','%'.$search.'%')
+                ->orWhere('street','LIKE','%'.$search.'%')
+                ->get();
+            if(count($landmarks) > 0)
+                return $landmarks;
+                else return "No results";
+          } else {
+            $landmarks = Landmark::all();
+          }       
+    }
+
     public function create(Request $request)
     {
         $landmark = new Landmark;

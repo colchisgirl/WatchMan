@@ -8,7 +8,7 @@ export default class NavItem extends Component {
 
     render() {
         return (
-            <NavLink className="header__nav__item" activeClassName="active__navItem" to={this.props.path} >{this.props.title}</NavLink>
+            <NavLink exact className="header__nav__item" activeClassName="active__navItem" to={this.props.path} >{this.props.title}</NavLink>
         )
     }
 }

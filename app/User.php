@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Event::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->whereNull('reply_to_id');
+    }
 }

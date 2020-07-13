@@ -20,4 +20,9 @@ class Landmark extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->whereNull('reply_to_id');
+    }
 }

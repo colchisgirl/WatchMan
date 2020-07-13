@@ -13,6 +13,7 @@ Route::view('/landmarks/{landmark_id}/createEvent', 'welcome');
 Route::view('/landmarks/{landmark_id}/{event_id}', 'welcome');
 
 Route::view('/dashboard', 'welcome');
+Route::view('/user', 'welcome');
 
 Route::view('/register', 'welcome');
 Route::view('/login', 'welcome');
@@ -29,6 +30,7 @@ Route::prefix('api')->group(function () {
     });
 
     Route::get('/landmarks',                'LandmarkController@index')->name('landmarks.index');
+    Route::get('/landmarks/search',  'LandmarkController@search');
     Route::get('/landmarks/{landmark_id}',  'LandmarkController@show')->name('landmarks.show');
     
 
@@ -37,6 +39,8 @@ Route::prefix('api')->group(function () {
 
     Route::get('/events/{event_id}', 'EventController@show');
     Route::get('/{user_id}/landmarks', 'LandmarkController@myLandmarks');
+
+    Route::get('/comments/{landmark_id}/{event_id}', 'CommentController@show');
     
 
     Route::group(['middleware' => ['auth:web']], function () {
