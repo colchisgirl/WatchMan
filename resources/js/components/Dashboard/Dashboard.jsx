@@ -18,7 +18,8 @@ export default class Dashboard extends Component {
             landmarks: [],
             usersLandmarks: [],
             events: [],
-            user_id: props.state.user?.id
+            user_id: props.state.user?.id,
+            notifications: []
 
         }
     }
@@ -70,6 +71,29 @@ export default class Dashboard extends Component {
                     }
                 }
             })
+
+            fetch(`/api/profile`, {
+                headers: {
+                    'Accept': 'application/json', // we expect JSON as response
+                    'Content-Type': 'application/json', // if we are sending something in the body, it is JSON
+                    'Authorization': 'Bearer ' + this.props.token
+                }
+            })
+                .then(response => {
+                    if (response.status === 200) {
+                        response.json()
+                            .then(data => {
+                                
+                                this.setState({
+                                    notifications: data[0].notifications
+                                })
+                            })
+                    } else {
+                        if (response.status === 401) {
+                            this.props.onFailedAuthentication()
+                        }
+                    }
+                })
     }
 
     render() {
@@ -88,7 +112,7 @@ export default class Dashboard extends Component {
                         <li><LogoutComponent state={this.props.state} /></li>
                     </ul>
                     <div className="container__dashboard__user">
-                        <Notifications />
+                        
                         <UserDropdown state={this.props.state} />
                     </div>
                 </nav>
@@ -140,42 +164,14 @@ export default class Dashboard extends Component {
                             <h3 className="dashboard__section__title">Notifications</h3>
                             <div className="container__dashboard__notifications">
                                 <div id='listings' className='listings'>
-                                    <div className="item">
-                                        <h4 className="item__title">New event was added.</h4>
-                                        <p>10/7/2020 </p>
+                                {this.state.notifications.map((notification, i) => (
+                                    <div className="item" key={i}>
+                                        <Link to={`/landmarks/${notification.event.landmark.id}/${notification.event_id}`}><h4 className="item__title">{notification.text}</h4></Link>
+                                        <p>{notification.created_at} by {notification.user.name}</p>
                                     </div>
-                                    <div className="item">
-                                        <h4 className="item__title">Enrigue commented your event.</h4>
-                                        <p>8/7/2020 </p>
-                                    </div>
-                                    <div className="item">
-                                        <h4 className="item__title">New event was added to your tracked landmark</h4>
-                                        <p>2/7/2020 </p>
-                                    </div>
-                                    <div className="item">
-                                        <h4 className="item__title">New event was added.</h4>
-                                        <p>10/7/2020 </p>
-                                    </div>
-                                    <div className="item">
-                                        <h4 className="item__title">Enrigue commented your event.</h4>
-                                        <p>8/7/2020 </p>
-                                    </div>
-                                    <div className="item">
-                                        <h4 className="item__title">New event was added to your tracked landmark</h4>
-                                        <p>2/7/2020 </p>
-                                    </div>
-                                    <div className="item">
-                                        <h4 className="item__title">New event was added.</h4>
-                                        <p>10/7/2020 </p>
-                                    </div>
-                                    <div className="item">
-                                        <h4 className="item__title">Enrigue commented your event.</h4>
-                                        <p>8/7/2020 </p>
-                                    </div>
-                                    <div className="item">
-                                        <h4 className="item__title">New event was added to your tracked landmark</h4>
-                                        <p>2/7/2020 </p>
-                                    </div>
+                                ))}
+                                    
+                                   
                                 </div>
                             </div>
                         </section>
@@ -183,9 +179,9 @@ export default class Dashboard extends Component {
                     <section className="container__dashboard__bottom">
                         <h3 className="dashboard__section__title">All Landmarks</h3>
                         <div className="container__dashboard__landmarks">
-                            {landmarks.map((landmark) => {
+                            {landmarks.map((landmark, i) => {
                                 return (
-                                    <div className="container__dashboard__landmarkContainer">
+                                    <div key={i} className="container__dashboard__landmarkContainer">
                                         <div className="top landmark__popup__top">
                                             <img className="landmark__popup__img" src={`/img/${landmark.images[0]?.url}`} alt={`Picture of ${landmark.title}`} />
                                         </div>

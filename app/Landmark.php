@@ -20,4 +20,9 @@ class Landmark extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function tracking()
+    {
+        return $this->hasMany(Tracking::class);
+    }
 }
