@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Landmark;
 use App\User;
 use App\Event;
 use App\Events\LandmarkEventCreated;
 use App\Notification;
+use Illuminate\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -49,7 +51,6 @@ class EventController extends Controller
         broadcast(new LandmarkEventCreated($notification))->toOthers();
 
         return $event;
-
     }
 
     public function edit($event_id)
@@ -60,10 +61,10 @@ class EventController extends Controller
         return view('events.edit', compact('event'));
     }
 
-    public function update(Request $request, $event_id) 
+    public function update(Request $request, $event_id)
     {
         $event = Event::findOrFail($event_id);
-        
+
         $event->title = $request->input('title');
         $event->description = $request->input('description');
 
@@ -72,17 +73,16 @@ class EventController extends Controller
         return redirect('/events/' . $event->id);
     }
 
-    public function deleteEvent($event_id) 
+    public function deleteEvent($event_id)
     {
-    if (\Gate::allows('admin')){
+        if (Gate::allows('admin')) {
 
-        $event = Event::findOrFail($event_id);
-        $event->delete();
+            $event = Event::findOrFail($event_id);
+            $event->delete();
 
-        return redirect(action('EventController@index', $event->id));
+            return redirect(action('EventController@index', $event->id));
+        }
 
+        return redirect()->action('EventController@show', [$event_id]);
     }
-
-    return redirect()->action('EventController@show', [ $event_id ]);
-    } 
 }

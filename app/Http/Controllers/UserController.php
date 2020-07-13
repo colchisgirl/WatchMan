@@ -14,23 +14,21 @@ class UserController extends Controller
 {
     public function show()
     {
-        
-        return User::with('landmarks', 'events', 'notifications', 'notifications.user', 'notifications.event.landmark')->where('id', \Auth::id())->get();
-
+        return User::with('landmarks', 'events', 'notifications', 'notifications.user', 'notifications.event.landmark')->where('id', Auth::id())->get();
     }
 
-    public function edit() 
+    public function edit()
     {
 
         if (Auth::user()) {
-            
+
             $user = User::find(Auth::user()->id);
 
-            if($user) {
+            if ($user) {
                 return view('users.edit')->withUser($user);
             } else {
                 return redirect()->back();
-            }   
+            }
         } else {
             return redirect()->back();
         }
@@ -40,7 +38,7 @@ class UserController extends Controller
     {
         $user = User::find(Auth::user()->id);
 
-        if($user) {
+        if ($user) {
             $validate = null;
 
             if (Auth::user()->email === $request['email']) {
@@ -51,40 +49,39 @@ class UserController extends Controller
                 ]);
             } else {
                 $validate = $request->validate([
-                'name' => 'required|min:2',
-                'email' => 'required|email|unique:users',
-                'address' => 'required|min:5'
-            ]);
+                    'name' => 'required|min:2',
+                    'email' => 'required|email|unique:users',
+                    'address' => 'required|min:5'
+                ]);
             }
 
             if ($validate) {
-                
-            $user->name = $request['name'];
-            $user->email = $request['email'];
-            $user->address = $request['address'];
 
-            $user->save();
-            
-            $request->session()->flash('success', 'Your details have been saved!');
+                $user->name = $request['name'];
+                $user->email = $request['email'];
+                $user->address = $request['address'];
 
-            return redirect()->back();
-            }   else {
+                $user->save();
+
+                $request->session()->flash('success', 'Your details have been saved!');
+
+                return redirect()->back();
+            } else {
                 return redirect()->back();
             }
-
         } else {
             return redirect()->back();
         }
     }
 
-    public function passwordEdit() 
+    public function passwordEdit()
     {
         if (Auth::user()) {
-                return view('users.password');
-            } else {
-                return redirect()->back();
-            }   
+            return view('users.password');
+        } else {
+            return redirect()->back();
         }
+    }
 
     public function passwordUpdate(Request $request)
     {
@@ -95,15 +92,13 @@ class UserController extends Controller
 
         $user = User::find(Auth::user()->id);
 
-        if($user) {
-            if (Hash::check($request['oldPassword'], $user->password) && $validate)
-            {
+        if ($user) {
+            if (Hash::check($request['oldPassword'], $user->password) && $validate) {
                 $user->password = Hash::make($request['password']);
                 $user->save();
 
                 $request->session()->flash('success', 'Your password was changed!');
                 return redirect()->back();
-
             } else {
                 $request->session()->flash('error', 'The password you entered is not correct.');
                 return redirect()->route('users.password');
@@ -121,10 +116,7 @@ class UserController extends Controller
     }
 
 
-    public function dashboard() 
+    public function dashboard()
     {
-        
     }
-
-
 }
