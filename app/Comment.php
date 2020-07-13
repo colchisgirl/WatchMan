@@ -15,4 +15,9 @@ class Comment extends Model
     {
         return $this->hasMany(Comment::class, 'reply_to_id');
     }
+    
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
 }

@@ -56,4 +56,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class)->whereNull('reply_to_id');
     }
+    
+    public function tracking()
+    {
+        return $this->hasMany(Tracking::class);
+    }
+
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
 }

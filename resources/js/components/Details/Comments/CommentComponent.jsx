@@ -41,7 +41,7 @@ export default class CommentComponent extends Component {
                 </Comment.Content>
                 {comments.map((reply) =>
                     reply.reply_to_id === comment.id ? (
-                        <Comment.Group key={comment.id}>
+                        <Comment.Group key={reply.id}>
                             <Comment>
                                 <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/matt.jpg' />
                                 <Comment.Content>

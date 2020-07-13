@@ -25,4 +25,9 @@ class Landmark extends Model
     {
         return $this->hasMany(Comment::class)->whereNull('reply_to_id');
     }
+    
+    public function tracking()
+    {
+        return $this->hasMany(Tracking::class);
+    }
 }

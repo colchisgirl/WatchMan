@@ -52,11 +52,15 @@ Route::prefix('api')->group(function () {
             return $request->user();
         });
 
+        Route::get('/profile', 'UserController@show');
+
         Route::post('/events/create',  'EventController@create')->name('events.create');
 
         Route::post('/landmarks/create',  'LandmarkController@create')->name('landmarks.create');
 
         Route::resource('fileupload', 'ImageController');
+
+        Route::post('/landmarks/{landmark_id}/tracking', 'TrackingController@index');
     });
 });
 
@@ -85,7 +89,7 @@ Auth::routes();
 // Events routing
 
 Route::get('/events',                   'EventController@index')->name('events.index');
-Route::get('/events/{event_id}',         'EventController@show')->name('events.show')->where('event_id', '[0-9]+');
+//Route::get('/events/{event_id}',         'EventController@show')->name('events.show')->where('event_id', '[0-9]+');
 
 Route::get('/events/create',            'EventController@create')->name('events.create');
 Route::post('/events',                  'EventController@store')->name('events.store');

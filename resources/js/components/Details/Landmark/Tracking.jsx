@@ -1,42 +1,51 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class Tracking extends React.Component {
-    constructor(props) {
-        super(props)
 
-        this.state = {
-            tracked: false
+    handleTrackingLandmark = async e => {
 
-        }
-    }
-
-    handleTrackingLandmark = () => {
-        this.setState({
-            tracked: (this.state.tracked ? false : true)
-        })
-
+        e.preventDefault();
         // this.state.tracked ?
         //send api to create new tracking :
         //send api to delete the tracking from database
 
-    }
+        const response = await fetch(`/api/landmarks/${this.props.landmark.id}/tracking`, {
+            method: "POST",
+            body: JSON.stringify(this.state),
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document
+                    .querySelector('meta[name="csrf-token"]')
+                    .getAttribute("content")
+            }
+        });
 
+        if (response.status >= 400 && response.status < 500) {
+            // Redirect
+        } else {
+            const parsed = await response.json();
+            this.props.onTrackingChange(parsed);
+            console.log('successfully tracked');
+        }
+    };
 
     render() {
-        const { tracked } = this.state
-        const { landmark } = this.props
 
-        const tracking =
-            (tracked ?
-                <button className="ldetails__container__tracking track" onClick={this.handleTrackingLandmark}>Track</button>
-                :
-                <button className="ldetails__container__tracking tracked" onClick={this.handleTrackingLandmark}>Tracked</button>
-            )
+        const tracked = this.props.landmark?.tracking?.length;
 
         return (
             <div className="ldetails__container__buttons">
-                {tracking}
+                {/* {tracking}
+            </div> */}
+
+                <button
+                    className="ldetails__container__tracking"
+                    onClick={this.handleTrackingLandmark}
+                >
+                    {tracked ? "Tracked" : "Track"}
+                </button>
             </div>
-        )
+        );
     }
 }
