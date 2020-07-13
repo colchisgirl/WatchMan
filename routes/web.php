@@ -40,11 +40,7 @@ Route::prefix('api')->group(function () {
     Route::get('/events/{event_id}', 'EventController@show');
     Route::get('/{user_id}/landmarks', 'LandmarkController@myLandmarks');
 
-<<<<<<< HEAD
     Route::get('/comments/{landmark_id}/{event_id}', 'CommentController@show');
-=======
-    
->>>>>>> c77dabe8719f9c7dd80640102bdd5aaca7052f14
     
 
     Route::group(['middleware' => ['auth:web']], function () {

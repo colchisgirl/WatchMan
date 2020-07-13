@@ -27,6 +27,7 @@ export default class Notifications extends Component {
         this.setState(prevState => ({
             readNotification: !prevState.readNotification
         }));
+        console.log(this.state.readNotification)
     };
 
     componentWillUnmount = () => {
@@ -51,22 +52,22 @@ export default class Notifications extends Component {
                 <div
                     className={`notification ${
                         this.state.readNotification ? "shown" : "hidden"
-                    }`}
+                        }`}
                 >
                     {this.state.notifications.length ? (
                         <ul>
                             {this.state.notifications.map((notification, i) => (
-                                    <Link
-                                        to={`/events/${notification.event_id}`}
-                                    >
-                                        <li key={i}>{notification.text}</li>
-                                    </Link>
-                                )
+                                <Link
+                                    to={`/events/${notification.event_id}`}
+                                >
+                                    <li key={i}>{notification.text}</li>
+                                </Link>
+                            )
                             )}
                         </ul>
                     ) : (
-                        <h3>There are no new notifications</h3>
-                    )
+                            <h3>There are no new notifications</h3>
+                        )
                     }
                 </div>
             </>

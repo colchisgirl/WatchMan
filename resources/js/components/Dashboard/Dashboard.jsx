@@ -183,24 +183,6 @@ export default class Dashboard extends Component {
                                     </div>
                                 </section>
                             </div>
-                            <section className="container__dashboard__bottom">
-                                <h3 className="dashboard__section__title">All Landmarks</h3>
-                                <div className="container__dashboard__landmarks">
-                                    {landmarks.map((landmark, i) => {
-                                        return (
-                                            <div key={i} className="container__dashboard__landmarkContainer">
-                                                <div className="top landmark__popup__top">
-                                                    <img className="landmark__popup__img" src={`/img/${landmark.images[0]?.url}`} alt={`Picture of ${landmark.title}`} />
-                                                </div>
-                                                <div className="bottom">
-                                                    <h3>{landmark.title}</h3>
-                                                    <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
-                                </div>
-                            </section>
 
                             <section className="container__dashboard__bottom">
                                 <h3 className="dashboard__section__title">All Landmarks</h3>

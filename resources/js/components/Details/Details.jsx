@@ -99,19 +99,19 @@ export default class Details extends Component {
 
                         <Route path="/landmarks/:landmark_id/:event_id">
                             <Event {...this.props}>
-                                { this.props.state.user ?
-                                <Notifications /> :
-                                null }
+                                {this.props.state.user ?
+                                    <Notifications /> :
+                                    null}
                             </Event>
                         </Route>
 
 
                         <Route path="/landmarks/:landmark_id">
-                            <Landmark landmark={landmark}>
+                            <Landmark landmark={landmark} {...this.props}>
 
-                                { this.props.state.user ?
-                                <Tracking landmark={landmark} onTrackingChange={this.onTrackingChange} /> :
-                                null }
+                                {this.props.state.user ?
+                                    <Tracking landmark={landmark} onTrackingChange={this.onTrackingChange} /> :
+                                    null}
 
                             </Landmark>
                         </Route>

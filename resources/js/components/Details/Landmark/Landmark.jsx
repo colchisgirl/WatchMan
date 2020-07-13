@@ -1,33 +1,13 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-
-import Tracking from './Tracking';
-import CommentsSection from '../Comments/Comments'
-
-
-export default class Landmark extends Component {
-    constructor(props) {
-        super(props)
-
-    }
-
-    render() {
-        const { landmark } = this.props
-
-        return (
-            <>
-                <Tracking {...this.props} />
-                <div className="ldetails__container__data">
-                    <div className="ldetails__container__title">
-                        <h2>{landmark.title}</h2>
-
-=======
 import React, { Component } from "react";
+
+import CommentsSection from '../Comments/Comments'
 
 export default class Landmark extends Component {
 
     render() {
         const { landmark } = this.props;
+
+        console.log(this.props);
 
         return (
             <>
@@ -35,7 +15,6 @@ export default class Landmark extends Component {
                 <div className="ldetails__container__data">
                     <div className="ldetails__container__title">
                         <h2>{landmark.title}</h2>
->>>>>>> c77dabe8719f9c7dd80640102bdd5aaca7052f14
                     </div>
                     <hr className="ldetails__container__line"></hr>
                     <p>{landmark.description}</p>

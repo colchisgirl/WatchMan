@@ -62,7 +62,7 @@ export default class AppComponent extends React.Component {
                         )}
                     />
 
-                    
+
 
                     <Route path="/register">
                         <RegisterComponent state={this.state} />
