@@ -23,7 +23,6 @@ export default class Dashboard extends Component {
             events: [],
             user_id: props.state.user?.id,
             notifications: []
-
         }
     }
 
@@ -35,7 +34,6 @@ export default class Dashboard extends Component {
             headers: {
                 'Accept': 'application/json', // we expect JSON as response
                 'Content-Type': 'application/json', // if we are sending something in the body, it is JSON
-                'Authorization': 'Bearer ' + this.props.token
             }
         })
             .then(response => {
@@ -57,7 +55,6 @@ export default class Dashboard extends Component {
             headers: {
                 'Accept': 'application/json', // we expect JSON as response
                 'Content-Type': 'application/json', // if we are sending something in the body, it is JSON
-                'Authorization': 'Bearer ' + this.props.token
             }
         })
             .then(response => {
@@ -79,7 +76,6 @@ export default class Dashboard extends Component {
             headers: {
                 'Accept': 'application/json', // we expect JSON as response
                 'Content-Type': 'application/json', // if we are sending something in the body, it is JSON
-                'Authorization': 'Bearer ' + this.props.token
             }
         })
             .then(response => {
@@ -191,7 +187,7 @@ export default class Dashboard extends Component {
                                         return (
                                             <div className="container__dashboard__landmarkContainer">
                                                 <div className="top landmark__popup__top">
-                                                    <img className="landmark__popup__img" src={`/img/${landmark.images[0]?.url}`} alt={`Picture of ${landmark.title}`} />
+                                                    <img className="landmark__popup__img" src={landmark.images[0]?.url} alt={`Picture of ${landmark.title}`} />
                                                 </div>
                                                 <div className="bottom">
                                                     <h3>{landmark.title}</h3>

@@ -21,6 +21,8 @@ export default class Notifications extends Component {
             });
             
         });
+
+        const echoId = Echo.socketId(); //we need to pass this id to appcomponent and then pass it to createEvent
     };
 
     readNotifications = () => {

@@ -17,7 +17,9 @@ class EventController extends Controller
 
     public function show($event_id)
     {
-        $event = Event::with('images', 'landmark')->findOrFail($event_id);
+        $event = Event::with(['images', 'landmark', 'comments' => function ($query) {
+            return $query->with('user');
+        }])->findOrFail($event_id);
 
         return $event;
     }

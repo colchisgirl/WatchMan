@@ -21,13 +21,10 @@ export default class Event extends Component {
     componentDidMount = () => {
         const { event_id } = this.props.match.params;
 
-        console.log(this.props);
-
         fetch(`/api/events/${event_id}`, {
             headers: {
                 Accept: "application/json", // we expect JSON as response
                 "Content-Type": "application/json", // if we are sending something in the body, it is JSON
-                Authorization: "Bearer " + this.props.token
             }
         }).then(response => {
             if (response.status === 200) {
@@ -105,7 +102,7 @@ export default class Event extends Component {
                             </div>
                         </div>
                     ) : null}
-                    <CommentsSection landmark_id={null} event_id={event.id} state={this.props.state} />
+                    { event.comments ? <CommentsSection event={event} state={this.props.state} /> : null}
                 </div>
             </>
         );
