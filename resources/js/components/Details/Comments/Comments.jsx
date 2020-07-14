@@ -8,7 +8,7 @@ export default class Comments extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            comments: this.props.event.comments || [],
+            comments: this.props.event?.comments || [],
             replyFormHidden: true,
             reply_to_id: '',
             text: ''
@@ -89,9 +89,9 @@ export default class Comments extends Component {
                     </Header>
                     {comments.length ? (
 
-                        comments.map((comment) =>
+                        comments.map((comment, i) =>
                             comment.reply_to_id === null ? (
-                                <CommentComponent comment={comment} comments={comments} />
+                                <CommentComponent comment={comment} comments={comments} key={i} />
                             ) : (
                                     null
                                 ))
