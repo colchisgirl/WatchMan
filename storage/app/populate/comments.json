@@ -1,0 +1,23 @@
+[
+  {
+    "text": "I've been expecting them to do this for five years now.",
+    "user_id": "3",
+    "events_id": "6",
+    "landmark_id": null,
+    "reply_to_id": null
+  },
+  {
+    "text": "Yeah, me too. Setting a fee for entrance could solve two problems: 1.it will reduce the endless stream of people wanting to visit it; 2. they will actually be able to use the money for something good.",
+    "user_id": "4",
+    "events_id": "6",
+    "landmark_id": null,
+    "reply_to_id": "1"
+  },
+  {
+    "text": "We should suggest it",
+    "user_id": "3",
+    "events_id": "6",
+    "landmark_id": null,
+    "reply_to_id": "1"
+  }
+]

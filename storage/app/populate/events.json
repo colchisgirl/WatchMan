@@ -1,0 +1,170 @@
+[
+  {
+    "title": "Facade has been restored",
+    "description": "The work went on several months and covered the facade of the historical Gabashvili family home. Unique lace of the balcony is preserved.",
+    "alarm": "1",
+    "landmark_id": "1",
+    "user_id": "1"
+  },
+  {
+    "title": "Gabashvili family are crowdfunding to restore the entrance hall",
+    "description": "They were able to save the unique balcony. Restoration of entrance hall is more expensive than facade. The family is pooling some money to restore the historical interior of their entrance hall. It is still possible to save ceiling stained glass. Please contact the family for more details!",
+    "alarm": "1",
+    "landmark_id": "1",
+    "user_id": "2"
+  },
+  {
+    "title": "Restoration of the apartment on the fourth floor is finished!",
+    "description": "Finally the restoration that lasted for several months is finished. Restoration team cleaned murals on the walls. In each of the four rooms, the walls were painted back in 1902 by different artists. Two most outstanding motifs are located in oriental room and a bedroom, where the walls are decoraed with fairy-tale compositions of gnomes dancing. The restoration company won the award for the best work in 2019! Sadly I cannot share pictures since they are copyrighted but you can find them online. I hope the family organizes a tour someday!",
+    "alarm": "1",
+    "landmark_id": "2",
+    "user_id": "2"
+  },
+  {
+    "title": "Congratulations!!! Tbilisi Development Fund started thorough restoration of Kartvelishvili house!",
+    "description": "The same team that worked on Chavchanidze house just meters away, started working on the house on Rome street! I am so happy! They say it's due to finish in December 2020.",
+    "alarm": "1",
+    "landmark_id": "2",
+    "user_id": "4"
+  },
+  {
+    "title": "Yesterday's earthquake damaged circle sculptures on the facade!",
+    "description": "Does anyone know if the house is on the Tbilisi Development Fund's list?",
+    "alarm": "1",
+    "landmark_id": "3",
+    "user_id": "2"
+  },
+  {
+    "title": "House to be closed in the evenings due to many tourists",
+    "description": "Because of how photogenic it is here, hundreds of instagrammers visit every day. The 150-year-old wooden balcony and staircase require urgent support. Meanwhile, the families living here might limit entrance during evening hours. Do you guys think it also would be a good idea for them to ask for entrance fee and use it for restoration?",
+    "alarm": "1",
+    "landmark_id": "4",
+    "user_id": "2"
+  },
+  {
+    "title": "City mayor ordered to stick to a historical photograph of the door umbrella!",
+    "description": "It worked! I work in the National Archive and I sent a rare photograph of the building to the City Hall and the mayor ordered to recreate the lost metal umbrella above the door according to the photograph.",
+    "alarm": "1",
+    "landmark_id": "5",
+    "user_id": "1"
+  },
+  {
+    "title": "They no longer let people inside",
+    "description": "I would love to pay a fee but see the beauty of the entrance hall in peace! :(",
+    "alarm": "1",
+    "landmark_id": "5",
+    "user_id": "3"
+  },
+  {
+    "title": "Someone broke glass in the front door!",
+    "description": "They did not go through the second door though. No other damage. I wonder what they were trying to do",
+    "alarm": "1",
+    "landmark_id": "6",
+    "user_id": "3"
+  },
+  {
+    "title": "Restoration of ceiling murals is finished",
+    "description": "Go see! They also discovered lovely floral stencils on the walls.",
+    "alarm": "1",
+    "landmark_id": "6",
+    "user_id": "4"
+  },
+  {
+    "title": "Second floor is opened for public!",
+    "description": "Restored guestrooms, excluding the famous oriental room, were opened for public today. The upper floor of the House of Writers will soon reopen again as a museum. The museum has been crowdfunding to purchase personal possessions and furniture belonging to the former owner of the house, David Sarajishvili.",
+    "alarm": "1",
+    "landmark_id": "7",
+    "user_id": "4"
+  },
+  {
+    "title": "It's on this year's restoration list finally!",
+    "description": "Those stained glass windows are going to shine bright again!",
+    "alarm": "1",
+    "landmark_id": "8",
+    "user_id": "2"
+  },
+  {
+    "title": "The dome is leaking",
+    "description": "It requires urgent maintenance.",
+    "alarm": "1",
+    "landmark_id": "8",
+    "user_id": "5"
+  },
+  {
+    "title": "The balcony's burning! The firemen now are trying to save the wooden structure.",
+    "description": "Good thing it rained last night and the fire does not spread fast",
+    "alarm": "1",
+    "landmark_id": "9",
+    "user_id": "5"
+  },
+  {
+    "title": "The balcony was urgently restored.",
+    "description": "The pattern of wood carving imitates original but you can see the difference.",
+    "alarm": "1",
+    "landmark_id": "9",
+    "user_id": "4"
+  },
+  {
+    "title": "Workers are cleaning the gate",
+    "description": "there are no news about the house anywhere, what do you know?",
+    "alarm": "1",
+    "landmark_id": "10",
+    "user_id": "3"
+  },
+  {
+    "title": "A dweller was changing wallpaper and discovered secret niches...",
+    "description": "... that apparently were used to eavesdrop on the guests of the Consule. Interesting find",
+    "alarm": "1",
+    "landmark_id": "10",
+    "user_id": "6"
+  },
+  {
+    "title": "The owners of restaurant dyed the staircase red!",
+    "description": "Looks good though. Thoughts?",
+    "alarm": "1",
+    "landmark_id": "11",
+    "user_id": "2"
+  },
+  {
+    "title": "Facade restoration is finished!",
+    "description": "Amazing details. Also they found old statue of an eagle and placed in on the roof, its original position.",
+    "alarm": "1",
+    "landmark_id": "12",
+    "user_id": "7"
+  },
+  {
+    "title": "Paintings are restored!",
+    "description": "Scaffoldings removed",
+    "alarm": "1",
+    "landmark_id": "12",
+    "user_id": "8"
+  },
+  {
+    "title": "Roof is leaking",
+    "description": "I wonder if they are going to restore it.",
+    "alarm": "1",
+    "landmark_id": "13",
+    "user_id": "2"
+  },
+  {
+    "title": "Tiles are disappearing?!",
+    "description": "what is happening?",
+    "alarm": "1",
+    "landmark_id": "13",
+    "user_id": "1"
+  },
+  {
+    "title": "Someone is changing the window and apparently is going to throw the old one away!",
+    "description": "Where can I take it if I pick it up?",
+    "alarm": "1",
+    "landmark_id": "14",
+    "user_id": "1"
+  },
+  {
+    "title": "One of the snakes is going to fall off soon.",
+    "description": "I wonder if they are going to restore it.",
+    "alarm": "1",
+    "landmark_id": "14",
+    "user_id": "3"
+  }
+]
