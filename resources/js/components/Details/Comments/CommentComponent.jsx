@@ -7,7 +7,8 @@ export default class CommentComponent extends Component {
         super(props)
 
         this.state = {
-            replyFormHidden: true
+            replyFormHidden: true,
+            reply_to_id: null
         }
     }
 
