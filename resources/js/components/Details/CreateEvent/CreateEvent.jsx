@@ -35,7 +35,8 @@ export default class CreateEvent extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                'Authorization': 'Bearer ' + this.props.token
+                "X-Socket-Id": Echo.socketId()
+
             }
         });
 

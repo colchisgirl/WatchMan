@@ -19,7 +19,7 @@ export default class PopupComponent extends Component {
             >
                 <div className="landmark__popup">
                     <div className="landmark__popup__top">
-                        <img className="landmark__popup__img" src={`/img/${selectedLandmark.images[0].url}`} alt="" />
+                        <img className="landmark__popup__img" src={selectedLandmark.images[0].url} alt="" />
                         <div className="landmark__popup__title">
                             <h2>{selectedLandmark.title}</h2>
                             <p>{selectedLandmark.house_number} {selectedLandmark.street}, {selectedLandmark.city}</p>

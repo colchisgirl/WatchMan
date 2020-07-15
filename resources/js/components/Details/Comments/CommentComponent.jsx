@@ -67,7 +67,7 @@ export default class CommentComponent extends Component {
         const { comment } = this.props
         return (
             <Comment key={comment.id}>
-                <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/matt.jpg' />
+                <Comment.Avatar src={comment.user.profile_img || 'https://react.semantic-ui.com/images/avatar/small/matt.jpg'} />
                 <Comment.Content>
                     <Comment.Author as='a'>{comment.user.name}</Comment.Author>
                     <Comment.Metadata>
@@ -89,7 +89,7 @@ export default class CommentComponent extends Component {
                     reply.reply_to_id === comment.id ? (
                         <Comment.Group key={reply.id}>
                             <Comment>
-                                <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/matt.jpg' />
+                                <Comment.Avatar src={reply.user.profile_img || 'https://react.semantic-ui.com/images/avatar/small/matt.jpg'} />
                                 <Comment.Content>
                                     <Comment.Author as='a'>{reply.user.name}</Comment.Author>
                                     <Comment.Metadata>

@@ -25,10 +25,9 @@ class Event extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class)->whereNull('reply_to_id');
+        return $this->hasMany(Comment::class, 'events_id');
     }
 
-    
     public function notifications()
     {
         return $this->hasMany(Notification::class);

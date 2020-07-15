@@ -20,4 +20,8 @@ class Comment extends Model
     {
         return $this->hasMany(Notification::class);
     }
+
+    public function event() {
+        return $this->belongsTo(Event::class);
+    }
 }

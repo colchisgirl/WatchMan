@@ -8,41 +8,39 @@ export default class Comments extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            comments: [],
+            comments: this.props.event?.comments || [],
             replyFormHidden: true,
             reply_to_id: '',
             text: ''
         }
     }
 
-    componentDidMount = () => {
+    // componentDidMount = () => {
 
-        fetch(`/api/comments/${this.props.landmark}/${this.props.event}`, {
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                Authorization: "Bearer " + this.props.token
-            }
-        }).then(response => {
-            if (response.status === 200) {
-                response.json().then(data => {
-                    this.setState({
-                        comments: data
-                    })
-                })
-            } else {
-                if (response.status === 401) {
-                    this.props.onFailedAuthentication();
-                }
-            }
-        })
-    }
+    //     fetch(`/api/comments/${this.props.landmark}/${this.props.event}`, {
+    //         headers: {
+    //             Accept: "application/json",
+    //             "Content-Type": "application/json"
+    //         }
+    //     }).then(response => {
+    //         if (response.status === 200) {
+    //             response.json().then(data => {
+    //                 this.setState({
+    //                     comments: data
+    //                 })
+    //             })
+    //         } else {
+    //             if (response.status === 401) {
+    //                 this.props.onFailedAuthentication();
+    //             }
+    //         }
+    //     })
+    // }
 
     handleClickReply = () => {
         this.setState({
             replyFormHidden: !this.state.replyFormHidden
         })
-        console.log(this.state.replyFormHidden)
     }
 
     onCommentValueChange = (e) => {
@@ -70,7 +68,6 @@ export default class Comments extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                'Authorization': 'Bearer ' + this.props.token
             }
         });
 
@@ -81,10 +78,8 @@ export default class Comments extends Component {
 
     }
 
-
-
     render() {
-        const { comments } = this.state
+        const { comments } = this.state;
 
         return (
             <div className="ldetails__container__comments">
@@ -92,16 +87,20 @@ export default class Comments extends Component {
                     <Header as='h3' dividing>
                         Comments
                     </Header>
-                    {comments.length > 0 ? (
+                    {comments.length ? (
 
-                        comments.map((comment) =>
+                        comments.map((comment, i) =>
                             comment.reply_to_id === null ? (
+<<<<<<< HEAD
                                 <CommentComponent
                                     landmark={this.props.landmark}
                                     event_id={null}
                                     comment={comment}
                                     comments={comments}
                                 />
+=======
+                                <CommentComponent comment={comment} comments={comments} key={i} />
+>>>>>>> 16e4cd0078f6cea104f64a8c16ce6c3ee3d65d81
                             ) : (
                                     null
                                 ))

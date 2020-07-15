@@ -6,7 +6,6 @@ import Home from "../Home/Home";
 import Profile from "../Profile/Profile";
 import RegisterComponent from "../RegisterComponent/RegisterComponent";
 import LoginFormComponent from "../LoginComponent/LoginFormComponent";
-import Event from "../Details/Event/Event";
 
 import Details from "../Details/Details";
 
