@@ -3,12 +3,10 @@ import './index.scss'
 
 import { Link } from 'react-router-dom'
 
-import Logo from '../Logo'
-import Notifications from '../Notifications'
-import UserDropdown from '../UserDropdown'
-import NavItem from "../Home/Header/NavItem"
-import LogoutComponent from '../LoginComponent/LogoutComponent'
-import Profile from './Profile'
+import Logo from '../Logo';
+import UserDropdown from '../UserDropdown';
+import NavItem from "../Home/Header/NavItem";
+import LogoutComponent from '../LoginComponent/LogoutComponent';
 
 import { Switch, Route } from 'react-router-dom'
 

@@ -16,8 +16,21 @@ export default class AppComponent extends React.Component {
         this.state = {
             user: null,
             updateUser: this.updateUser,
-            loading: true
+            loading: true,
+            socketId: "",
+            liftStateUp: this.liftStateUp,
+            liftNotificationsStateUp: this.liftNotificationsStateUp,
+            notifications: []
         };
+    }
+
+    liftStateUp = (data) => {
+
+        this.setState({ socketId: data})
+      };
+
+    liftNotificationsStateUp = (data) => {
+        this.setState({ notifications: data })
     }
 
     updateUser = user => {
@@ -48,6 +61,7 @@ export default class AppComponent extends React.Component {
         return this.state.loading ? (
             <h1>Loading...</h1>
         ) : (
+                
                 <Router>
                     {/* anything before switch wil be shared among pages  */}
                     <Switch>
@@ -56,7 +70,7 @@ export default class AppComponent extends React.Component {
                         </Route>
 
                         <Route path="/map">
-                            <Map state={this.state} />
+                            <Map state={this.state} {...this.props} socketId={this.state.socketId}/>
                         </Route>
 
                         <Route path="/profile">
@@ -79,6 +93,9 @@ export default class AppComponent extends React.Component {
                         </Route>
                     </Switch>
                 </Router>
+
+               
+
             );
     }
 }

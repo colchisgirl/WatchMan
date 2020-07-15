@@ -9,28 +9,37 @@ export default class Notifications extends Component {
         super(props);
 
         this.state = {
-            notifications: [],
-            readNotification: false
+            readNotification: false,
         };
     }
 
     componentDidMount = () => {
-        Echo.private("notifications").listen("LandmarkEventCreated", e => {
-            this.setState({
-                notifications: [e.data, ...this.state.notifications]
-            });
+        
+        const sockId = Echo.socketId();
+        if (this.props.state.socketId !== sockId) {
+            this.props.state.liftStateUp(sockId);
+        }
 
+        Echo.private("notifications").listen("LandmarkEventCreated", e => {
+            this.props.state.liftNotificationsStateUp([e.data, ...this.props.state.notifications]);
         });
 
-        const echoId = Echo.socketId(); //we need to pass this id to appcomponent and then pass it to createEvent
+        // setActiveNode = (echoId) => {
+        //     this.setState({ socketId: echoId });
+        //     this.props.liftStateUp(echoId);
+        // }
+         //we need to pass this id to appcomponent and then pass it to createEvent
     };
 
     readNotifications = () => {
+        
         this.setState(prevState => ({
             readNotification: !prevState.readNotification
         }));
 
-        console.log(this.state.notifications)
+        
+
+       
     };
 
     componentWillUnmount = () => {
@@ -43,10 +52,10 @@ export default class Notifications extends Component {
             <>
                 <div
                     className="ldetails__container__notifications"
-                    onClick={this.readNotifications}
+                    onClick={this.readNotifications} notifications={this.props.state}
                 >
                     <Badge
-                        badgeContent={this.state.notifications.length}
+                        badgeContent={this.props.state.notifications.length}
                         color="secondary"
                     >
                         <NotificationsIcon />
@@ -59,14 +68,14 @@ export default class Notifications extends Component {
                     >
                         <div className="dropdown__header">
                             <span className="triangle"></span>
-                            <h2>Notifications</h2>
+                            { this.props.state.notifications.length ? <h2>Notifications</h2> : null }
                         </div>
                         <div className="notifications__body">
 
-                            {this.state.notifications.length ? (
+                            {this.props.state.notifications.length ? (
                                 <ul>
 
-                                    {this.state.notifications.map((notification, i) => (
+                                    {this.props.state.notifications.map((notification, i) => (
                                         <li>
                                             <Link
                                                 to={`/landmarks/${notification.event.landmark_id}/${notification.event_id}`} key={i}
@@ -77,9 +86,7 @@ export default class Notifications extends Component {
                                     )
                                     )}
                                 </ul>
-                            ) : (
-                                    <h3>There are no new notifications</h3>
-                                )
+                            ) : null
                             }
                         </div>
                     </div>

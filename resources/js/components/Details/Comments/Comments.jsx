@@ -15,27 +15,27 @@ export default class Comments extends Component {
         }
     }
 
-    // componentDidMount = () => {
+    componentDidMount = () => {
 
-    //     fetch(`/api/comments/${this.props.landmark}/${this.props.event}`, {
-    //         headers: {
-    //             Accept: "application/json",
-    //             "Content-Type": "application/json"
-    //         }
-    //     }).then(response => {
-    //         if (response.status === 200) {
-    //             response.json().then(data => {
-    //                 this.setState({
-    //                     comments: data
-    //                 })
-    //             })
-    //         } else {
-    //             if (response.status === 401) {
-    //                 this.props.onFailedAuthentication();
-    //             }
-    //         }
-    //     })
-    // }
+        fetch(`/api/comments/${this.props.landmark}/${this.props.event}`, {
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        }).then(response => {
+            if (response.status === 200) {
+                response.json().then(data => {
+                    this.setState({
+                        comments: data
+                    })
+                })
+            } else {
+                if (response.status === 401) {
+                    this.props.onFailedAuthentication();
+                }
+            }
+        })
+    }
 
     handleClickReply = () => {
         this.setState({

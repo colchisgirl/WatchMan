@@ -110,7 +110,7 @@ export default class Details extends Component {
                                     </li>
                                 </ul>
                                 <div className="ldetails__container__userInfo">
-                                    <Notifications />
+                                    <Notifications {...this.props}/>
                                     <UserDropdown state={this.props.state} />
                                 </div>
                             </>
