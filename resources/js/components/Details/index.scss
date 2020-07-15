@@ -270,6 +270,53 @@ button{
 }
 
 
+// upload Images container
+
+.uploadImage__events{
+    margin: 4rem auto;
+    text-align: center;
+    padding: 4rem ;
+    width: 35rem;
+    box-shadow: rgb(185, 185, 185) -5px 0px 15px;
+    background-color: rgb(236, 236, 236);
+    form{
+        width: 100%;
+    }
+    input[type=submit]{
+        width: auto;
+    }
+    .inputfile{
+        width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    }
+    .inputfile + label {
+        border: 1px solid #d3394c;
+        background-color: #f1e5e6;
+        padding: 0;
+        max-width: 80%;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+    }
+
+}
+
+.file__upload__input{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 // create a new event form 
 .event__container__create-form{
     margin: 4rem auto;

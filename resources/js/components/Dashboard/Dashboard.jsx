@@ -8,11 +8,10 @@ import Notifications from '../Notifications'
 import UserDropdown from '../UserDropdown'
 import NavItem from "../Home/Header/NavItem"
 import LogoutComponent from '../LoginComponent/LogoutComponent'
-import Profile from './Profile'
 
 import { Switch, Route } from 'react-router-dom'
 
-export default class Dashboard extends Component {
+export default class Profile extends Component {
 
     constructor(props) {
         super(props)
@@ -117,93 +116,86 @@ export default class Dashboard extends Component {
                     </div>
                 </nav>
                 <main>
-                    <Switch>
-                        <Route path="/dashboard" >
-                            <div className="container__dashboard__content">
-                                <div className="container__dashboard__main">
-                                    <section>
-                                        <div className="container__dashboard__userInfo">
-                                            <h1>{user?.name}</h1>
-                                            <div className="container__dashboard__userInfoDiv">
-                                                <p><span>Tracking:</span> 5 landmarks</p>
-                                                <p><span>Created:</span> 1 landmark</p>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <section>
-                                        <h3 className="dashboard__section__title">My Landmarks</h3>
-                                        <div className="container__dashboard__myLandmarks">
-
-                                            {usersLandmarks !== [] ?
-                                                usersLandmarks.map((landmark, i) => {
-                                                    return (
-                                                        <div className="container__dashboard__landmarkContainer" key={i}>
-                                                            <div className="top landmark__popup__top">
-                                                                <img className="landmark__popup__img" src={landmark.images[0]?.url} alt={`Picture of ${landmark.title}`} />
-                                                            </div>
-                                                            <div className="bottom">
-                                                                <h3>{landmark.title}</h3>
-                                                                <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
-                                                            </div>
-
-                                                        </div>
-                                                    )
-                                                })
-                                                : (
-                                                    <p> No landmarks </p>
-                                                )
-                                            }
-                                        </div>
-                                    </section>
-                                    <section className="container__dashboard__tracked">
-                                        <h3 className="dashboard__section__title">Tracked Landmarks</h3>
-                                        <div className="container__dashboard__watchingLandmarks">
-                                            no landmarks
-                                </div>
-                                    </section>
-                                </div>
-
-                                <section className="container__dashboard__aside">
-                                    <h3 className="dashboard__section__title">Notifications</h3>
-                                    <div className="container__dashboard__notifications">
-                                        <div id='listings' className='listings'>
-                                            {this.state.notifications.map((notification, i) => (
-                                                <div className="item" key={i}>
-                                                    <Link to={`/landmarks/${notification.event.landmark.id}/${notification.event_id}`}><h4 className="item__title">{notification.text}</h4></Link>
-                                                    <p>{notification.created_at} by {notification.user.name}</p>
-                                                </div>
-                                            ))}
-
-
-                                        </div>
+                    <div className="container__dashboard__content">
+                        <div className="container__dashboard__main">
+                            <section>
+                                <div className="container__dashboard__userInfo">
+                                    <h1>{user?.name}</h1>
+                                    <div className="container__dashboard__userInfoDiv">
+                                        <p><span>Tracking:</span> 5 landmarks</p>
+                                        <p><span>Created:</span> 1 landmark</p>
                                     </div>
-                                </section>
-                            </div>
-
-                            <section className="container__dashboard__bottom">
-                                <h3 className="dashboard__section__title">All Landmarks</h3>
-                                <div className="container__dashboard__landmarks">
-                                    {landmarks.map((landmark, i) => {
-                                        return (
-                                            <div className="container__dashboard__landmarkContainer" key={i}>
-                                                <div className="top landmark__popup__top">
-                                                    <img className="landmark__popup__img" src={landmark.images[0]?.url} alt={`Picture of ${landmark.title}`} />
-                                                </div>
-                                                <div className="bottom">
-                                                    <h3>{landmark.title}</h3>
-                                                    <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
-                                                </div>
-                                            </div>
-                                        )
-                                    })}
-
                                 </div>
                             </section>
-                        </Route>
-                        <Route path="/profile">
-                            <p>profile</p>
-                        </Route>
-                    </Switch>
+                            <section>
+                                <h3 className="dashboard__section__title">My Landmarks</h3>
+                                <div className="container__dashboard__myLandmarks">
+
+                                    {usersLandmarks !== [] ?
+                                        usersLandmarks.map((landmark, i) => {
+                                            return (
+                                                <div className="container__dashboard__landmarkContainer" key={i}>
+                                                    <div className="top landmark__popup__top">
+                                                        <img className="landmark__popup__img" src={landmark.images[0]?.url} alt={`Picture of ${landmark.title}`} />
+                                                    </div>
+                                                    <div className="bottom">
+                                                        <h3>{landmark.title}</h3>
+                                                        <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
+                                                    </div>
+
+                                                </div>
+                                            )
+                                        })
+                                        : (
+                                            <p> No landmarks </p>
+                                        )
+                                    }
+                                </div>
+                            </section>
+                            <section className="container__dashboard__tracked">
+                                <h3 className="dashboard__section__title">Tracked Landmarks</h3>
+                                <div className="container__dashboard__watchingLandmarks">
+                                    no landmarks
+                                </div>
+                            </section>
+                        </div>
+
+                        <section className="container__dashboard__aside">
+                            <h3 className="dashboard__section__title">Notifications</h3>
+                            <div className="container__dashboard__notifications">
+                                <div id='listings' className='listings'>
+                                    {this.state.notifications.map((notification, i) => (
+                                        <div className="item" key={i}>
+                                            <Link to={`/landmarks/${notification.event.landmark.id}/${notification.event_id}`}><h4 className="item__title">{notification.text}</h4></Link>
+                                            <p>{notification.created_at} by {notification.user.name}</p>
+                                        </div>
+                                    ))}
+
+
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <section className="container__dashboard__bottom">
+                        <h3 className="dashboard__section__title">All Landmarks</h3>
+                        <div className="container__dashboard__landmarks">
+                            {landmarks.map((landmark, i) => {
+                                return (
+                                    <div className="container__dashboard__landmarkContainer" key={i}>
+                                        <div className="top landmark__popup__top">
+                                            <img className="landmark__popup__img" src={landmark.images[0]?.url} alt={`Picture of ${landmark.title}`} />
+                                        </div>
+                                        <div className="bottom">
+                                            <h3>{landmark.title}</h3>
+                                            <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+
+                        </div>
+                    </section>
                 </main>
 
             </div>

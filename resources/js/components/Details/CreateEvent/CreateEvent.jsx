@@ -56,10 +56,12 @@ export default class CreateEvent extends Component {
             this.state.event_id
                 ?
                 <>
-                    <h2>Event created! You can add a photo to event now.</h2>
-                    <FileUploadComponent {...this.props} {...this.state} />
+                    <div className="uploadImage__events">
+                        <h2>Event created! You can add a photo to event now.</h2>
+                        <FileUploadComponent {...this.props} {...this.state} />
 
-                    <Link to={`/landmarks/${this.state.landmark_id}/${this.state.event_id}`}><button>Take me to the event</button></Link>
+                        <Link to={`/landmarks/${this.state.landmark_id}/${this.state.event_id}`}><button>Take me to the event</button></Link>
+                    </div>
                 </>
                 :
                 <div className="event__container__create-form">

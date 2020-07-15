@@ -67,9 +67,9 @@ export default class Notifications extends Component {
                                 <ul>
 
                                     {this.state.notifications.map((notification, i) => (
-                                        <li>
+                                        <li key={i}>
                                             <Link
-                                                to={`/landmarks/${notification.event.landmark_id}/${notification.event_id}`} key={i}
+                                                to={`/landmarks/${notification.event.landmark_id}/${notification.event_id}`}
                                             >
                                                 {notification.text}
                                             </Link>

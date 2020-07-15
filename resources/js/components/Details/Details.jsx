@@ -64,7 +64,7 @@ export default class Details extends Component {
                 <div className="ldetails__container__landmark">
                     <nav className="ldetails__container__nav">
                         <Logo />
-                        {/* {
+                        {
                             this.props.state.user ? (
                                 <>
                                     <ul>
@@ -87,8 +87,8 @@ export default class Details extends Component {
                                         </ul>
                                     </>
                                 )
-                        } */}
-                        {this.props.state.user ? (
+                        }
+                        {/* {this.props.state.user ? (
                             <>
                                 <ul>
                                     <li>
@@ -124,7 +124,7 @@ export default class Details extends Component {
                                         />
                                     </ul>
                                 </>
-                            )}
+                            )} */}
                     </nav>
                     <Switch>
                         <Route path="/landmarks/:landmark_id/createEvent">
