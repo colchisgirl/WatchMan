@@ -32,7 +32,7 @@ class CommentController extends Controller
         $comment->landmark_id = $request->input('landmark_id');
         $comment->events_id = $request->input('event_id');
         $comment->user_id = $request->user()->id;
-        $comment->reply_to_id = $request->input['reply_to_id'];
+        $comment->reply_to_id = $request->input('reply_to_id');
         $comment->save();
    
 

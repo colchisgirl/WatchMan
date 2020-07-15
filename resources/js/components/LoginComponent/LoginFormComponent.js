@@ -1,6 +1,10 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+
+import { Redirect, Link } from 'react-router-dom';
 import LoginForm from './LoginForm';
+import Logo from '../Logo'
+import './index.scss'
+
 
 
 export default class LoginFormComponent extends React.Component {
@@ -22,7 +26,7 @@ export default class LoginFormComponent extends React.Component {
     }
 
     onLoginSuccess = (data) => {
-     
+
         // change the current state of this App to reflect
         // that we are logged-in
         this.setState({
@@ -55,22 +59,32 @@ export default class LoginFormComponent extends React.Component {
 
         return (
             <>
-                <h1>Watchman</h1>
+                <header className="loginregister__header">
+                    <div className="logo" >
+                        <Logo />
+                    </div>
+                    <div className="multi-button">
+                        <Link to="/" className="homebutton"><button>Home</button></Link>
+                        <Link to="/register" className="registerbutton"><button>Register</button></Link>
+                    </div>
+                </header>
+                <div className="login__container">
 
-                {
-                    this.state.logged_in === null 
-                        ?
-                        <div>Aquiring login status...</div>
-                        :
-                        (
-                            this.state.logged_in 
+
+                    {
+                        this.state.logged_in === null
                             ?
-                            <Redirect to="/map" />
+                            <div>Aquiring login status...</div>
                             :
-                            <LoginForm onLoginSuccess={ this.onLoginSuccess } />
-                        )
-                }
-                
+                            (
+                                this.state.logged_in
+                                    ?
+                                    <Redirect to="/map" />
+                                    :
+                                    <LoginForm onLoginSuccess={this.onLoginSuccess} />
+                            )
+                    }
+                </div>
             </>
         )
     }

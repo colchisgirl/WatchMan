@@ -26,18 +26,18 @@ export default class PopupComponent extends Component {
                         </div>
                     </div>
                     <div className="landmark__popup__middle">
-                        <h3>Events</h3>
+                        <h3>Latest Event</h3>
 
                         {selectedLandmark.events.length !== 0 ? (
                             <>
-                                <p><a>
+                                <p><Link to={`/landmarks/${selectedLandmark.id}/${selectedLandmark.events[0].id}`}>
                                     {selectedLandmark.events[0].title}
                                                 |
                                                 {selectedLandmark.events[0].user?.name}
                                                 |
                                                 22.6.2020
-                                            </a></p>
-                                <a href="#">more...</a>
+                                            </Link></p>
+                                <Link to={`/landmarks/${selectedLandmark.id}`}>more...</Link>
                             </>
                         ) : (
                                 <p>No events</p>

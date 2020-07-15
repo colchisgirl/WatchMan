@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { Link } from 'react-router-dom'
+
 export default class UserDropdown extends Component {
 
     constructor(props) {
@@ -8,7 +10,7 @@ export default class UserDropdown extends Component {
     render() {
         return (
             < >
-                <button>{this.props.state.user?.name}</button>
+                <Link to="/profile" className="userButton">{this.props.state.user?.name}</Link>
             </>
         )
     }

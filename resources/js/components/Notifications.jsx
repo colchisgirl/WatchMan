@@ -19,7 +19,7 @@ export default class Notifications extends Component {
             this.setState({
                 notifications: [e.data, ...this.state.notifications]
             });
-            //console.log(this.state.notifications[0].event_id);
+
         });
     };
 
@@ -27,7 +27,8 @@ export default class Notifications extends Component {
         this.setState(prevState => ({
             readNotification: !prevState.readNotification
         }));
-        console.log(this.state.readNotification)
+
+        console.log(this.state.notifications)
     };
 
     componentWillUnmount = () => {
@@ -35,6 +36,7 @@ export default class Notifications extends Component {
     };
 
     render() {
+
         return (
             <>
                 <div
@@ -47,28 +49,38 @@ export default class Notifications extends Component {
                     >
                         <NotificationsIcon />
                     </Badge>
-                </div>
 
-                <div
-                    className={`notification ${
-                        this.state.readNotification ? "shown" : "hidden"
-                        }`}
-                >
-                    {this.state.notifications.length ? (
-                        <ul>
-                            {this.state.notifications.map((notification, i) => (
-                                <Link
-                                    to={`/events/${notification.event_id}`}
-                                >
-                                    <li key={i}>{notification.text}</li>
-                                </Link>
-                            )
-                            )}
-                        </ul>
-                    ) : (
-                            <h3>There are no new notifications</h3>
-                        )
-                    }
+                    <div
+                        className={`notification ${
+                            this.state.readNotification ? "shown" : "hidden"
+                            }`}
+                    >
+                        <div className="dropdown__header">
+                            <span className="triangle"></span>
+                            <h2>Notifications</h2>
+                        </div>
+                        <div className="notifications__body">
+
+                            {this.state.notifications.length ? (
+                                <ul>
+
+                                    {this.state.notifications.map((notification, i) => (
+                                        <li>
+                                            <Link
+                                                to={`/landmarks/${notification.event.landmark_id}/${notification.event_id}`} key={i}
+                                            >
+                                                {notification.text}
+                                            </Link>
+                                        </li>
+                                    )
+                                    )}
+                                </ul>
+                            ) : (
+                                    <h3>There are no new notifications</h3>
+                                )
+                            }
+                        </div>
+                    </div>
                 </div>
             </>
         );

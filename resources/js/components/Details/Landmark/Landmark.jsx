@@ -6,9 +6,10 @@ export default class Landmark extends Component {
 
     render() {
         const { landmark } = this.props
-        console.log("landmark", landmark)
+
         if (landmark === null)
             return "loading"
+
         const protectedIcon = (landmark.protected == 1 ?
             <img src="/img/home/protected.svg" alt="" />
             :
@@ -25,7 +26,10 @@ export default class Landmark extends Component {
                             <h2>{landmark.title}</h2>
                             {protectedIcon}
                         </div>
-                        {this.props.children}
+                        <div className="container__actions">
+                            {this.props.children}
+                            <div className="edit"><button onClick={this.togglePop}><img src="/img/home/edit.svg" alt="edit icon" /></button></div>
+                        </div>
                     </div>
                     <hr className="ldetails__container__line"></hr>
                     <p>{landmark.description}</p>

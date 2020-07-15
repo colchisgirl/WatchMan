@@ -78,12 +78,14 @@ export default class UserRegisterComponent extends React.Component {
                     <InputComponent
                         id="useremail"
                         name="email"
+                        label="Email"
                         errors={this.state.errors}
                     />
                     <InputComponent
                         id="userpassword"
                         name="password"
                         type="password"
+                        label="Password"
                         errors={this.state.errors}
                     />
                     <InputComponent
@@ -96,6 +98,7 @@ export default class UserRegisterComponent extends React.Component {
                     <InputComponent
                         id="useraddress"
                         name="address"
+                        label="Address"
                         errors={this.state.errors}
                     />
 

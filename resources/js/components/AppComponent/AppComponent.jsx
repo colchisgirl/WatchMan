@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Map from '../Map/Map.jsx';
-import Home from '../Home/Home';
-import Dashboard from '../Dashboard/Dashboard';
-import RegisterComponent from '../RegisterComponent/RegisterComponent';
-import LoginFormComponent from '../LoginComponent/LoginFormComponent';
-import Event from '../Details/Event/Event';
+import Map from "../Map/Map.jsx";
+import Home from "../Home/Home";
+import Profile from "../Profile/Profile";
+import RegisterComponent from "../RegisterComponent/RegisterComponent";
+import LoginFormComponent from "../LoginComponent/LoginFormComponent";
+import Event from "../Details/Event/Event";
 
-import Details from '../Details/Details';
+import Details from "../Details/Details";
 
 export default class AppComponent extends React.Component {
     constructor(props) {
@@ -16,65 +16,70 @@ export default class AppComponent extends React.Component {
 
         this.state = {
             user: null,
-            updateUser: this.updateUser
+            updateUser: this.updateUser,
+            loading: true
         };
     }
 
-    updateUser = (user) => {
+    updateUser = user => {
         this.setState({ user: user });
-        if (user) {
-            user = typeof user === "string" ? user : JSON.stringify(user);
-            localStorage.setItem('_user', user);
-        } else {
-            localStorage.removeItem('_user');
-        }
-    }
+    };
 
-    componentDidMount = () => {
+    componentDidMount = async () => {
+        const response = await fetch('/api/user', {
+            headers: {
+                'Accept': 'application/json', // we expect JSON as response
+                'Content-Type': 'application/json', // if we are sending something in the body, it is JSON
+            }
+        });
+
+        let user = null;
+
+        if (response.status >= 200 && response.status < 400) {
+            user = await response.json();
+        }
+
         this.setState({
-            user: JSON.parse(localStorage.getItem('_user')) || null
-        })
-    }
+            user: user,
+            loading: false
+        });
+    };
 
     render() {
-        return (
-            <Router>
-                {/* anything before switch wil be shared among pages  */}
-                <Switch>
+        return this.state.loading ? (
+            <h1>Loading...</h1>
+        ) : (
+                <Router>
+                    {/* anything before switch wil be shared among pages  */}
+                    <Switch>
+                        <Route exact path="/">
+                            <Home state={this.state} />
+                        </Route>
 
-                    <Route exact path="/">
-                        <Home state={this.state} />
-                    </Route>
+                        <Route path="/map">
+                            <Map state={this.state} />
+                        </Route>
 
-                    <Route path="/map">
-                        <Map state={this.state} />
-                    </Route>
+                        <Route path="/profile">
+                            <Profile state={this.state} />
+                        </Route>
 
-                    <Route path="/dashboard">
-                        <Dashboard state={this.state} />
-                    </Route>
+                        <Route
+                            path="/landmarks/:landmark_id"
+                            component={props => (
+                                <Details {...props} state={this.state} />
+                            )}
+                        />
 
+                        <Route path="/register">
+                            <RegisterComponent state={this.state} />
+                        </Route>
 
-                    <Route
-                        path="/landmarks/:landmark_id"
-                        component={props => (
-                            <Details {...props} state={this.state} />
-                        )}
-                    />
-
-
-
-                    <Route path="/register">
-                        <RegisterComponent state={this.state} />
-                    </Route>
-
-                    <Route path="/login">
-                        <LoginFormComponent state={this.state} />
-                    </Route>
-
-                </Switch>
-            </Router>
-        );
+                        <Route path="/login">
+                            <LoginFormComponent state={this.state} />
+                        </Route>
+                    </Switch>
+                </Router>
+            );
     }
 }
-

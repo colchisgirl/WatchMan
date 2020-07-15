@@ -71,7 +71,7 @@ export default class Details extends Component {
                                     <ul>
                                         <li><NavItem title="Home" path="/" /></li>
                                         <li><NavItem title="Map" path="/map" /></li>
-                                        <li><NavItem title="Dashboard" path="/dashboard" /></li>
+                                        <li><NavItem title="Profile" path="/profile" /></li>
                                         <li><LogoutComponent state={this.props.state} /></li>
                                     </ul>
                                     <div className="ldetails__container__userInfo">

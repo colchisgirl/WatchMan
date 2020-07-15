@@ -156,6 +156,7 @@ export default class Map extends React.Component {
 
         const userDropdown = (this.props.state.user ? (
             <>
+                <Link to="/map/createLandmark"><button className="btn-new-landmark" onClick={this.onNewLandmarkClick}> + Add new landmark</button></Link>
                 <Notifications />
                 <UserDropdown state={this.props.state} />
                 <LogoutComponent state={this.props.state} />
@@ -191,11 +192,10 @@ export default class Map extends React.Component {
                     />
 
                     <div className="map__container__buttons">
-                        <Link to="/map/createLandmark"><button className="btn-new-landmark" onClick={this.onNewLandmarkClick}> + Add new landmark</button></Link>
-                        <GeolocateControl
+                        {/* <GeolocateControl
                             positionOptions={{ enableHighAccuracy: true }}
                             trackUserLocation={true}
-                        />
+                        /> */}
                         {userDropdown}
                     </div>
 
@@ -225,7 +225,7 @@ export default class Map extends React.Component {
                                     })
                                 }}
                             >
-                                <img src={landmark.images[0].url} alt="marker" />
+                                <img src={landmark.images[0]?.url} alt={landmark.title} />
                             </button>
                         </Marker>
                     ))}

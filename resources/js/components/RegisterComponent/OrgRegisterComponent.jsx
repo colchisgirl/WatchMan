@@ -72,12 +72,14 @@ export default class OrgRegisterComponent extends React.Component {
                     <InputComponent
                         id="orgemail"
                         name="email"
+                        label="Email"
                         errors={this.state.errors}
                     />
                     <InputComponent
                         id="orgpassword"
                         name="password"
                         type="password"
+                        label="Password"
                         errors={this.state.errors}
                     />
                     <InputComponent
@@ -90,6 +92,7 @@ export default class OrgRegisterComponent extends React.Component {
                     <InputComponent
                         id="orgaddress"
                         name="address"
+                        label="Address"
                         errors={this.state.errors}
                     />
                     <InputComponent

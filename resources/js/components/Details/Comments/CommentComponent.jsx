@@ -7,22 +7,64 @@ export default class CommentComponent extends Component {
         super(props)
 
         this.state = {
+            comments: this.props.comments,
             replyFormHidden: true,
-            reply_to_id: null
+            reply_to_id: this.props.comment.id,
+            text: null
         }
     }
 
+    onCommentValueChange = (e) => {
+        e.preventDefault()
+        const comment = e.target.value
 
-    handleClickReply = () => {
+        this.setState({
+            text: comment
+        })
+    }
+
+    handleClickReply = (e) => {
         this.setState({
             replyFormHidden: !this.state.replyFormHidden
         })
-        console.log(this.state.replyFormHidden)
+
+    }
+
+
+    handleReplySubmit = async (e) => {
+        e.preventDefault();
+
+        const response = await fetch('/api/addComment', {
+            method: 'POST',
+            body: JSON.stringify({
+                text: this.state.text,
+                landmark_id: this.props.landmark,
+                event_id: this.props.event,
+                reply_to_id: this.state.reply_to_id
+
+            }),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'Authorization': 'Bearer ' + this.props.token
+            }
+        });
+
+        const comments = await response.json();
+        this.setState({
+            comments: comments,
+            replyFormHidden: !this.state.replyFormHidden,
+            text: null
+        });
+
     }
 
 
     render() {
-        const { comment, comments } = this.props
+        console.log(this.state.reply_to_id)
+        const { comments } = this.state
+        const { comment } = this.props
         return (
             <Comment key={comment.id}>
                 <Comment.Avatar src='https://react.semantic-ui.com/images/avatar/small/matt.jpg' />
@@ -33,12 +75,15 @@ export default class CommentComponent extends Component {
                     </Comment.Metadata>
                     <Comment.Text>{comment.text}</Comment.Text>
                     <Comment.Actions>
-                        <Comment.Action onClick={this.handleClickReply}>Reply</Comment.Action>
-                        <Form reply className={`reply_form ${this.state.replyFormHidden ? 'hidden' : 'show'}`}>
-                            <Form.TextArea placeholder='Add Reply' />
-                            <Button content='Add Reply' />
-                        </Form>
+                        <Comment.Action name={comment.id} onClick={this.handleClickReply}>Reply</Comment.Action>
                     </Comment.Actions>
+                    <Form reply
+                        className={`reply_form ${this.state.replyFormHidden ? 'hidden' : 'show'}`}
+                        onSubmit={this.handleReplySubmit}
+                    >
+                        <Form.TextArea placeholder='Add Reply' onChange={this.onCommentValueChange} />
+                        <Button content='Add Reply' />
+                    </Form>
                 </Comment.Content>
                 {comments.map((reply) =>
                     reply.reply_to_id === comment.id ? (

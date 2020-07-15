@@ -12,7 +12,7 @@ Route::view('/landmarks/{landmark_id}', 'welcome');
 Route::view('/landmarks/{landmark_id}/createEvent', 'welcome');
 Route::view('/landmarks/{landmark_id}/{event_id}', 'welcome');
 
-Route::view('/dashboard', 'welcome');
+Route::view('/profile', 'welcome');
 Route::view('/user', 'welcome');
 
 Route::view('/register', 'welcome');
@@ -53,10 +53,11 @@ Route::prefix('api')->group(function () {
         });
 
         Route::get('/profile', 'UserController@show');
+        Route::post('/profile/edit', 'UserController@edit');
 
-        Route::post('/events/create',  'EventController@create')->name('events.create');
+        Route::post('/events/create',  'EventController@create');
 
-        Route::post('/landmarks/create',  'LandmarkController@create')->name('landmarks.create');
+        Route::post('/landmarks/create',  'LandmarkController@create');
 
         Route::resource('fileupload', 'ImageController');
 

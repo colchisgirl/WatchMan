@@ -3,6 +3,7 @@ import React from 'react'
 import { Route, Link, Switch } from 'react-router-dom'
 import Logo from '../../Logo'
 import CreateLandmark from '../CreateLandmark/CreateLandmark'
+import NavItem from '../../Home/Header/NavItem'
 
 
 export default class Sidebar extends React.Component {
@@ -60,9 +61,14 @@ export default class Sidebar extends React.Component {
         return (
             <div className="sidebar">
                 <nav className="sidebar__nav" >
-                    <Link to="/">Home</Link>
+                    <NavItem title="Home" path="/" />
                     <Logo />
-                    <Link to="/dashboard">Dashboard</Link>
+                    {this.props.state.user ?
+                        <NavItem title="Profile" path="/profile" />
+                        :
+                        <NavItem title="Login" path="/login" />
+                    }
+
                 </nav>
 
                 <div className='heading'>

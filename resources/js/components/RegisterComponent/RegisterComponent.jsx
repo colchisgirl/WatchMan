@@ -47,62 +47,64 @@ export default class RegisterComponent extends React.Component {
         }
 
         return (
+            <>
+                <header className="loginregister__header">
+                    <div className={`logo ${this.state.isOrgPressed ? 'logo_white' : 'logo_red'}`} >
+                        <Logo />
+                    </div>
+                    <div className="multi-button">
+                        <Link to="/" className="homebutton"><button>Home</button></Link>
+                        <Link to="/login" className="loginbutton"><button>Log in</button></Link>
+                    </div>
+                </header>
+                <div
+                    className={`register ${this.state.isOrgPressed ? 'right_panel_active' : ''}`}
+                    id="container"
+                >
+                    <div className="register_container">
 
-            <div
-                className={`register ${this.state.isOrgPressed ? 'right_panel_active' : ''}`}
-                id="container"
-            >
-                <div className={`logo ${this.state.isOrgPressed ? 'logo_white' : 'logo_red'}`} >
-                    <Logo />
-                </div>
-
-                <div className="multi-button">
-                    <Link to="/" className="homebutton"><button>Home</button></Link>
-                    <Link to="/login" className="loginbutton"><button>Log in</button></Link>
-                </div>
-                <div className="register_container">
-
-                    <UserRegisterComponent />
-                    <OrgRegisterComponent />
+                        <UserRegisterComponent />
+                        <OrgRegisterComponent />
 
 
-                    <div className="overlay_container">
-                        <div className="overlay">
-                            <div className="overlay_panel overlay_left">
-                                <button
-                                    className="ghost"
-                                    id="signUp"
-                                    onClick={() => {
-                                        this.rightOverlayInactive();
-                                    }}
-                                >
-                                    <h1>Sign Up</h1>
-                                </button>
-                                <p>
-                                    Become a Watchman guardian of your city's
-                                    heritage
+                        <div className="overlay_container">
+                            <div className="overlay">
+                                <div className="overlay_panel overlay_left">
+                                    <button
+                                        className="ghost"
+                                        id="signUp"
+                                        onClick={() => {
+                                            this.rightOverlayInactive();
+                                        }}
+                                    >
+                                        <h1>Sign Up</h1>
+                                    </button>
+                                    <p>
+                                        Become a Watchman guardian of your city's
+                                        heritage
                             </p>
-                            </div>
-                            <div className="overlay_panel overlay_right">
-                                <button
-                                    className="ghost"
-                                    id="signIn"
-                                    onClick={() => {
-                                        this.rightOverlayActive();
-                                    }}
-                                >
-                                    <h1>Sign Up as Organisation</h1>
-                                </button>
-                                <p>
-                                    We help you watch over sustainable urban
-                                    development
+                                </div>
+                                <div className="overlay_panel overlay_right">
+                                    <button
+                                        className="ghost"
+                                        id="signIn"
+                                        onClick={() => {
+                                            this.rightOverlayActive();
+                                        }}
+                                    >
+                                        <h1>Sign Up as Organisation</h1>
+                                    </button>
+                                    <p>
+                                        We help you watch over sustainable urban
+                                        development
                             </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* {this.renderSubComp()} */}
-            </div>
+            </>
+
         );
     }
 }

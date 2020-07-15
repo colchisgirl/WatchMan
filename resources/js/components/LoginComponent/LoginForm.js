@@ -1,5 +1,7 @@
 import React from 'react';
 
+import TextField from '@material-ui/core/TextField';
+
 export default class LoginForm extends React.Component {
 
     constructor(props) {
@@ -45,29 +47,54 @@ export default class LoginForm extends React.Component {
 
     render() {
         return (
-            <form action="" onSubmit={this.handleFormSubmit}>
+            <>
+                <h2>Login</h2>
+                <form action="" onSubmit={this.handleFormSubmit}>
 
-                <input
+                    {/* <input
                     type="email"
                     name="email"
+                    label="Email"
                     placeholder="email"
                     onChange={this.handleEmailChange}
                     value={this.state.email}
-                />
-                <br />
+                /> */}
+                    <TextField
+                        id={this.props.id || this.props.name}
+                        type="Email"
+                        name="email"
+                        label="Email"
+                        onChange={this.handleEmailChange}
+                        value={this.state.email}
+                        variant="outlined"
+                        required
+                        autoComplete={this.props.name}
+                        autoFocus />
 
-                <input
+                    {/* <input
                     type="password"
                     name="password"
+                    label="Password"
                     placeholder="password"
                     onChange={this.handlePasswordChange}
                     value={this.state.password}
-                />
-                <br />
+                /> */}
+                    <TextField
+                        id={this.props.id || this.props.name}
+                        type="password"
+                        name="password"
+                        label="Password"
+                        onChange={this.handlePasswordChange}
+                        value={this.state.password}
+                        variant="outlined"
+                        required
+                        autoComplete={this.props.name}
+                        autoFocus />
 
-                <input type="submit" value="log in" />
+                    <input type="submit" value="log in" />
 
-            </form>
+                </form>
+            </>
         )
     }
 }

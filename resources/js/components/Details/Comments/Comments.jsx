@@ -96,7 +96,12 @@ export default class Comments extends Component {
 
                         comments.map((comment) =>
                             comment.reply_to_id === null ? (
-                                <CommentComponent comment={comment} comments={comments} />
+                                <CommentComponent
+                                    landmark={this.props.landmark}
+                                    event_id={null}
+                                    comment={comment}
+                                    comments={comments}
+                                />
                             ) : (
                                     null
                                 ))
