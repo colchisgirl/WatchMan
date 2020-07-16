@@ -1,5 +1,5 @@
 .login__container{
-    background: #ffffff57;
+    background: transparent;
     max-width: 30rem;
     padding: 3rem;
     margin: 4rem auto;
@@ -10,5 +10,15 @@
         .MuiFormControl-root.MuiTextField-root{
             margin-bottom:1rem;
         }
+    }
+    h2{
+        font-size: 2.5rem;
+    }
+}
+
+.login_register_header{
+    padding: 3rem 4rem 2rem;
+    ul a {
+        color: white;
     }
 }

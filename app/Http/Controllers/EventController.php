@@ -17,9 +17,9 @@ class EventController extends Controller
 
     public function show($event_id)
     {
-        $event = Event::with(['images', 'landmark', 'comments' => function ($query) {
-            return $query->with('user');
-        }])->findOrFail($event_id);
+        $event = Event::with(['images', 'landmark', 'comments', 'user'])->findOrFail($event_id);
+
+        // => function ($query) {return $query->with('user');}
 
         return $event;
     }
@@ -43,6 +43,8 @@ class EventController extends Controller
 
         $event->save();
 
+        $landmark = Landmark::with('events')->where('id', $request->input('landmark_id') )->get();
+
         $notification = new Notification;
         $notification->user_id = $request->user()->id;
         $notification->event_id = $event->id;
@@ -52,7 +54,9 @@ class EventController extends Controller
 
         broadcast(new LandmarkEventCreated($notification->with('event')->first()))->toOthers();
 
-        return $event;
+        return [
+            $event, $landmark
+        ];
     }
 
     public function edit($event_id)

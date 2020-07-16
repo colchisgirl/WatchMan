@@ -10,7 +10,7 @@ export default class Sidebar extends React.Component {
     render() {
         const { data } = this.props
         if (data === null)
-            return "loading"
+            return null
         return (
             <div className='sidebar' >
                 <div className='heading'>

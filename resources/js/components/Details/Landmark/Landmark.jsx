@@ -48,7 +48,6 @@ export default class Landmark extends Component {
             :
             null
         )
-        console.log(this.props.state)
 
         return (
 

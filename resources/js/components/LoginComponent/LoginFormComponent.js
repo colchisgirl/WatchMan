@@ -4,6 +4,7 @@ import { Redirect, Link } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import Logo from '../Logo'
 import './index.scss'
+import NavItem from '../Home/Header/NavItem'
 
 
 
@@ -59,14 +60,15 @@ export default class LoginFormComponent extends React.Component {
 
         return (
             <>
-                <header className="loginregister__header">
-                    <div className="logo" >
-                        <Logo />
-                    </div>
-                    <div className="multi-button">
-                        <Link to="/" className="homebutton"><button>Home</button></Link>
-                        <Link to="/register" className="registerbutton"><button>Register</button></Link>
-                    </div>
+                <header className="header login_register_header">
+                    <Logo />
+                    <nav className="header__nav">
+                        <ul className="header__nav__list">
+                            <NavItem title="Home" path="/" />
+                            <NavItem title="Register" path="/register" />
+                        </ul>
+                    </nav>
+
                 </header>
                 <div className="login__container">
 

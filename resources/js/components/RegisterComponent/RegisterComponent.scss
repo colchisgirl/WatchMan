@@ -7,7 +7,7 @@ $light_red: #c94144;
 
 
 .register {
-	background-color: #fff;
+	background: #5EB1BF;
 	/* border-radius: 10px;*/
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 	position: relative;
@@ -45,7 +45,7 @@ $light_red: #c94144;
 	button {
 		border-radius: 20px;
 		border: 1px solid #eb8e8f;
-		background-color: #eb8e8f;
+		background-color: #036E8E;
 		color: #ffffff;
 		font-size: 12px;
 		font-weight: bold;
@@ -74,6 +74,9 @@ $light_red: #c94144;
 	button.ghost {
 		background-color: transparent;
 		border-color: #ffffff;
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.267);
+		}
 	}
 	.logo{
 		position: absolute;
@@ -139,7 +142,7 @@ $light_red: #c94144;
 	text-align: center;
 	font-weight: 700;
 	img{
-		width: 4.5rem;
+		width: 6.5rem;
 	}
 }
 
@@ -151,7 +154,7 @@ $light_red: #c94144;
     width: 50%;
 	transition: all 0.6s ease-in-out;
 	form {
-		background-color: #ffffff;
+		background-color:#5EB1BF;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -168,7 +171,8 @@ $light_red: #c94144;
 			font-size: 14px;
 		}
 		textarea {
-			border: 1px rgb(163, 163, 163) solid;
+			border: 1px white solid;
+			background: transparent;
 			border-radius: 7px;
 			padding: 12px 15px;
 			margin: 8px 0;
@@ -178,7 +182,7 @@ $light_red: #c94144;
 		label {
 			margin-bottom: 0;
 			text-transform:capitalize;
-			color: rgba(0, 0, 0, 0.54);
+			color: white
 		}
 		.registration__input{
 			margin-bottom: 1rem;
@@ -240,8 +244,8 @@ $light_red: #c94144;
 	z-index: 100;
 	.overlay {
 		background: $dark_red;
-		background: -webkit-linear-gradient(to right, #c94144, $dark_red);
-		background: linear-gradient(to right, #c94144, $dark_red);
+		background: -webkit-linear-gradient(to right, #036E8E, #234A54);
+		background: linear-gradient(to right, #036E8E, #234A54);
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: 0 0;

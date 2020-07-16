@@ -269,13 +269,16 @@ button{
   button{
     font-size: 1.2rem;
   }
+  p{
+    color: #006280;
+  }
 }
 
 
 .listings .item .item__title {
   display: block;
   margin: 0.2rem;
-  color: rgb(158, 122, 24);
+  color:  #234A54;
   font-weight: 700;
 }
 .item__address{
@@ -285,9 +288,6 @@ button{
 
 
 .listings .item .item__title small { font-weight: 400; }
-
-.listings .item.active .item__title,
-.listings .item .item__title:hover { color: rgba(158, 122, 24, 0.705); }
 
 .listings .item.active {
   background-color: #f8f8f8;

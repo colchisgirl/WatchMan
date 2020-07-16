@@ -99,6 +99,9 @@
             a{
                 font-size: 1.3rem;
                 color: white;
+                &.active__navItem{
+                    color: #EF7B45;
+                }
             }
         }
     }
@@ -107,7 +110,7 @@
         flex-direction: row;
     }
     &__bottom{
-        margin-top: 4rem;
+        margin-top: 1rem;
         padding: 2rem;
         box-shadow: none !important;
         h3{
@@ -137,6 +140,7 @@
     &__allLandmarks{
         overflow-x: auto;
         position: relative;
+        margin-top: 2rem;
       
         .content {
             display: flex;

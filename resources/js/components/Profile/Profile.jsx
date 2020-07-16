@@ -8,8 +8,7 @@ import NavItem from "../Home/Header/NavItem"
 import LogoutComponent from '../LoginComponent/LogoutComponent'
 import EditUserPopup from './EditUserPopup'
 
-import { Switch, Route } from 'react-router-dom'
-import { TextareaAutosize } from '@material-ui/core'
+import Moment from 'moment'
 
 export default class Profile extends Component {
 
@@ -25,7 +24,6 @@ export default class Profile extends Component {
             trackedLandmarks: [],
             events: [],
             notifications: []
-
         }
     }
 
@@ -69,7 +67,7 @@ export default class Profile extends Component {
                             this.setState({
                                 notifications: data[0].notifications,
                                 usersLandmarks: data[0].landmarks,
-                                trackedLandmarks: data[0].tracking,
+                                trackedLandmarks: data[0].tracking
 
                             })
                         })
@@ -216,7 +214,7 @@ export default class Profile extends Component {
                                         {this.state.notifications.map((notification, i) => (
                                             <div className="item" key={i}>
                                                 <Link to={`/landmarks/${notification.event.landmark.id}/${notification.event_id}`}><h4 className="item__title">{notification.text}</h4></Link>
-                                                <p>{notification.created_at} by {notification.user.name}</p>
+                                                <p>by {notification.user.name}</p>
                                             </div>
                                         ))}
 

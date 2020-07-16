@@ -38,13 +38,13 @@ export default class Map extends React.Component {
             marker: {
                 latitude: 41.6978832,
                 longitude: 44.7794575
-            }
+            },
+            socketId: props.socketId
         }
         this.handleSidebarClick = this.handleSidebarClick.bind(this)
     }
 
     componentDidMount = () => {
-
         fetch('/api/landmarks', {
             headers: {
                 'Accept': 'application/json', // we expect JSON as response
@@ -131,7 +131,6 @@ export default class Map extends React.Component {
         e.preventDefault();
 
         const landmark_id = parseInt(e.target.name);
-        console.log(landmark_id)
 
         fetch(`/api/landmarks/${landmark_id}`, {
             headers: {
@@ -164,12 +163,18 @@ export default class Map extends React.Component {
 
 
     render() {
+
+
+
         const { selectedLandmark, data, viewport, mounted } = this.state
+
+
+
 
         const userDropdown = (this.props.state.user ? (
             <>
                 <Link to="/map/createLandmark"><button className="btn-new-landmark" onClick={this.onNewLandmarkClick}> + Add new landmark</button></Link>
-                <Notifications />
+                {this.props.state.user ? <Notifications {...this.props} /> : null}
                 <UserDropdown state={this.props.state} />
                 <LogoutComponent state={this.props.state} />
             </>

@@ -4,6 +4,7 @@ import CommentsSection from "../Comments/Comments";
 
 import { Link } from "react-router-dom";
 import FileUploadComponent from "../../FileUploadComponent";
+import Moment from "moment";
 
 export default class Event extends Component {
     constructor(props) {
@@ -14,7 +15,8 @@ export default class Event extends Component {
             title: "",
             description: "",
             user: "",
-            images: []
+            images: [],
+            date: ""
         };
     }
 
@@ -29,11 +31,14 @@ export default class Event extends Component {
         }).then(response => {
             if (response.status === 200) {
                 response.json().then(data => {
+                    console.log(data)
                     this.setState({
                         event: data,
                         title: data.title,
                         description: data.description,
-                        images: data.images.slice(0, 6)
+                        user: data.user.name,
+                        images: data.images.slice(0, 6),
+                        date: Moment(Date(data.updated_at)).format("LLL")
                     });
                 });
             } else {
@@ -68,7 +73,11 @@ export default class Event extends Component {
                 <div className="ldetails__container__data">
                     <div className="ldetails__container__title">
                         <h2>{event.title}</h2>
+
                     </div>
+                    <h4 className="ldetails__container__h4">Created by
+                        <span className="ldetails__container__nametime">{this.state.user} </span> at
+                        <span className="ldetails__container__nametime">{this.state.date}</span></h4>
                     <hr className="ldetails__container__line"></hr>
                     <p>{event.description}</p>
                     <div className="ldetails__container__extra"></div>

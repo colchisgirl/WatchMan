@@ -62,7 +62,6 @@ export default class CommentComponent extends Component {
 
 
     render() {
-        console.log(this.state.reply_to_id)
         const { comments } = this.state
         const { comment } = this.props
         return (

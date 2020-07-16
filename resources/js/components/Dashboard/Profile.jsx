@@ -3,11 +3,11 @@ import './index.scss'
 
 import { Link } from 'react-router-dom'
 
-import Logo from '../Logo'
-import Notifications from '../Notifications'
-import UserDropdown from '../UserDropdown'
-import NavItem from "../Home/Header/NavItem"
-import LogoutComponent from '../LoginComponent/LogoutComponent'
+import Logo from '../Logo';
+import UserDropdown from '../UserDropdown';
+import NavItem from "../Home/Header/NavItem";
+import LogoutComponent from '../LoginComponent/LogoutComponent';
+import Moment from 'moment'
 
 import { Switch, Route } from 'react-router-dom'
 
@@ -107,6 +107,8 @@ export default class Profile extends Component {
         const { user } = this.props.state;
         const { landmarks, usersLandmarks } = this.state;
 
+        const date = Moment(Date(notifications.created_at)).format("LLL")
+
         return (
             <div className="container__dashboard">
                 <nav className="container__dashboard__nav">
@@ -164,7 +166,7 @@ export default class Profile extends Component {
                                 <h3 className="dashboard__section__title">Tracked Landmarks</h3>
                                 <div className="container__dashboard__watchingLandmarks">
                                     no landmarks
-                                </div>
+                                    v>
                             </section>
                         </div>
 
@@ -175,7 +177,7 @@ export default class Profile extends Component {
                                     {this.state.notifications.map((notification, i) => (
                                         <div className="item" key={i}>
                                             <Link to={`/landmarks/${notification.event.landmark.id}/${notification.event_id}`}><h4 className="item__title">{notification.text}</h4></Link>
-                                            <p>{notification.created_at} by {notification.user.name}</p>
+                                            <p>{date} by {notification.user.name}</p>
                                         </div>
                                     ))}
 
