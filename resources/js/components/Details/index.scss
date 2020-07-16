@@ -12,7 +12,7 @@
         box-shadow: rgb(185, 185, 185) 5px 0px 15px;
     }
     &__path{
-        color: #036E8E;
+        color: #d2dadc;
         margin: 3rem 0;
         a{
             font-weight: 700;
@@ -126,6 +126,12 @@
             flex-direction: row;
             flex: 2;
             justify-content: flex-end;
+            .edit{
+                button:hover{
+                    zoom: 1;
+                    background-color: rgba(255, 255, 255, 0.515);
+                }
+            }
         }
     }
     &__title{
@@ -136,6 +142,9 @@
             width: 15px;
             margin: -0.5rem 0.5rem 0; 
         }
+        h2{
+            color: #ffc5ab;
+        }
         
     }
     &__h4{
@@ -143,7 +152,7 @@
         margin: 1.5em 0 1em;
     }
     &__nametime{
-        color: gray;
+        color: #234A54;
         padding: 0 .5em;
     }
     &__buttons{
@@ -283,6 +292,11 @@
     height: fit-content;
     img{
         width: 4rem;
+        border-radius: 50%;
+        box-shadow: #013342 5px 0px 15px;
+        &:hover {
+            box-shadow: none;
+        }
     }
 }
 
@@ -300,8 +314,8 @@ button{
     text-align: center;
     padding: 4rem ;
     width: 35rem;
-    box-shadow: rgb(185, 185, 185) -5px 0px 15px;
-    background-color: rgb(236, 236, 236);
+    box-shadow: #003f52 -5px 0px 15px;
+    background-color: rgba(255, 255, 255, 0.15);
     form{
         width: 100%;
     }

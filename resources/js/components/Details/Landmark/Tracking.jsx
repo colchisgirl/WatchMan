@@ -45,7 +45,7 @@ export default class Tracking extends React.Component {
                         }`}
                     onClick={this.handleTrackingLandmark}
                 >
-                    {tracked ? "Tracked" : "Track"}
+                    {tracked ? "Watching" : "Watch"}
                 </button>
             </div>
         );

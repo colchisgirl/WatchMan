@@ -246,13 +246,16 @@ button{
   }
 }
 .btn-new-landmark{
-  background-color: #EEE298;
-  color: rgb(102, 102, 102);
-  border: none;
-  font-size: 0.9rem;
-  font-weight: 700;
-  border-radius: 10px;
-  padding: 10px 15px
+  background: #234A54;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 10px 15px;
+    &:hover{
+      background: #395c64;
+    }
 }
 
 .listings {

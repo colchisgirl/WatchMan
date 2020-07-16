@@ -43,8 +43,6 @@ class EventController extends Controller
 
         $event->save();
 
-        $landmark = Landmark::with('events')->where('id', $request->input('landmark_id') )->get();
-
         $notification = new Notification;
         $notification->user_id = $request->user()->id;
         $notification->event_id = $event->id;
@@ -54,9 +52,7 @@ class EventController extends Controller
 
         broadcast(new LandmarkEventCreated($notification->with('event')->first()))->toOthers();
 
-        return [
-            $event, $landmark
-        ];
+        return $event;
     }
 
     public function edit($event_id)

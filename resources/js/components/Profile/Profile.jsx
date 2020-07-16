@@ -165,17 +165,16 @@ export default class Profile extends Component {
                                         {showMyLandmarks ? (
                                             <div >
                                                 {usersLandmarks.length > 0 ?
-                                                    usersLandmarks.map((landmark, i) => {
-                                                        return (
-                                                            <div className="container__profile__landmarkContainer" key={i}>
-                                                                <div className="bottom">
-                                                                    <h3>{landmark.title}</h3>
-                                                                    <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
-                                                                </div>
-
-                                                            </div>
-                                                        )
-                                                    })
+                                                    <ul className="landmarks_listings">
+                                                        {usersLandmarks.map((landmark, i) => {
+                                                            return (
+                                                                <li key={i} className="landmark__item">
+                                                                    <p>{landmark.title}</p>
+                                                                    <span><Link to={`/landmarks/${landmark.id}`}>Details</Link></span>
+                                                                </li>
+                                                            )
+                                                        })}
+                                                    </ul>
                                                     : (
                                                         <>
                                                             <p> No landmarks </p>
@@ -187,17 +186,17 @@ export default class Profile extends Component {
 
                                         ) : (
                                                 trackedLandmarks.length > 0 ? (
-                                                    trackedLandmarks.map((landmark, i) => {
-                                                        return (
-                                                            <div className="container__profile__landmarkContainer" key={i}>
-                                                                <div className="">
-                                                                    <h3>{landmark.landmark.title}</h3>
-                                                                    <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
-                                                                </div>
+                                                    <ul className="landmarks_listings">
+                                                        {trackedLandmarks.map((data, i) => {
+                                                            return (
+                                                                <li key={i} className="landmark__item">
+                                                                    <p>{data.landmark.title}</p>
+                                                                    <span><Link to={`/landmarks/${data.landmark.id}`}>Details</Link></span>
+                                                                </li>
+                                                            )
 
-                                                            </div>
-                                                        )
-                                                    })
+                                                        })}
+                                                    </ul>
                                                 ) : (
                                                         <p> No tracked landmarks </p>
                                                     )
