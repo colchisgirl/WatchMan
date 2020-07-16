@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import TextField from '@material-ui/core/TextField';
 
-export default class PopUp extends Component {
+export default class EditUserPopup extends Component {
     constructor(props) {
         super(props)
 
@@ -23,7 +23,7 @@ export default class PopUp extends Component {
             method: 'POST',
             body: JSON.stringify({
                 user_id: this.props.user.id,
-                title: this.state.title,
+                name: this.state.name,
                 description: this.state.description,
                 address: this.state.address
 
@@ -31,19 +31,19 @@ export default class PopUp extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                'Authorization': 'Bearer ' + this.props.token
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         });
 
-        const data = await response.json();
-        console.log(data);
+        const data = await response.json()
+
+        this.props.onEditSuccess(data)
     }
 
     render() {
         return (
-            <div className="editUserPopup">
-                <div className="editUserPopup__container">
+            <div className="formPopup">
+                <div className="formPopup__container">
                     <span className="close" onClick={this.handleClick}> &times;    </span>
                     <h2>Edit Your Info</h2>
                     <form onSubmit={this.handleEditUser}>

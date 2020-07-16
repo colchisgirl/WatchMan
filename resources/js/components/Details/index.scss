@@ -87,6 +87,9 @@
         .notifications__body{
             padding: 1rem;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             ul li {
                 border-bottom: #8f47488a solid 1px;
                 padding: 0
@@ -121,6 +124,9 @@
             flex-direction: row;
             flex: 2;
             justify-content: flex-end;
+            button{
+                background-color: #FFF7F0;
+            }
         }
     }
     &__title{
@@ -154,8 +160,8 @@
             background-color: #8f4748;
             color: white
         }
-        &tracked{
-            background-color: #EFEFEF;
+        &.tracked{
+            background-color: #83b377;
         }
     }
     &__images{
@@ -206,16 +212,10 @@
         border: dashed #31339e34 1px;
     }
     &__comments{
-        
         max-width: 80%;
         box-shadow: rgb(185, 185, 185) 0px 8px 15px;
         padding:4rem 3rem ;
         margin: 4rem auto;
-        // background: linear-gradient(to right, #c94143bb, #8f4748bb);
-        // .ui.header, .ui.comments .comment .text, .ui.comments .comment .author,
-        // .ui.comments .comment .metadata, .ui.comments .comment .actions a{
-        //     color: white;
-        // }
         .comment > .content {
             margin-bottom: 1rem;
         }
@@ -244,6 +244,15 @@
     }
 }
 
+.editLandmark{
+    width: 40rem;
+}
+.form__group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 
 
 .ldetails__container .sidebar {
@@ -251,16 +260,18 @@
     position: fixed;
     right: 0;
     text-align: center;
-    box-shadow: rgb(185, 185, 185) -5px 0px 15px;
+    z-index: 10;
+    box-shadow: #036E8E -5px 0px 15px;
 }
 
 .userButton{
-    background-color: #8f4748;
-    color: white;
     padding: 1rem;
     border: none;
     border-radius: 10px;
     height: fit-content;
+    img{
+        width: 4rem;
+    }
 }
 
 button{
@@ -285,28 +296,6 @@ button{
     input[type=submit]{
         width: auto;
     }
-    .inputfile{
-        width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-    }
-    .inputfile + label {
-        border: 1px solid #d3394c;
-        background-color: #f1e5e6;
-        padding: 0;
-        max-width: 80%;
-        font-size: 1.25rem;
-        font-weight: 700;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        cursor: pointer;
-        display: inline-block;
-        overflow: hidden;
-    }
-
 }
 
 .file__upload__input{
@@ -314,6 +303,13 @@ button{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    input[type=file]{
+        width: 16rem;
+        margin: 0 auto 1rem;
+    }
+    input{
+        margin-bottom: 1rem;
+    }
 }
 
 
@@ -338,8 +334,8 @@ button{
     }
     input[type="submit"]{
         border-radius: 20px;
-        border: 1px solid #eb8e8f;
-        background-color: #eb8e8f;
+        border: none;
+        background-color: #234A54;
         color: #ffffff;
         font-size: 12px;
         font-weight: bold;
@@ -378,3 +374,10 @@ span.login__required {
     color: #eb8e8f;
 }
 
+// loader component
+.loader__container{
+    height: 100Vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

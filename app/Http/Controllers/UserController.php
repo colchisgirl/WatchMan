@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         return User::with(
                 'landmarks.images', 
-                'tracking',
+                'tracking.landmark',
                 'events', 
                 'notifications', 
                 'notifications.user', 
@@ -24,21 +24,15 @@ class UserController extends Controller
             ->where('id', Auth::id())->get();
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
+        $user = User::find(Auth::user()->id);
+        $user->name = $request->input('name');
+        $user->description = $request->input('description');
+        $user->address  = $request->input('address');
+        $user->save();
 
-        if (Auth::user()) {
-
-            $user = User::find(Auth::user()->id);
-
-            if ($user) {
-                return view('users.edit')->withUser($user);
-            } else {
-                return redirect()->back();
-            }
-        } else {
-            return redirect()->back();
-        }
+        return $user;
     }
 
     public function update(Request $request)

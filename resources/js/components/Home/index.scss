@@ -5,7 +5,7 @@
     background: url("/img/home/map2.png") no-repeat fixed;
     background-position: center center;
     background-size: cover;
-    opacity: 0.2;
+    opacity: 0.9;
     top: 0;
     right: 0;
     position: fixed;
@@ -14,7 +14,7 @@
 }
 .home__container{
     width: 100vw;   
-    background: linear-gradient(rgba(255, 255, 255, 0.692), #A8DADC) no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, 0.596), #036E8E) no-repeat;
     background-size: contain;
     padding: 1rem 4rem;
     color: rgb(77, 77, 77)
@@ -42,9 +42,9 @@
             color: rgb(70, 70, 70);
             position: relative;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             &:hover{
-                color: #D14645;
+                color: rgb(70, 70, 70);
             }
             &::before {
                 content: "";
@@ -53,7 +53,6 @@
                 height: 2px;
                 bottom: 0;
                 left: 0;
-                background-color: rgb(100, 100, 100);
                 visibility: hidden;
                 transform: scaleX(0);
                 transition: all 0.4s ease-in-out 0s;
@@ -70,7 +69,7 @@
 }
 
 .active__navItem{
-    color: #D14645;
+    color: #036E8E;
 }
 section h2{
     text-transform: uppercase;
@@ -119,13 +118,19 @@ section h2{
             a{      
                 display:inline-block; 
                 color: rgb(219, 219, 219);     
-                background-color: rgba(53, 53, 53, 0.678);
-                padding: 8px 12px;
+                background-color: #35353536;
+                padding: 12px 15px;
+                font-size: 1.3rem;
+                font-weight: 400;
+                text-transform: uppercase;
                 margin: 10px;
                 border-radius: 20px;
                 border: 1px solid #eb8e8f;
-                background-color: transparent;
                 color: #6b0606;
+                &:hover{
+                    background-color: #35353560;
+                    color: rgb(209, 208, 208);
+                }           
             }
                 }
     }
@@ -222,3 +227,4 @@ section h2{
 .footer{
     color: white;
 }
+

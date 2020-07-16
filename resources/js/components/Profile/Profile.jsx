@@ -9,6 +9,7 @@ import LogoutComponent from '../LoginComponent/LogoutComponent'
 import EditUserPopup from './EditUserPopup'
 
 import { Switch, Route } from 'react-router-dom'
+import { TextareaAutosize } from '@material-ui/core'
 
 export default class Profile extends Component {
 
@@ -17,9 +18,10 @@ export default class Profile extends Component {
 
         this.state = {
             editUser: false,
-            user: props.state.user?.id,
+            user: props.state.user,
             landmarks: [],
             usersLandmarks: [],
+            showMyLandmarks: true,
             trackedLandmarks: [],
             events: [],
             notifications: []
@@ -79,26 +81,39 @@ export default class Profile extends Component {
             })
     }
 
+
     togglePop = () => {
         this.setState({
             editUser: !this.state.editUser
         });
     };
 
-    handleEditUser = (data) => {
-
+    onEditSuccess = (data) => {
         this.setState({
-            user: true,
-            user: data
+            user: data,
+            editUser: false
         });
-        this.props.state.updateUser(data.user);
+        console.log(this.state.user);
+    }
+
+    showMyLandmarks = () => {
+        this.setState({
+            showMyLandmarks: true
+        })
+    }
+
+    showTrackedLandmarks = () => {
+        this.setState({
+            showMyLandmarks: false
+        })
     }
 
 
     render() {
 
-        const { user } = this.props.state;
-        const { landmarks, usersLandmarks, trackedLandmarks, userData } = this.state;
+        const { user } = this.state;
+        const { landmarks, usersLandmarks, trackedLandmarks, userData, showMyLandmarks } = this.state;
+        // console.log(trackedLandmarks[0].landmark.title)
 
         if (userData === [])
             return "loading"
@@ -120,7 +135,7 @@ export default class Profile extends Component {
                             <div className="container__profile__main">
                                 <section className="container__profile__userSection">
                                     <div className="container__profile__userImg">
-                                        <img src="" alt="" />
+                                        <img src={user?.profile_img} alt="" />
                                         <div className="image__edit"><img src="/img/home/addUserImage.svg" alt="add photo icon" /> </div>
                                     </div>
                                     <div className="container__profile__userInfo">
@@ -144,39 +159,59 @@ export default class Profile extends Component {
                                     </div>
                                 </section>
                                 <section>
-                                    <h3 className="profile__section__title">My Landmarks</h3>
-                                    <div className="container__profile__myLandmarks">
-                                        {usersLandmarks !== null ?
-                                            usersLandmarks.map((landmark, i) => {
-                                                return (
-                                                    <div className="container__profile__landmarkContainer" key={i}>
-                                                        <div className="top landmark__popup__top">
-                                                            <img className="landmark__popup__img" src={landmark.images[0]?.url} alt={`Picture of ${landmark.title}`} />
-                                                        </div>
-                                                        <div className="bottom">
-                                                            <h3>{landmark.title}</h3>
-                                                            <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
-                                                        </div>
+                                    <div className="container__profile__landmarks">
+                                        <div className="landmarks__titles">
+                                            <h3 className="title" onClick={this.showMyLandmarks}>My Landmarks</h3>
+                                            <h3 className="title" onClick={this.showTrackedLandmarks}>Tracked Landmarks</h3>
+                                        </div>
+                                        {showMyLandmarks ? (
+                                            <div >
+                                                {usersLandmarks.length > 0 ?
+                                                    usersLandmarks.map((landmark, i) => {
+                                                        return (
+                                                            <div className="container__profile__landmarkContainer" key={i}>
+                                                                <div className="bottom">
+                                                                    <h3>{landmark.title}</h3>
+                                                                    <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
+                                                                </div>
 
-                                                    </div>
-                                                )
-                                            })
-                                            : (
-                                                <p> No landmarks </p>
+                                                            </div>
+                                                        )
+                                                    })
+                                                    : (
+                                                        <>
+                                                            <p> No landmarks </p>
+                                                            <p> If you want to create new landmark, click here! </p>
+                                                        </>
+                                                    )
+                                                }
+                                            </div>
+
+                                        ) : (
+                                                trackedLandmarks.length > 0 ? (
+                                                    trackedLandmarks.map((landmark, i) => {
+                                                        return (
+                                                            <div className="container__profile__landmarkContainer" key={i}>
+                                                                <div className="">
+                                                                    <h3>{landmark.landmark.title}</h3>
+                                                                    <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
+                                                                </div>
+
+                                                            </div>
+                                                        )
+                                                    })
+                                                ) : (
+                                                        <p> No tracked landmarks </p>
+                                                    )
                                             )
                                         }
-                                    </div>
-                                </section>
-                                <section className="container__profile__tracked">
-                                    <h3 className="profile__section__title">Tracked Landmarks</h3>
-                                    <div className="container__profile__watchingLandmarks">
                                     </div>
                                 </section>
                             </div>
 
                             <section className="container__profile__aside">
-                                <h3 className="profile__section__title">Notifications</h3>
                                 <div className="container__profile__notifications">
+                                    <h3 className="profile__section__title">Notifications</h3>
                                     <div id='listings' className='listings'>
                                         {this.state.notifications.map((notification, i) => (
                                             <div className="item" key={i}>
@@ -191,29 +226,30 @@ export default class Profile extends Component {
                             </section>
                         </div>
 
-                        {/* <section className="container__profile__bottom">
-                        <h3 className="profile__section__title">All Landmarks</h3>
-                        <div className="container__profile__landmarks">
-                            {landmarks.map((landmark) => {
-                                return (
-                                    <div className="container__profile__landmarkContainer">
-                                        <div className="top landmark__popup__top">
-                                            <img className="landmark__popup__img" src={`/img/${landmark.images[0]?.url}`} alt={`Picture of ${landmark.title}`} />
-                                        </div>
-                                        <div className="bottom">
-                                            <h3>{landmark.title}</h3>
-                                            <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
-                                        </div>
-                                    </div>
-                                )
-                            })}
-
-                        </div>
-                    </section> */}
+                        <section className="container__profile__bottom">
+                            <h3 className="profile__section__title">All Landmarks</h3>
+                            <div className="container__profile__allLandmarks">
+                                <div className="content">
+                                    {landmarks.map((landmark) => {
+                                        return (
+                                            <div className="container__profile__landmarkContainer">
+                                                <div className="top landmark__popup__top">
+                                                    <img className="landmark__popup__img" src={`${landmark.images[0]?.url}`} alt={`Picture of ${landmark.title}`} />
+                                                </div>
+                                                <div className="bottom">
+                                                    <h3>{landmark.title}</h3>
+                                                    <p><Link to={`/landmarks/${landmark.id}`}>Details</Link></p>
+                                                </div>
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        </section>
                     </main>
                 </div >
 
-                {this.state.editUser ? <EditUserPopup toggle={this.togglePop} user={user} handleEditUser={this.handleEditUser} /> : null}
+                {this.state.editUser ? <EditUserPopup toggle={this.togglePop} user={user} onEditSuccess={this.onEditSuccess} /> : null}
             </>
         )
     }

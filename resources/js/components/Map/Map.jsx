@@ -8,6 +8,7 @@ import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 import ReactMapGL, { Marker, Popup, GeolocateControl, Pin } from 'react-map-gl'
 import { ZoomControl, MapContext, Feature, Layer } from "react-mapbox-gl";
 import Geocoder from 'react-map-gl-geocoder'
+import ReactLoading from "react-loading";
 
 import Sidebar from './Sidebar/Sidebar'
 import UserDropdown from '../UserDropdown'
@@ -30,12 +31,13 @@ export default class Map extends React.Component {
                 height: '100vh',
                 zoom: 13
             },
+            loading: true,
             selectedLandmark: null,
             newLandmarkButtonClicked: false,
             data: [],
             marker: {
-                latitude: 41.703605,
-                longitude: 44.790558
+                latitude: 41.6978832,
+                longitude: 44.7794575
             }
         }
         this.handleSidebarClick = this.handleSidebarClick.bind(this)
@@ -57,7 +59,8 @@ export default class Map extends React.Component {
                         .then(data => {
                             // set the data into this component's state
                             this.setState({
-                                data: data
+                                data: data,
+                                loading: false
                             })
                         })
                 } else {
@@ -68,7 +71,7 @@ export default class Map extends React.Component {
                     }
                 }
             })
-        this.setState({ mounted: true })
+
     }
 
     mapRef = React.createRef()
@@ -116,6 +119,14 @@ export default class Map extends React.Component {
 
     }
 
+    handleClosePopup = () => {
+
+        this.setState({
+            selectedLandmark: null
+        });
+        console.log(this.state.selectedLandmark);
+    }
+
     handleSidebarClick(e) {
         e.preventDefault();
 
@@ -147,6 +158,7 @@ export default class Map extends React.Component {
                     }
                 }
             })
+        this.setState({ mounted: true })
     }
 
 
@@ -167,7 +179,6 @@ export default class Map extends React.Component {
         )
 
         return (
-
             <div className="map__container" >
                 <Sidebar data={data} state={this.props.state} marker={this.state.marker} action={this.handleSidebarClick} />
 
@@ -175,7 +186,7 @@ export default class Map extends React.Component {
                     ref={this.mapRef}
                     {...viewport}
                     onViewportChange={(viewport) => {
-                        if (mounted) { this.setState({ viewport }) }
+                        this.setState({ viewport })
                     }}
                     // mapStyle="mapbox://styles/yanekkris/ckbyxui8b3if51io1ecx6vaw4"
                     mapboxApiAccessToken={MAPBOX_TOKEN}
@@ -206,7 +217,11 @@ export default class Map extends React.Component {
                             draggable
                             onDragEnd={this._onMarkerDragEnd}
                         >
-                            <p>this is that fucking marker</p>
+                            <div class="new__marker">
+                                <div class='pin'></div>
+                                <div class='pulse'></div>
+                            </div>
+
                         </Marker>
                     ) : null}
 
@@ -231,7 +246,7 @@ export default class Map extends React.Component {
                     ))}
 
                     {selectedLandmark ? (
-                        <PopupComponent selectedLandmark={selectedLandmark} />
+                        <PopupComponent selectedLandmark={selectedLandmark} handleClosePopup={this.handleClosePopup} />
 
                     ) : null}
 

@@ -4,6 +4,7 @@ import { Route, Link, Switch } from 'react-router-dom'
 import Logo from '../../Logo'
 import CreateLandmark from '../CreateLandmark/CreateLandmark'
 import NavItem from '../../Home/Header/NavItem'
+import Skeleton from 'react-loading-skeleton';
 
 
 export default class Sidebar extends React.Component {
@@ -76,7 +77,6 @@ export default class Sidebar extends React.Component {
                 <Switch>
                     <Route exact path="/map">
                         <h1>Landmarks</h1>
-                        <input type="text" className="search_landmark" onChange={this.handleChange} placeholder="Search..." />
                         <div id='listings' className='listings'>
                             {landmarks.map((landmark, i) => (
                                 <div key={i} className="item">

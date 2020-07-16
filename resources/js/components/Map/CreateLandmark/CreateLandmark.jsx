@@ -7,6 +7,36 @@ import TextField from '@material-ui/core/TextField';
 import { Link, Redirect } from "react-router-dom";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+
+import {
+    fade,
+    ThemeProvider,
+    withStyles,
+    makeStyles,
+    createMuiTheme,
+} from '@material-ui/core/styles';
+
+const CssTextField = withStyles({
+    root: {
+        '& label.Mui-focused': {
+            color: 'green',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottomColor: 'green',
+        },
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'red',
+            },
+            '&:hover fieldset': {
+                borderColor: 'yellow',
+            },
+            '&.Mui-focused fieldset': {
+                borderColor: 'green',
+            },
+        },
+    },
+})(TextField);
 export default class CreateEvent extends Component {
     constructor(props) {
         super(props)
@@ -73,6 +103,7 @@ export default class CreateEvent extends Component {
                 </div>
                 :
                 <div className="landmark__container__create-form">
+                    <span className="close__newLandmarkForm">x</span>
                     <h2>Create a new landmark</h2>
                     <form onSubmit={this.handleCreateEventSubmit}>
 

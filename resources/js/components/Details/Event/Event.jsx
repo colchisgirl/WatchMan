@@ -102,7 +102,7 @@ export default class Event extends Component {
                             </div>
                         </div>
                     ) : null}
-                    { event.comments ? <CommentsSection event={event} state={this.props.state} /> : null}
+                    {event.comments ? <CommentsSection event={event.id} state={this.props.state} /> : null}
                 </div>
             </>
         );

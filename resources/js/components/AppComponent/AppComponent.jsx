@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Map from "../Map/Map.jsx";
 import Home from "../Home/Home";
 import Profile from "../Profile/Profile";
+import ReactLoading from "react-loading";
 import RegisterComponent from "../RegisterComponent/RegisterComponent";
 import LoginFormComponent from "../LoginComponent/LoginFormComponent";
 
@@ -46,14 +47,16 @@ export default class AppComponent extends React.Component {
 
     render() {
         return this.state.loading ? (
-            <h1>Loading...</h1>
+            <div className="loader__container">
+                <ReactLoading type={"bars"} color={"#8f4748"} />
+            </div >
         ) : (
                 <Router>
                     {/* anything before switch wil be shared among pages  */}
                     <Switch>
                         <Route exact path="/">
-                            <Home state={this.state} />
-                        </Route>
+                            < Home state={this.state} />
+                        </Route >
 
                         <Route path="/map">
                             <Map state={this.state} />
@@ -77,8 +80,8 @@ export default class AppComponent extends React.Component {
                         <Route path="/login">
                             <LoginFormComponent state={this.state} />
                         </Route>
-                    </Switch>
-                </Router>
+                    </Switch >
+                </Router >
             );
     }
 }

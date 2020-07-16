@@ -58,6 +58,7 @@ Route::prefix('api')->group(function () {
         Route::post('/events/create',  'EventController@create');
 
         Route::post('/landmarks/create',  'LandmarkController@create');
+        Route::post('/landmarks/edit', 'LandmarkController@edit');
 
         Route::resource('fileupload', 'ImageController');
 

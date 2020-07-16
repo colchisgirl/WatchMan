@@ -17,6 +17,7 @@ export default class Profile extends Component {
         super(props)
 
         this.state = {
+            user: props.state.user,
             landmarks: [],
             usersLandmarks: [],
             events: [],
@@ -92,6 +93,13 @@ export default class Profile extends Component {
                     }
                 }
             })
+    }
+
+    onEditSuccess = (data) => {
+        this.setState({
+            user: data
+        });
+        console.log(this.state.user);
     }
 
     render() {

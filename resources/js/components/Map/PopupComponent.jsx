@@ -18,6 +18,7 @@ export default class PopupComponent extends Component {
             // }
             >
                 <div className="landmark__popup">
+                    <span onClick={this.props.handleClosePopup}>X</span>
                     <div className="landmark__popup__top">
                         <img className="landmark__popup__img" src={selectedLandmark.images[0].url} alt="" />
                         <div className="landmark__popup__title">

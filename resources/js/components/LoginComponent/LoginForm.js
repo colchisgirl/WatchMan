@@ -51,14 +51,7 @@ export default class LoginForm extends React.Component {
                 <h2>Login</h2>
                 <form action="" onSubmit={this.handleFormSubmit}>
 
-                    {/* <input
-                    type="email"
-                    name="email"
-                    label="Email"
-                    placeholder="email"
-                    onChange={this.handleEmailChange}
-                    value={this.state.email}
-                /> */}
+
                     <TextField
                         id={this.props.id || this.props.name}
                         type="Email"
@@ -70,15 +63,6 @@ export default class LoginForm extends React.Component {
                         required
                         autoComplete={this.props.name}
                         autoFocus />
-
-                    {/* <input
-                    type="password"
-                    name="password"
-                    label="Password"
-                    placeholder="password"
-                    onChange={this.handlePasswordChange}
-                    value={this.state.password}
-                /> */}
                     <TextField
                         id={this.props.id || this.props.name}
                         type="password"

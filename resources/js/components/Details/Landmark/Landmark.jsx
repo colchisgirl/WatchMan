@@ -1,8 +1,41 @@
 import React, { Component } from "react";
 
 import CommentsSection from '../Comments/Comments'
+import EditLandmarkPopup from './EditLandmarkPopup'
+import DeleteLandmarkPopup from './DeleteLandmarkPopup'
 
 export default class Landmark extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            landmark: this.props.landmark,
+            editLandmark: false,
+            removeLandmark: false
+        }
+    }
+
+    toggleEditPopup = () => {
+        this.setState({
+            editLandmark: !this.state.editLandmark
+        });
+    };
+    componentDidMount = () => {
+        this.setState({
+            landmark: this.props.landmark
+        })
+        console.log(this.props.landmark);
+
+        console.log(this.state.landmark)
+    }
+
+    onEditSuccess = (data) => {
+        this.setState({
+            landmark: data,
+            editLandmark: false
+        });
+        console.log(this.state.landmark);
+    }
 
     render() {
         const { landmark } = this.props
@@ -28,7 +61,7 @@ export default class Landmark extends Component {
                         </div>
                         <div className="container__actions">
                             {this.props.children}
-                            <div className="edit"><button onClick={this.togglePop}><img src="/img/home/edit.svg" alt="edit icon" /></button></div>
+                            <div className="edit"><button onClick={this.toggleEditPopup}><img src="/img/home/edit.svg" alt="edit icon" /></button></div>
                         </div>
                     </div>
                     <hr className="ldetails__container__line"></hr>
@@ -61,6 +94,9 @@ export default class Landmark extends Component {
                     </div>
                     <CommentsSection landmark={landmark.id} event={null} state={this.props.state} />
                 </div >
+
+                {this.state.editLandmark ? <EditLandmarkPopup toggle={this.toggleEditPopup} landmark={landmark} onEditSuccess={this.onEditSuccess} /> : null}
+                {this.state.deleteLandmark ? <DeleteLandmarkPopup toggle={this.toggleEditPopup} user={user} onDeleteSuccess={this.onEditSuccess} /> : null}
             </>
         );
     }

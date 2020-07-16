@@ -73,19 +73,12 @@ class LandmarkController extends Controller
 
         return $landmark;
     }
-
-    public function edit($landmark_id)
-    {
-        $landmark = Landmark::findOrFail($landmark_id);
-        $landmark->save();
-
-        return view('landmarks.edit', compact('landmark'));
-    }
     
 
-    public function update(Request $request, $landmark_id) 
+    public function edit(Request $request) 
     {
-        $landmark = Landmark::findOrFail($landmark_id);
+
+        $landmark = Landmark::findOrFail($request->input('landmark_id'));
         
         $landmark->title = $request->input('title');
         $landmark->description = $request->input('description');
@@ -93,17 +86,13 @@ class LandmarkController extends Controller
         $landmark->built_in = $request->input('built_in');
         $landmark->title = $request->input('title');
 
-        $protected = ($request->input('protected') == 'on') ? 1 : 0;
-        $landmark->protected = $protected;
-
         $landmark->city = $request->input('city');
         $landmark->street = $request->input('street');
         $landmark->house_number = $request->input('house_number');
-        $landmark->user_id = \Auth::id();
 
         $landmark->save();
 
-        return redirect('/landmarks/' . $landmark->id);
+        return $landmark;
     }
 
     public function deleteLandmark($landmark_id) 

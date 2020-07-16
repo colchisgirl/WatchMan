@@ -8,9 +8,10 @@ export default class UserDropdown extends Component {
         super(props)
     }
     render() {
+        const { user } = this.props.state
         return (
             < >
-                <Link to="/profile" className="userButton">{this.props.state.user?.name}</Link>
+                <Link to="/profile" className="userButton"><img src={user?.profile_img} alt={user?.name} /></Link>
             </>
         )
     }
