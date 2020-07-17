@@ -89,43 +89,6 @@ export default class Details extends Component {
                                     </>
                                 )
                         }
-                        {/* {this.props.state.user ? (
-                            <>
-                                <ul>
-                                    <li>
-                                        <NavItem title="Home" path="/" />
-                                    </li>
-                                    <li>
-                                        <NavItem title="Map" path="/map" />
-                                    </li>
-                                    <li>
-                                        <NavItem
-                                            title="Dashboard"
-                                            path="/dashboard"
-                                        />
-                                    </li>
-                                    <li>
-                                        <LogoutComponent
-                                            state={this.props.state}
-                                        />
-                                    </li>
-                                </ul>
-                                <div className="ldetails__container__userInfo">
-                                    <Notifications {...this.props}/>
-                                    <UserDropdown state={this.props.state} />
-                                </div>
-                            </>
-                        ) : (
-                                <>
-                                    <ul>
-                                        <NavItem title="Login" path="/login" />
-                                        <NavItem
-                                            title="Register"
-                                            path="/register"
-                                        />
-                                    </ul>
-                                </>
-                            )} */}
                     </nav>
                     <Switch>
                         <Route path="/landmarks/:landmark_id/createEvent">
