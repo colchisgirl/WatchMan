@@ -58,7 +58,7 @@ export default class Notifications extends Component {
                         badgeContent={this.props.state.notifications.length}
                         color="secondary"
                     >
-                        <NotificationsIcon />
+                        <NotificationsIcon color="action" />
                     </Badge>
 
                     <div

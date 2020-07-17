@@ -50,7 +50,6 @@
         color: rgb(104, 104, 104);
         padding: 1rem 3rem;
         position: relative;
-        
     }
     .notification.shown{
         text-align: center;
@@ -139,7 +138,7 @@
         flex-direction: row;
         flex: 6;
         img{
-            width: 15px;
+            width: 23px;
             margin: -0.5rem 0.5rem 0; 
         }
         h2{
@@ -183,7 +182,7 @@
         }
     }
     &__images{
-        background-color: #FFF7F0;
+        background-color: #ffffff9e;
         max-width: 100%;
         box-shadow: #003f52 0px 8px 15px;
         padding: 1rem 2rem 2rem;
@@ -235,7 +234,7 @@
         box-shadow: #003f52 0px 8px 15px;
         padding:4rem 3rem ;
         margin: 4rem auto;
-        background-color: #FFF7F0;
+        background-color: #ffffff9e;
         .comment > .content {
             margin-bottom: 1rem;
         }
@@ -243,7 +242,7 @@
             margin: 0 0 0em 0.5rem !important;
             padding: 0.5em 0 0.5em 01em !important;
             p{
-                color: #6a8baf;
+                color: #24495f;
                 padding: 2rem;
                 font-size: 1.2rem;
                 text-align: center;
@@ -328,6 +327,13 @@ button{
     input[type=submit]{
         width: auto;
     }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+        transition: background-color 5000s;
+        -webkit-text-fill-color: rgb(41, 41, 41) !important;
+}
 }
 
 .file__upload__input{
@@ -379,10 +385,21 @@ button{
         letter-spacing: 1px;
         text-transform: uppercase;
     }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: rgb(41, 41, 41) !important;
+}
 }
 
 .activeLink div{
     background-color: #f6e9e9;
+}
+
+.MuiSvgIcon-root {
+    font-size: 2rem !important;
 }
 
 // comment section
@@ -405,7 +422,8 @@ p.login__required__text{
 }
 
 span.login__required {
-    color: #eb8e8f;
+    color: rgb(18, 57, 93);
+    text-decoration: underline;
 }
 
 // loader component

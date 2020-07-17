@@ -82,8 +82,8 @@ export default class Details extends Component {
                                 (
                                     <>
                                         <ul>
-                                            <NavItem title="Login" path="/login" />
-                                            <NavItem title="Register" path="/register" />
+                                            <li><NavItem title="Login" path="/login" /></li>
+                                            <li><NavItem title="Register" path="/register" /></li>
                                         </ul>
                                     </>
                                 )

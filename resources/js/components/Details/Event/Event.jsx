@@ -31,7 +31,7 @@ export default class Event extends Component {
         }).then(response => {
             if (response.status === 200) {
                 response.json().then(data => {
-                    console.log(data)
+
                     this.setState({
                         event: data,
                         title: data.title,

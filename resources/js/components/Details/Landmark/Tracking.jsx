@@ -26,7 +26,6 @@ export default class Tracking extends React.Component {
         } else {
             const parsed = await response.json();
             this.props.onTrackingChange(parsed);
-            console.log('successfully tracked');
         }
     };
 

@@ -26,6 +26,8 @@ export default class FileUploadComponent extends React.Component {
             formData.append("landmark_id", this.state.landmark_id);
             formData.append("image", image);
 
+
+
             return axios({
                 url: "/api/fileupload",
                 method: "post",
@@ -38,6 +40,7 @@ export default class FileUploadComponent extends React.Component {
     };
 
     render() {
+
         return (
             <>
                 <div className="file_upload">

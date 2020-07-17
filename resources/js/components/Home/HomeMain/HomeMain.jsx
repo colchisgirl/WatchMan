@@ -11,8 +11,8 @@ export default class HomeMain extends Component {
                 <section className="main__home">
                     <div className="main__home__intro">
                         <h1>WatchMan</h1>
-                        <p>YOUR FIRST PLATFORM TO WATCH, PROTECT AND DISCUSS STATE OF HISTORICAL BUILDINGS. <br/> BECOME A WATCHMAN GUARDIAN OF YOUR CITY'S HERITAGE</p>
-                        
+                        <p>YOUR FIRST PLATFORM TO WATCH, PROTECT AND DISCUSS STATE OF HISTORICAL BUILDINGS. <br /> BECOME A WATCHMAN GUARDIAN OF YOUR CITY'S HERITAGE</p>
+
                         <div className="main__home__buttons">
                             <Link to="/map">See the map</Link>
                         </div>
@@ -27,12 +27,12 @@ export default class HomeMain extends Component {
                                 <p>Download our mobile app and always stay informed about the buildings in your area: restoration projects, crowdfunding, and of course any potentially illegal activity which might damage the landmark. </p>
                             </div>
                             <div className="main__features__img">
-                                <img src="/img/home/notification.svg" />
+                                <img src="/img/home/houses-animate.svg" />
                             </div>
                         </div>
                         <div className="main__features__column">
                             <div className="main__features__img">
-                                <img src="/img/home/marker-bw.png" />
+                                <img src="/img/home/map-animate.svg" />
                             </div>
                             <div className="main__features__content">
                                 <h4>Add landmarks and events about them</h4>

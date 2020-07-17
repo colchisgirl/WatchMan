@@ -90,7 +90,7 @@ export default class Sidebar extends React.Component {
                         </div>
                     </Route>
                     <Route path="/map/createLandmark">
-                        <CreateLandmark state={this.props.state} marker={this.props.marker} />
+                        <CreateLandmark state={this.props.state} marker={this.props.marker} handleCloseForm={this.props.handleCloseForm} />
                     </Route>
                 </Switch>
             </div>

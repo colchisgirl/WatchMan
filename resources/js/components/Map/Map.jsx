@@ -2,11 +2,10 @@
 import React from 'react';
 import './index.scss'
 
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import 'react-map-gl-geocoder/dist/mapbox-gl-geocoder.css'
 import ReactMapGL, { Marker, Popup, GeolocateControl, Pin } from 'react-map-gl'
-import { ZoomControl, MapContext, Feature, Layer } from "react-mapbox-gl";
 import Geocoder from 'react-map-gl-geocoder'
 import ReactLoading from "react-loading";
 
@@ -124,7 +123,6 @@ export default class Map extends React.Component {
         this.setState({
             selectedLandmark: null
         });
-        console.log(this.state.selectedLandmark);
     }
 
     handleSidebarClick(e) {
@@ -160,6 +158,12 @@ export default class Map extends React.Component {
         this.setState({ mounted: true })
     }
 
+    handleCloseForm = () => {
+        this.setState({
+            newLandmarkButtonClicked: false
+        })
+    }
+
 
 
     render() {
@@ -185,7 +189,11 @@ export default class Map extends React.Component {
 
         return (
             <div className="map__container" >
-                <Sidebar data={data} state={this.props.state} marker={this.state.marker} action={this.handleSidebarClick} />
+                <Sidebar data={data}
+                    state={this.props.state}
+                    marker={this.state.marker}
+                    action={this.handleSidebarClick}
+                    handleCloseForm={this.handleCloseForm} />
 
                 <ReactMapGL
                     ref={this.mapRef}
@@ -196,7 +204,8 @@ export default class Map extends React.Component {
                     // mapStyle="mapbox://styles/yanekkris/ckbyxui8b3if51io1ecx6vaw4"
                     mapboxApiAccessToken={MAPBOX_TOKEN}
                     onClick={this.handleMapToggle}
-                    getMap={(map) => { console.log('map objeckt', map); }}
+                    getMap={(map) => { //console.log('map objeckt', map); 
+                    }}
                 >
 
 
@@ -215,45 +224,51 @@ export default class Map extends React.Component {
                         {userDropdown}
                     </div>
 
-                    {this.state.newLandmarkButtonClicked === true ? (
-                        <Marker
-                            longitude={this.state.marker.longitude}
-                            latitude={this.state.marker.latitude}
-                            draggable
-                            onDragEnd={this._onMarkerDragEnd}
-                        >
-                            <div class="new__marker">
-                                <div class='pin'></div>
-                                <div class='pulse'></div>
-                            </div>
-
-                        </Marker>
-                    ) : null}
-
-                    {data.map((landmark) => (
-                        <Marker
-                            key={landmark.id}
-                            latitude={parseFloat(landmark.latitude)}
-                            longitude={parseFloat(landmark.longitude)}
-                        >
-                            <button
-                                className="marker-btn"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.setState({
-                                        selectedLandmark: landmark
-                                    })
-                                }}
+                    {
+                        this.state.newLandmarkButtonClicked === true ? (
+                            <Marker
+                                longitude={this.state.marker.longitude}
+                                latitude={this.state.marker.latitude}
+                                draggable
+                                onDragEnd={this._onMarkerDragEnd}
                             >
-                                <img src={landmark.images[0]?.url} alt={landmark.title} />
-                            </button>
-                        </Marker>
-                    ))}
+                                <div className="new__marker">
+                                    <div className='pin'></div>
+                                    <div className='pulse'></div>
+                                </div>
 
-                    {selectedLandmark ? (
-                        <PopupComponent selectedLandmark={selectedLandmark} handleClosePopup={this.handleClosePopup} />
+                            </Marker>
+                        ) : null
+                    }
 
-                    ) : null}
+                    {
+                        data.map((landmark) => (
+                            <Marker
+                                key={landmark.id}
+                                latitude={parseFloat(landmark.latitude)}
+                                longitude={parseFloat(landmark.longitude)}
+                            >
+                                <button
+                                    className="marker-btn"
+                                    onClick={e => {
+                                        e.preventDefault()
+                                        this.setState({
+                                            selectedLandmark: landmark
+                                        })
+                                    }}
+                                >
+                                    <img src={landmark.images[0]?.url} alt={landmark.title} />
+                                </button>
+                            </Marker>
+                        ))
+                    }
+
+                    {
+                        selectedLandmark ? (
+                            <PopupComponent selectedLandmark={selectedLandmark} handleClosePopup={this.handleClosePopup} />
+
+                        ) : null
+                    }
 
                 </ReactMapGL>
             </div>

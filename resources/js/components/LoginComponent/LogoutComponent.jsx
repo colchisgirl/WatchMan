@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import { Link, Redirect } from "react-router-dom";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 export default class LogoutComponent extends Component {
 
@@ -16,7 +17,7 @@ export default class LogoutComponent extends Component {
 
     render() {
         return (
-            <a href="#" onClick={this.logOutUser}><img className=" logout__icon icons" src="/img/home/logout_4.svg" /></a>
+            <a href="#" onClick={this.logOutUser}><ExitToAppIcon color="action" /></a>
         );
     }
 }

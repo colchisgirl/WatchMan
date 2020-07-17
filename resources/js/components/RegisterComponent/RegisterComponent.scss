@@ -170,8 +170,15 @@ $light_red: #c94144;
 			width: 20rem;
 			font-size: 14px;
 		}
+		input:-webkit-autofill,
+		input:-webkit-autofill:hover, 
+		input:-webkit-autofill:focus, 
+		input:-webkit-autofill:active  {
+		transition: background-color 5000s;
+		-webkit-text-fill-color: rgb(41, 41, 41) !important;
+		}
 		textarea {
-			border: 1px white solid;
+			border: 1px #34859e solid;
 			background: transparent;
 			border-radius: 7px;
 			padding: 12px 15px;
@@ -182,7 +189,7 @@ $light_red: #c94144;
 		label {
 			margin-bottom: 0;
 			text-transform:capitalize;
-			color: white
+			color: rgb(2, 72, 119);
 		}
 		.registration__input{
 			margin-bottom: 1rem;

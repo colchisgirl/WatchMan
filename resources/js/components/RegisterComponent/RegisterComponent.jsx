@@ -48,14 +48,15 @@ export default class RegisterComponent extends React.Component {
 
         return (
             <>
-                <header className="loginregister__header">
-                    <div className={`logo ${this.state.isOrgPressed ? 'logo_white' : 'logo_red'}`} >
-                        <Logo />
-                    </div>
-                    <div className="multi-button">
-                        <Link to="/" className="homebutton"><button>Home</button></Link>
-                        <Link to="/login" className="loginbutton"><button>Log in</button></Link>
-                    </div>
+                <header className="header login_register_header">
+                    <Logo />
+                    <nav className="header__nav">
+                        <ul className="header__nav__list">
+                            <NavItem title="Home" path="/" />
+                            <NavItem title="Login" path="/login" />
+                        </ul>
+                    </nav>
+
                 </header>
                 <div
                     className={`register ${this.state.isOrgPressed ? 'right_panel_active' : ''}`}

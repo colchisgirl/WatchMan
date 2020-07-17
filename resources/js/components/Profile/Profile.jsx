@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './index.scss'
 
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 import Logo from '../Logo'
 import NavItem from "../Home/Header/NavItem"
@@ -73,7 +73,7 @@ export default class Profile extends Component {
                         })
                 } else {
                     if (response.status === 401) {
-                        this.props.onFailedAuthentication()
+                        return <Redirect to="/" />;
                     }
                 }
             })
@@ -91,7 +91,6 @@ export default class Profile extends Component {
             user: data,
             editUser: false
         });
-        console.log(this.state.user);
     }
 
     showMyLandmarks = () => {
@@ -111,10 +110,13 @@ export default class Profile extends Component {
 
         const { user } = this.state;
         const { landmarks, usersLandmarks, trackedLandmarks, userData, showMyLandmarks } = this.state;
-        // console.log(trackedLandmarks[0].landmark.title)
 
         if (userData === [])
-            return "loading"
+            return null
+
+        if (!this.props.state.user) {
+            return <Redirect to="/" />;
+        }
 
         return (
             <>
@@ -176,10 +178,10 @@ export default class Profile extends Component {
                                                         })}
                                                     </ul>
                                                     : (
-                                                        <>
-                                                            <p> No landmarks </p>
-                                                            <p> If you want to create new landmark, click here! </p>
-                                                        </>
+                                                        <div className="no_data_div">
+                                                            <p className="no_data"> No landmarks </p>
+                                                            <p className="no_data"> If you want to create new landmark, click here! </p>
+                                                        </div>
                                                     )
                                                 }
                                             </div>
@@ -210,12 +212,18 @@ export default class Profile extends Component {
                                 <div className="container__profile__notifications">
                                     <h3 className="profile__section__title">Notifications</h3>
                                     <div id='listings' className='listings'>
-                                        {this.state.notifications.map((notification, i) => (
-                                            <div className="item" key={i}>
-                                                <Link to={`/landmarks/${notification.event.landmark.id}/${notification.event_id}`}><h4 className="item__title">{notification.text}</h4></Link>
-                                                <p>by {notification.user.name}</p>
-                                            </div>
-                                        ))}
+                                        {this.state.notifications.length > 0 ?
+
+                                            this.state.notifications.map((notification, i) => (
+                                                <div className="item" key={i}>
+                                                    <Link to={`/landmarks/${notification.event.landmark.id}/${notification.event_id}`}><h4 className="item__title">{notification.text}</h4></Link>
+                                                    <p>by {notification.user.name}</p>
+                                                </div>
+                                            ))
+                                            : (
+                                                <p className="no_data">No new notifications</p>
+                                            )
+                                        }
 
 
                                     </div>

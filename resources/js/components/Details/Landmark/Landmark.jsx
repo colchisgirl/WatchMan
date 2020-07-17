@@ -24,9 +24,6 @@ export default class Landmark extends Component {
         this.setState({
             landmark: this.props.landmark
         })
-        console.log(this.props.landmark);
-
-        console.log(this.state.landmark)
     }
 
     onEditSuccess = (data) => {
@@ -34,14 +31,13 @@ export default class Landmark extends Component {
             landmark: data,
             editLandmark: false
         });
-        console.log(this.state.landmark);
     }
 
     render() {
         const { landmark } = this.props
 
         if (landmark === null)
-            return "loading"
+            return null
 
         const protectedIcon = (landmark.protected == 1 ?
             <img src="/img/home/protected.svg" alt="" />
@@ -60,7 +56,9 @@ export default class Landmark extends Component {
                         </div>
                         <div className="container__actions">
                             {this.props.children}
-                            <div className="edit"><button onClick={this.toggleEditPopup}><img src="/img/home/edit.svg" alt="edit icon" /></button></div>
+                            {this.props.state.user ?
+                                <div className="edit"><button onClick={this.toggleEditPopup}><img src="/img/home/edit.svg" alt="edit icon" /></button></div>
+                                : null}
                         </div>
                     </div>
                     <hr className="ldetails__container__line"></hr>

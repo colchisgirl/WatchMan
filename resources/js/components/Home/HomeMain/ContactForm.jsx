@@ -10,7 +10,7 @@ export default class ContactForm extends Component {
                     <div className="main__contact__inputs">
                         <input type="email" placeholder="Email" />
                         <input type="text" placeholder="Full Name" />
-                        <input type="submit" />
+                        <input type="submit" className="home_form" />
                     </div>
                 </form>
             </div>

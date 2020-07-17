@@ -8,35 +8,6 @@ import { Link, Redirect } from "react-router-dom";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
-import {
-    fade,
-    ThemeProvider,
-    withStyles,
-    makeStyles,
-    createMuiTheme,
-} from '@material-ui/core/styles';
-
-const CssTextField = withStyles({
-    root: {
-        '& label.Mui-focused': {
-            color: 'green',
-        },
-        '& .MuiInput-underline:after': {
-            borderBottomColor: 'green',
-        },
-        '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-                borderColor: 'red',
-            },
-            '&:hover fieldset': {
-                borderColor: 'yellow',
-            },
-            '&.Mui-focused fieldset': {
-                borderColor: 'green',
-            },
-        },
-    },
-})(TextField);
 export default class CreateEvent extends Component {
     constructor(props) {
         super(props)
@@ -49,7 +20,8 @@ export default class CreateEvent extends Component {
             house_number: '',
             street: '',
             city: '',
-            event_id: null
+            event_id: null,
+            landmark_id: null
         }
     }
 
@@ -82,10 +54,7 @@ export default class CreateEvent extends Component {
         this.setState({
             landmark_id: landmark.id
         });
-
-
     }
-
 
     render() {
 
@@ -96,14 +65,16 @@ export default class CreateEvent extends Component {
         return (
             this.state.landmark_id
                 ?
-                <div className="newEvent__uploadImage__container">
+                <div className="newLandmark__uploadImage__container">
                     <h2>Landmark created! You can add a photo to landmark now.</h2>
                     <FileUploadComponent {...this.props} {...this.state} />
                     <Link to={`/landmarks/${this.state.landmark_id}`}><button>Take me to the landmark</button></Link>
                 </div>
                 :
                 <div className="landmark__container__create-form">
-                    <span className="close__newLandmarkForm">x</span>
+                    <span className="close__newLandmarkForm">
+                        <Link to="/map" onClick={this.props.handleCloseForm}>x</Link>
+                    </span>
                     <h2>Create a new landmark</h2>
                     <form onSubmit={this.handleCreateEventSubmit}>
 

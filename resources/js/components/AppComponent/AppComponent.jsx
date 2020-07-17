@@ -59,44 +59,45 @@ export default class AppComponent extends React.Component {
     };
 
     render() {
-        return this.state.loading ? (
-            <div className="loader__container">
-                <ReactLoading type={"bars"} color={"#8f4748"} />
-            </div >
-        ) : (
+        return (
+            // this.state.loading ? (
+            //     <div className="loader__container">
+            //         <ReactLoading type={"bars"} color={"#8f4748"} />
+            //     </div >
+            // ) : (
 
-                <Router>
-                    {/* anything before switch wil be shared among pages  */}
-                    <Switch>
-                        <Route exact path="/">
-                            < Home state={this.state} />
-                        </Route >
+            <Router>
+                {/* anything before switch wil be shared among pages  */}
+                <Switch>
+                    <Route exact path="/">
+                        < Home state={this.state} />
+                    </Route >
 
-                        <Route path="/map">
-                            <Map state={this.state} {...this.props} socketId={this.state.socketId} />
-                        </Route>
+                    <Route path="/map">
+                        <Map state={this.state} {...this.props} socketId={this.state.socketId} />
+                    </Route>
 
-                        <Route path="/profile">
-                            <Profile state={this.state} />
-                        </Route>
+                    <Route path="/profile">
+                        <Profile state={this.state} />
+                    </Route>
 
-                        <Route
-                            path="/landmarks/:landmark_id"
-                            component={props => (
-                                <Details {...props} state={this.state} />
-                            )}
-                        />
+                    <Route
+                        path="/landmarks/:landmark_id"
+                        component={props => (
+                            <Details {...props} state={this.state} />
+                        )}
+                    />
 
-                        <Route path="/register">
-                            <RegisterComponent state={this.state} />
-                        </Route>
+                    <Route path="/register">
+                        <RegisterComponent state={this.state} />
+                    </Route>
 
-                        <Route path="/login">
-                            <LoginFormComponent state={this.state} />
-                        </Route>
+                    <Route path="/login">
+                        <LoginFormComponent state={this.state} />
+                    </Route>
 
-                    </Switch>
-                </Router>
-            );
+                </Switch>
+            </Router>
+        );
     }
 }

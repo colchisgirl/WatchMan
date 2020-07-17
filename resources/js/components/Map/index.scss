@@ -225,6 +225,7 @@ button{
   overflow: hidden;
   z-index: 1000;
   padding: 1rem 1rem;
+  background: #ffffff47;
   &__nav{
     background-color: rgba(243, 243, 243, 0.691);
     padding: 1rem 0.5rem;
@@ -328,6 +329,13 @@ button{
     .MuiFormControl-root{
       margin:1rem 0;
     }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+      transition: background-color 5000s;
+      -webkit-text-fill-color: rgb(41, 41, 41) !important;
+}
   } 
   h2{
     margin-top: 1rem;
@@ -337,15 +345,15 @@ button{
   font-weight: 700;
 }
 
-.MuiFormLabel-root, .MuiInputBase-root {
-  color: white !important;
-}
-.MuiOutlinedInput-notchedOutline{
-  border-color: white !important;
-}
+// .MuiFormLabel-root, .MuiInputBase-root {
+//   color: white !important;
+// }
+// .MuiOutlinedInput-notchedOutline{
+//   border-color: white !important;
+// }
 
 .MuiInputLabel-outlined.MuiInputLabel-shrink{
-  transform: translate(10px, -6px) scale(0.85) !important;
+  transform: translate(12px, -6px) scale(0.85) !important;
 }
 .new__marker{
   .pin {
@@ -504,4 +512,14 @@ button{
   }
 }
 
+}
+
+.newLandmark__uploadImage__container{
+  padding: 4rem 1rem;
+  form{
+    margin:1rem auto;
+    input[type=submit]{
+      width: auto;
+    }
+  }
 }
