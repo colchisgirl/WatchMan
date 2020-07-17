@@ -11,7 +11,7 @@ export default class UserDropdown extends Component {
         const { user } = this.props.state
         return (
             < >
-                <Link to="/profile" className="userButton"><img src={user?.profile_img} alt={user?.name} /></Link>
+                <Link to="/profile" className="userButton"><img src={user?.profile_img || '/img/home/no-photo-user.svg'} alt={user?.name} /></Link>
             </>
         )
     }
