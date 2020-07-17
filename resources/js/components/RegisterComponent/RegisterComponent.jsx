@@ -5,6 +5,7 @@ import UserRegisterComponent from "./UserRegisterComponent.jsx";
 import OrgRegisterComponent from "./OrgRegisterComponent.jsx";
 import { Link, Redirect } from "react-router-dom";
 import Logo from '../Logo.jsx';
+import NavItem from '../Home/Header/NavItem'
 
 export default class RegisterComponent extends React.Component {
     constructor() {
